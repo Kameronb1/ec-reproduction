@@ -1,0 +1,14 @@
+id	block	bold	rest	change	pooled_test
+A-HUES8	graft	Augsornworawat 2020	, HUES8	stage 6 → 6-mo graft	
+A-WS4	graft	Augsornworawat 2020	, WS4corr	stage 6 → 6-mo graft	
+P-TXP	graft	Augsornworawat 2023	, HUES8 (nuclei)	stage 6 wk 2 → 6-mo graft	
+B-0-M1	graft	Balboa 2022	, H1	stage 7 wk 0 → 1-mo graft	
+B-0-M3	graft	Balboa 2022	, H1	stage 7 wk 0 → 3-mo grafts, pooled	3
+B-3-M6-CTRL	graft	Balboa 2022	, H1	stage 7 wk 3 → 6-mo graft, control host	
+B-3-M6-STZ	graft	Balboa 2022	, H1	stage 7 wk 3 → 6-mo graft, STZ host	
+H-10w	graft	Du 2022	, hCiPSC	stage 6 (vs day 2) → 10-wk graft	
+P-w2-m6	in_vitro	Augsornworawat 2023	, HUES8 (nuclei)	stage 6 wk 2 → mo 6	
+P-w2-m12	in_vitro	Augsornworawat 2023	, HUES8 (nuclei)	stage 6 wk 2 → mo 12	
+B-w0-w6	in_vitro	Balboa 2022	, H1	stage 7 wk 0 → wk 6	
+V-w0-w5	in_vitro	Veres 2019	, HUES8	stage 6 wk 0 → wk 5	
+Z-D21-D39	in_vitro	Zhu 2023	, H1	day 21 → day 39	

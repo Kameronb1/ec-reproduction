@@ -1,0 +1,33 @@
+package	version	source
+Matrix	1.7.5	CRAN
+jsonlite	2.0.0	CRAN
+data.table	1.18.6.1	CRAN
+digest	0.6.39	CRAN
+glmnet	5.0	CRAN
+cluster	2.1.8.2	CRAN
+uwot	0.2.5	CRAN
+ggplot2	4.0.3	CRAN
+patchwork	1.3.2	CRAN
+scales	1.4.0	CRAN
+png	0.1.9	CRAN
+gtable	0.3.6	CRAN
+ggrepel	0.9.8	CRAN
+ggridges	0.5.7	CRAN
+ggbeeswarm	0.7.3	CRAN
+viridisLite	0.4.3	CRAN
+systemfonts	1.3.2	CRAN
+msigdbr	26.1.1	CRAN
+babelgene	22.9	CRAN
+Seurat	5.5.1	CRAN
+SeuratObject	5.4.0	CRAN
+limma	3.68.4	Bioconductor 3.23
+edgeR	4.10.1	Bioconductor 3.23
+clusterProfiler	4.20.0	Bioconductor 3.23
+ReactomePA	1.56.0	Bioconductor 3.23
+org.Hs.eg.db	3.23.1	Bioconductor 3.23
+AnnotationDbi	1.74.0	Bioconductor 3.23
+rhdf5	2.56.0	Bioconductor 3.23
+SingleCellExperiment	1.34.0	Bioconductor 3.23
+SummarizedExperiment	1.42.0	Bioconductor 3.23
+S4Vectors	0.50.3	Bioconductor 3.23
+GenomicRanges	1.64.0	Bioconductor 3.23

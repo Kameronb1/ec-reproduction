@@ -1,0 +1,7 @@
+output	expected	mode	key_columns	rel_tolerance	reason
+native_age_chips.tsv	native_age_chips.tsv	exact			Table drawn in 1A, with the study name Yu 2021 used in the paper (the deposited source table says Yu Q 2021)
+study_roles_drawn.tsv	study_roles_drawn.tsv	exact			Table drawn in 1B (also read by 1C)
+display_embedding_cells.tsv.gz	display_embedding_cells.tsv.gz	exact			Table drawn in 1C
+serotonin_codetection.tsv	serotonin_codetection.tsv	exact			Table drawn in 1D
+serotonin_gene_count.tsv	serotonin_gene_count.tsv	exact			Table drawn in 1D (its last column)
+hormones_in_tph1_cells.tsv	hormones_in_tph1_cells.tsv	exact			Table drawn in 1E

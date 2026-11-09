@@ -1,0 +1,21 @@
+output	expected	mode	key_columns	rel_tolerance	reason	set_columns
+panel_a_census.tsv	f3_01_marks.tsv	exact			Table drawn in 3A	
+panel_b_scores_by_cell.tsv.gz	b_scores_by_cell.tsv.gz	exact			Table drawn in 3B: study, class and four-marker score of every scored cell of the six 10x studies; compared after decompression	
+panel_b_cutoff.tsv	b_classifier_cutoff.tsv	exact			Cutoff drawn as 3B's dashed line (Figure 2A's fitted cutoff)	
+panel_c_dots.tsv	dots.tsv	exact			Table drawn in 3C (the filled dots: each population study's median agreement with the gut studies)	
+panel_c_hio_dots.tsv	panel_c_dots_no_crohns.tsv	exact			Table drawn in 3C (the HIO graft EC filled dots)	
+panel_c_pairwise.tsv	pairwise_spearman.tsv	exact			Table drawn in 3C: each population study's agreement with each gut study (the open dots; their median is the filled dot in panel_c_dots.tsv)	
+panel_c_hio_pairwise.tsv	panel_c_pairwise_no_crohns.tsv	exact			Table drawn in 3C: the HIO graft EC agreement with each gut study (McCauley 2023, both organoids)	
+panel_d_donor_fit.tsv.gz	contrast_donor_block_levels.tsv.gz	exact			Table drawn in 3D (also read by 3E and 3F)	
+panel_e_per_study_levels.tsv.gz	per_study_levels_donor_block.tsv.gz	exact			Table drawn in 3E	
+panel_f_gene_groups.tsv.gz	gene_groups_definitions.tsv.gz	exact			Table drawn in 3F (also read by 3G)	
+panel_f_mixed_genes.tsv	mixed_genes.tsv	exact			Table drawn in 3F (the mixed genes)	
+panel_g_pathways_called.tsv	enrichment_called.tsv	exact			Table drawn in 3G (called pathway terms). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+panel_g_celltypes_called.tsv	celltype_called_classed.tsv	exact			Table drawn in 3G (called C8 cell-type terms). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+panel_g_celltypes_all_terms.tsv	celltype_all_terms_classed.tsv	exact			Table behind 3G: every C8 cell-type term tested (3G draws the called ones). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+panel_h_drawn.tsv	h_scores.tsv	exact			Table drawn in 3H: row names, row order and the fetal–adult score of every drawn row (own expression of the 7 adult-high and 9 fetal-high genes, each centered on the four intestinal arms; adult-high mean minus fetal-high mean)	
+panel_h_genes.tsv	h_genes.tsv	exact			Table behind 3H: each row's own log2(CPM + 1), centered value and contribution for every list gene; each drawn score is the sum of its row's contributions	
+age_adult_high_genes.txt	age_adult_high_genes.txt	exact			Figure 3H adult-high genes with the 10% detection floor (7), the list 3H and 4F draw	
+age_fetal_high_genes.txt	age_fetal_high_genes.txt	exact			Figure 3H fetal-high genes with the 10% detection floor (9), the list 3H and 4F draw	
+age_adult_high_genes_no_floor.txt	age_adult_high_genes_no_floor.txt	exact			Figure 3H adult-high genes before the detection floor (8); Figure 4 starts from the same list	
+age_fetal_high_genes_no_floor.txt	age_fetal_high_genes_no_floor.txt	exact			Figure 3H fetal-high genes before the detection floor (11); Figure 4 starts from the same list	

@@ -1,0 +1,35 @@
+"kind"	"column"	"set"	"tf"	"value"	"studies"
+"level"	"McCauley 2023 HIO graft EC"	"EC / SC-SIC association"	"LMX1A"	9.57826435204282	1
+"level"	"McCauley 2023 HIO graft EC"	"EC / SC-SIC association"	"FEV"	9.22147060239122	1
+"level"	"McCauley 2023 HIO graft EC"	"EC / SC-SIC association"	"LMX1B"	3.60957378044367	1
+"level"	"McCauley 2023 HIO graft EC"	"EC / SC-SIC association"	"NEUROD4"	0	1
+"level"	"McCauley 2023 HIO graft EC"	"EC / SC-SIC association"	"MNX1"	7.94511068620705	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"NEUROG3"	1.79447563108465	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"INSM1"	7.21160856473952	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"NEUROD1"	9.64951882170949	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"NKX2-2"	6.5358252583704	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"PAX4"	6.40261958628716	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"RFX6"	9.04963598755617	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"ZNF800"	5.33372673436696	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"PAX6"	4.16324783609829	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"ARX"	0.437706314203151	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"ISL1"	1.68359435419272	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"HES6"	4.42640589376782	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"SOX4"	7.05872333314515	1
+"level"	"McCauley 2023 HIO graft EC"	"Endocrine association"	"ASCL1"	3.50422905107749	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"PDX1"	3.77387636137259	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"NKX6-1"	1.44523953771036	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"MAFA"	0.843830863875027	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"MAFB"	4.69072319414664	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"RFX3"	8.8978074280176	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"GLIS3"	10.2718982328915	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"MYT1L"	0.886055734709673	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"DACH2"	3.81894576840438	1
+"level"	"McCauley 2023 HIO graft EC"	"Islet association"	"PLAGL1"	4.75067577721234	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"GATA6"	5.84425375210421	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"CDX1"	6.59746657714687	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"CDX2"	5.76413263753575	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"GATA4"	5.64913052520281	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"SATB2"	4.31627944605677	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"HOXB13"	1.32563632498201	1
+"level"	"McCauley 2023 HIO graft EC"	"Intestinal association"	"PITX2"	4.9577122030004	1

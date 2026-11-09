@@ -1,0 +1,10 @@
+list	Gut EC or enteroendocrine	Neuroendocrine, other organs	Glia or neural progenitor	Neuron	Other
+G1	3	0	0	0	1
+G1_PLUS_MIXED_G1_LIKE	3	0	1	0	29
+G2	3	8	1	6	8
+G2_PLUS_MIXED_G2_LIKE	3	7	1	10	8
+G3	0	0	7	15	12
+G3_PLUS_MIXED_G3_IF_NOT_SHARED	1	0	5	15	9
+MIXED_G1_LIKE	1	0	0	0	11
+MIXED_G2_LIKE	0	0	0	7	6
+MIXED_G3_IF_NOT_SHARED	1	0	0	3	4

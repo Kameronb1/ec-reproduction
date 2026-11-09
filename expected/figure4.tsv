@@ -1,0 +1,21 @@
+output	expected	mode	key_columns	rel_tolerance	reason
+f4b_composition.tsv	f4b_composition.tsv	exact			Table drawn in 4B (Augsornworawat 2023 stage 6 week 2 on the graft-object labels)
+s1_composition.tsv	s1_composition.tsv	exact			Table drawn in S14A
+rows_called.tsv	rows_called.tsv	exact			Samples at each row end (drawn in 4A, also read by 4C and 4F) and the share of cells called EC per row on uncorrected counts (the culture rows of a supplementary table; not drawn)
+rows_called_soupx.tsv	rows_called_soupx.tsv	exact			Share of cells called EC in the graft rows on SoupX-corrected counts (a supplementary table); 4C reads it only to check its per-cell weights
+C_cells.tsv.gz	C_cells.tsv.gz	exact			Table drawn in 4C (left): per-cell four-marker score and SC-SIC classifier score minus its fold's threshold, start and end cells; compared after decompression
+C_bars.tsv	C_bars.tsv	exact			Table drawn in 4C (right): the expression bars
+D_cholesterol_medians.tsv	D_cholesterol_medians.tsv	exact			Table drawn in 4D (the median ticks)
+D_cholesterol_per_gene.tsv	D_cholesterol_per_gene.tsv	exact			Table drawn in 4D (the gene dots; their median is the tick in D_cholesterol_medians.tsv)
+E_group_gaps.tsv	E_group_gaps.tsv	exact			Table drawn in 4E (the arrows)
+E_end_spread.tsv	E_end_spread.tsv	exact			Table drawn in 4E (the pale bars: 25th to 75th percentile of the group's genes at the end point)
+fig3H_ticks.tsv	fig3H_ticks.tsv	exact			Table drawn in 4F (the ticks): Figure 3H's seven intestinal rows on the same score
+age_score_by_sample.tsv	age_score_by_sample.tsv	exact			Table drawn in 4F: Figure 3H's fetal–adult score of SC-SIC and SC-beta in every start and end sample of 4F's rows, whole cell and nuclei
+s2_cholesterol_tiles.tsv	s2_cholesterol_tiles.tsv	exact			Table drawn in S16A: the per-gene tiles (unthinned levels and SoupX-corrected graft rows, as in Figure 4D)
+s2_cholesterol_medians.tsv	s2_cholesterol_medians.tsv	exact			Table behind S16A: the median bars of all 13 comparisons (Balboa 2022 stage 7 wk 0 → wk 3 is not drawn)
+s3a_decline_screen.tsv	s3a_decline_screen.tsv	exact			Table drawn in S16B
+s3b_cholesterol_screen.tsv	s3b_cholesterol_screen.tsv	exact			Table drawn in S16C
+s2_nfe2l1_bars.tsv	s2_nfe2l1_bars.tsv	exact			Values drawn in the NFE2L1 bars of S16A (Balboa 2022 stage 7 wk 0 → wk 3 is not drawn)
+s3d_regulon_recurrence.tsv	s3d_regulon_recurrence.tsv	exact			Table drawn in S16D ((+) regulons, per-factor denominators)
+age_adult_high_genes_floor10.txt	../figure3/age_adult_high_genes.txt	exact			4F's adult-high genes after the detection floor; must equal Figure 3H's drawn list
+age_fetal_high_genes_floor10.txt	../figure3/age_fetal_high_genes.txt	exact			4F's fetal-high genes after the detection floor; must equal Figure 3H's drawn list

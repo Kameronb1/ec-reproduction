@@ -1,0 +1,7 @@
+"scope"	"arm_id"	"unit_id"	"study"	"cells"	"high_confidence_ec"	"low_confidence_ec"	"insufficient_ec_evidence"	"high_pct_of_arm"	"high_pct_of_all_high"	"score_cutoff_entering"	"score_cutoff_removed"	"score_cutoff_pct_removed"	"local_consistency_entering"	"local_consistency_removed"	"local_consistency_pct_removed"	"detection_floor_entering"	"detection_floor_removed"	"detection_floor_drawn"	"retained_high_confidence"
+"arm"	"E-MTAB-10187_intestinal"	"SF_YU2021_ENDODERM:fetal"	"Yu 2021 fetal"	463	173	15	275	37.3650107991361	59.8615916955017	463	275	59.3952483801296	188	15	7.97872340425532	188	0	FALSE	173
+"arm"	"E-MTAB-8901_fetal"	"SF_ELMENTAITE2020_DEVGUT:fetal"	"Elmentaite 2020 fetal"	383	14	6	363	3.65535248041775	4.84429065743945	383	363	94.7780678851175	20	6	30	20	0	FALSE	14
+"arm"	"GSE185224"	"SF_GSE185224_ADULT_REGIONAL_INTESTINE"	"Burclaff 2022"	154	36	3	115	23.3766233766234	12.4567474048443	154	115	74.6753246753247	39	3	7.69230769230769	39	0	FALSE	36
+"arm"	"GSE125970"	"SF_GSE125970_ADULT_INTESTINE"	"Wang 2020"	128	40	5	83	31.25	13.840830449827	128	83	64.84375	45	5	11.1111111111111	45	0	FALSE	40
+"arm"	"E-MTAB-8901_paediatric"	"SF_ELMENTAITE2020_DEVGUT:child"	"Elmentaite 2020 child"	71	26	5	40	36.6197183098592	8.99653979238754	71	40	56.3380281690141	31	5	16.1290322580645	31	0	FALSE	26
+"all_arms"	"ALL_ARMS"	NA	NA	1199	289	34	876	24.1034195162636	100	1199	876	73.0608840700584	323	34	10.5263157894737	323	0	FALSE	289

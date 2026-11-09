@@ -1,0 +1,375 @@
+"kind"	"column"	"set"	"tf"	"value"	"studies"
+"level"	"adult islet alpha"	"Endocrine association"	"ARX"	5.90745173696061	2
+"level"	"adult islet alpha"	"Islet association"	"DACH2"	3.55860584365118	2
+"level"	"adult islet alpha"	"Islet association"	"GLIS3"	5.84577156015765	2
+"level"	"adult islet alpha"	"Endocrine association"	"ISL1"	6.38849150058124	2
+"level"	"adult islet alpha"	"Intestinal association"	"CDX2"	0.206055839261665	2
+"level"	"adult islet alpha"	"Intestinal association"	"GATA6"	4.62628127559232	2
+"level"	"adult islet alpha"	"Endocrine association"	"INSM1"	4.90455462385622	2
+"level"	"adult islet alpha"	"Intestinal association"	"CDX1"	0.0365428224113247	2
+"level"	"adult islet alpha"	"Intestinal association"	"GATA4"	0.742037652939869	2
+"level"	"adult islet alpha"	"Intestinal association"	"HOXB13"	0	2
+"level"	"adult islet alpha"	"Endocrine association"	"ASCL1"	0.731312412375372	2
+"level"	"adult islet alpha"	"EC / SC-SIC association"	"FEV"	5.82741800875447	2
+"level"	"adult islet alpha"	"Endocrine association"	"HES6"	3.00851679871385	2
+"level"	"adult islet alpha"	"EC / SC-SIC association"	"LMX1A"	0.0232295961283832	2
+"level"	"adult islet alpha"	"EC / SC-SIC association"	"MNX1"	4.45213747864334	2
+"level"	"adult islet alpha"	"Endocrine association"	"NEUROG3"	0	2
+"level"	"adult islet alpha"	"Endocrine association"	"PAX6"	6.98117392257768	2
+"level"	"adult islet alpha"	"Islet association"	"MAFB"	7.36855178876731	2
+"level"	"adult islet alpha"	"EC / SC-SIC association"	"NEUROD4"	0.0116015697579258	2
+"level"	"adult islet alpha"	"Endocrine association"	"PAX4"	0.0369792226115815	2
+"level"	"adult islet alpha"	"Islet association"	"MAFA"	1.98869212946998	2
+"level"	"adult islet alpha"	"Endocrine association"	"NEUROD1"	7.07592322779295	2
+"level"	"adult islet alpha"	"Islet association"	"NKX6-1"	4.60787381769681	2
+"level"	"adult islet alpha"	"EC / SC-SIC association"	"LMX1B"	0.033972152396454	2
+"level"	"adult islet alpha"	"Islet association"	"MYT1L"	4.94761917958434	2
+"level"	"adult islet alpha"	"Endocrine association"	"NKX2-2"	4.96126756853055	2
+"level"	"adult islet alpha"	"Islet association"	"PDX1"	1.55794117903357	2
+"level"	"adult islet alpha"	"Endocrine association"	"RFX6"	6.96493245988115	2
+"level"	"adult islet alpha"	"Intestinal association"	"PITX2"	0	2
+"level"	"adult islet alpha"	"Islet association"	"PLAGL1"	5.85834158795581	2
+"level"	"adult islet alpha"	"Islet association"	"RFX3"	6.23408007347511	2
+"level"	"adult islet alpha"	"Endocrine association"	"ZNF800"	4.98763397100872	2
+"level"	"adult islet alpha"	"Intestinal association"	"SATB2"	1.48004252682594	2
+"level"	"adult islet alpha"	"Endocrine association"	"SOX4"	3.25730211721557	2
+"level"	"adult islet beta"	"Islet association"	"DACH2"	6.48485100560209	2
+"level"	"adult islet beta"	"Intestinal association"	"GATA4"	0.401381791417865	2
+"level"	"adult islet beta"	"Intestinal association"	"GATA6"	1.23509687340534	2
+"level"	"adult islet beta"	"Islet association"	"GLIS3"	7.18668067233759	2
+"level"	"adult islet beta"	"EC / SC-SIC association"	"FEV"	1.77645725284557	2
+"level"	"adult islet beta"	"Endocrine association"	"HES6"	2.85929631687547	2
+"level"	"adult islet beta"	"Endocrine association"	"ARX"	1.72532313194656	2
+"level"	"adult islet beta"	"EC / SC-SIC association"	"MNX1"	4.94546858504951	2
+"level"	"adult islet beta"	"Endocrine association"	"NEUROG3"	0	2
+"level"	"adult islet beta"	"Endocrine association"	"ISL1"	5.78390951311733	2
+"level"	"adult islet beta"	"Intestinal association"	"CDX2"	0.271003957450761	2
+"level"	"adult islet beta"	"EC / SC-SIC association"	"NEUROD4"	0.00945664411728233	2
+"level"	"adult islet beta"	"Endocrine association"	"INSM1"	5.90329299608484	2
+"level"	"adult islet beta"	"Intestinal association"	"CDX1"	0	2
+"level"	"adult islet beta"	"Endocrine association"	"NEUROD1"	6.75937010812359	2
+"level"	"adult islet beta"	"Intestinal association"	"HOXB13"	0	2
+"level"	"adult islet beta"	"Endocrine association"	"ASCL1"	1.94193371731107	2
+"level"	"adult islet beta"	"Islet association"	"MYT1L"	5.51649027463761	2
+"level"	"adult islet beta"	"Endocrine association"	"NKX2-2"	5.7065055796355	2
+"level"	"adult islet beta"	"EC / SC-SIC association"	"LMX1A"	0.0651423961913453	2
+"level"	"adult islet beta"	"Endocrine association"	"RFX6"	5.56582266179769	2
+"level"	"adult islet beta"	"Endocrine association"	"PAX4"	0.242289701273409	2
+"level"	"adult islet beta"	"Endocrine association"	"PAX6"	6.84984447940499	2
+"level"	"adult islet beta"	"Islet association"	"MAFB"	6.86460737169715	2
+"level"	"adult islet beta"	"Endocrine association"	"ZNF800"	4.4022901486271	2
+"level"	"adult islet beta"	"EC / SC-SIC association"	"LMX1B"	0.106255933329043	2
+"level"	"adult islet beta"	"Islet association"	"MAFA"	5.8815160282618	2
+"level"	"adult islet beta"	"Endocrine association"	"SOX4"	4.6714333666199	2
+"level"	"adult islet beta"	"Islet association"	"NKX6-1"	6.21774236894505	2
+"level"	"adult islet beta"	"Intestinal association"	"SATB2"	1.27355523781753	2
+"level"	"adult islet beta"	"Islet association"	"PLAGL1"	5.61002077971803	2
+"level"	"adult islet beta"	"Islet association"	"PDX1"	4.99452337888091	2
+"level"	"adult islet beta"	"Intestinal association"	"PITX2"	0	2
+"level"	"adult islet beta"	"Islet association"	"RFX3"	5.40094532662195	2
+"level"	"Egozi 2021 gut EC"	"Islet association"	"DACH2"	0.146232788598075	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"ARX"	3.13186503163214	1
+"level"	"Egozi 2021 gut EC"	"EC / SC-SIC association"	"FEV"	7.40713077588311	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"CDX2"	5.67545898056481	1
+"level"	"Egozi 2021 gut EC"	"EC / SC-SIC association"	"MNX1"	6.35691827376746	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"GLIS3"	4.86443775781635	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"CDX1"	6.32161459626466	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"GATA4"	4.1613948462564	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"GATA6"	5.52607256745927	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"ASCL1"	3.33750733721161	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"MYT1L"	0.347393883227221	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"HES6"	4.76289043683617	1
+"level"	"Egozi 2021 gut EC"	"EC / SC-SIC association"	"LMX1A"	4.20997595765077	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"RFX6"	5.90111761732331	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"NEUROG3"	2.8802613393591	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"ISL1"	4.06981985979111	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"MAFB"	2.27216564699422	1
+"level"	"Egozi 2021 gut EC"	"EC / SC-SIC association"	"NEUROD4"	0.201137241562498	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"INSM1"	4.90386710900042	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"MAFA"	0.73841256175435	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"NEUROD1"	8.02336678612624	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"HOXB13"	0.518987540489405	1
+"level"	"Egozi 2021 gut EC"	"EC / SC-SIC association"	"LMX1B"	2.21696351008557	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"SATB2"	2.57502341838713	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"NKX2-2"	5.24972317320962	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"PDX1"	3.07532655662756	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"ZNF800"	5.15741095858435	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"PAX4"	1.54160675655135	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"PAX6"	3.20409654908778	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"RFX3"	4.17203818990098	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"NKX6-1"	0	1
+"level"	"Egozi 2021 gut EC"	"Intestinal association"	"PITX2"	4.65662688559745	1
+"level"	"Egozi 2021 gut EC"	"Islet association"	"PLAGL1"	3.89890336171913	1
+"level"	"Egozi 2021 gut EC"	"Endocrine association"	"SOX4"	9.61758292283313	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"ARX"	1.99602637101406	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"DACH2"	6.52640076792364	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"ASCL1"	5.33454180595069	1
+"level"	"Elmentaite 2020 gut EC"	"EC / SC-SIC association"	"FEV"	10.8581142362299	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"HES6"	7.28872062247151	1
+"level"	"Elmentaite 2020 gut EC"	"EC / SC-SIC association"	"LMX1A"	6.13667472853767	1
+"level"	"Elmentaite 2020 gut EC"	"EC / SC-SIC association"	"MNX1"	6.02875836083864	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"GLIS3"	7.26862122952382	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"ISL1"	4.05653449747136	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"CDX2"	7.53699200818982	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"GATA6"	7.08698029653696	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"INSM1"	8.13406484773328	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"CDX1"	5.97677694073908	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"GATA4"	7.61771935957497	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"HOXB13"	0	1
+"level"	"Elmentaite 2020 gut EC"	"EC / SC-SIC association"	"LMX1B"	6.04294995713487	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"MYT1L"	1.38952128710756	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"NKX2-2"	7.42601460773216	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"PDX1"	5.02545798020015	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"RFX6"	8.56638483616903	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"NEUROG3"	5.55717787306226	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"PAX6"	5.53417824970976	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"MAFB"	3.55820930443835	1
+"level"	"Elmentaite 2020 gut EC"	"EC / SC-SIC association"	"NEUROD4"	0	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"PAX4"	6.87543754018564	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"MAFA"	2.64833703410682	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"NEUROD1"	9.63721945105271	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"NKX6-1"	0	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"PITX2"	5.82551506471937	1
+"level"	"Elmentaite 2020 gut EC"	"Intestinal association"	"SATB2"	6.04771538001929	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"PLAGL1"	4.0766676770408	1
+"level"	"Elmentaite 2020 gut EC"	"Islet association"	"RFX3"	9.16074157076251	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"ZNF800"	4.8077148315826	1
+"level"	"Elmentaite 2020 gut EC"	"Endocrine association"	"SOX4"	9.1160308355531	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"DACH2"	3.63579221895121	1
+"level"	"Elmentaite 2021 gut EC"	"EC / SC-SIC association"	"FEV"	9.48159060841254	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"ARX"	0.21940614314826	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"GATA6"	6.46066838616991	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"GLIS3"	8.44714936594832	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"HES6"	4.20093085380547	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"GATA4"	5.39817644638261	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"HOXB13"	4.25666618985912	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"ASCL1"	3.82166096262679	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"MYT1L"	0.396193503299478	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"NKX2-2"	5.35627643495715	1
+"level"	"Elmentaite 2021 gut EC"	"EC / SC-SIC association"	"LMX1A"	7.48426905853027	1
+"level"	"Elmentaite 2021 gut EC"	"EC / SC-SIC association"	"MNX1"	5.52767792391426	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"NEUROG3"	4.65256028487511	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"ISL1"	0.663035471488687	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"CDX2"	6.61135260573245	1
+"level"	"Elmentaite 2021 gut EC"	"EC / SC-SIC association"	"NEUROD4"	0	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"INSM1"	7.28042412081748	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"CDX1"	6.06848164627186	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"NEUROD1"	9.72113693593432	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"NKX6-1"	0.396193503299478	1
+"level"	"Elmentaite 2021 gut EC"	"EC / SC-SIC association"	"LMX1B"	3.62966917941949	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"SATB2"	6.34065495544712	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"PAX6"	5.15026850374783	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"PDX1"	3.41502113423266	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"RFX6"	7.94693726184661	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"PAX4"	6.16171994092439	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"MAFA"	2.27753363143025	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"MAFB"	4.37866279940823	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"ZNF800"	4.04574956553912	1
+"level"	"Elmentaite 2021 gut EC"	"Intestinal association"	"PITX2"	4.24248976011768	1
+"level"	"Elmentaite 2021 gut EC"	"Endocrine association"	"SOX4"	8.21427764241202	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"RFX3"	7.67956835248162	1
+"level"	"Elmentaite 2021 gut EC"	"Islet association"	"PLAGL1"	4.98841253792447	1
+"level"	"Hickey 2023 gut EC"	"EC / SC-SIC association"	"FEV"	7.41278354274805	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"DACH2"	5.0341283671749	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"ASCL1"	2.02582527741516	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"GATA4"	7.62997943337717	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"ARX"	1.07801629677337	1
+"level"	"Hickey 2023 gut EC"	"EC / SC-SIC association"	"MNX1"	7.18821561047861	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"MYT1L"	3.0253123940537	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"HES6"	3.0425429129507	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"CDX2"	4.3198433437368	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"GATA6"	6.66858272460656	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"GLIS3"	10.7927608048507	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"CDX1"	4.24492167211373	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"NEUROD1"	6.12367491186568	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"HOXB13"	1.77299953048162	1
+"level"	"Hickey 2023 gut EC"	"EC / SC-SIC association"	"LMX1B"	4.05435057815013	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"SATB2"	8.21567595773438	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"NKX2-2"	6.76184445836314	1
+"level"	"Hickey 2023 gut EC"	"EC / SC-SIC association"	"LMX1A"	10.6126843659148	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"RFX6"	9.71138862536264	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"NEUROG3"	0.37928046886757	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"ISL1"	1.47043595106417	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"MAFB"	2.63849173397997	1
+"level"	"Hickey 2023 gut EC"	"EC / SC-SIC association"	"NEUROD4"	0	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"INSM1"	3.78600872617817	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"MAFA"	1.33923867940697	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"SOX4"	7.31037657041013	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"NKX6-1"	0.41795014685677	1
+"level"	"Hickey 2023 gut EC"	"Intestinal association"	"PITX2"	4.39543773486026	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"PAX4"	3.57404711789919	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"PAX6"	5.38764710897793	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"PDX1"	3.18515830942265	1
+"level"	"Hickey 2023 gut EC"	"Endocrine association"	"ZNF800"	6.06413462121884	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"PLAGL1"	5.58776628812386	1
+"level"	"Hickey 2023 gut EC"	"Islet association"	"RFX3"	10.3317520837031	1
+"level"	"SC-alpha"	"Endocrine association"	"ASCL1"	4.08959186218972	6
+"level"	"SC-alpha"	"Endocrine association"	"ARX"	7.18090909078165	6
+"level"	"SC-alpha"	"Islet association"	"DACH2"	7.23983910802145	6
+"level"	"SC-alpha"	"EC / SC-SIC association"	"FEV"	7.14334076763021	6
+"level"	"SC-alpha"	"Intestinal association"	"CDX1"	0.0121944995558464	6
+"level"	"SC-alpha"	"Intestinal association"	"GATA4"	6.5397258695643	6
+"level"	"SC-alpha"	"Intestinal association"	"HOXB13"	0.0487560466580196	6
+"level"	"SC-alpha"	"EC / SC-SIC association"	"LMX1B"	5.71935519645811	6
+"level"	"SC-alpha"	"Islet association"	"MYT1L"	4.23511098493659	6
+"level"	"SC-alpha"	"Endocrine association"	"HES6"	4.15524236328692	6
+"level"	"SC-alpha"	"EC / SC-SIC association"	"LMX1A"	4.47635468264634	6
+"level"	"SC-alpha"	"EC / SC-SIC association"	"MNX1"	4.95762030010853	6
+"level"	"SC-alpha"	"Islet association"	"GLIS3"	7.10754987660706	6
+"level"	"SC-alpha"	"Endocrine association"	"ISL1"	7.8972435116565	6
+"level"	"SC-alpha"	"Intestinal association"	"CDX2"	0.287477289996702	6
+"level"	"SC-alpha"	"Intestinal association"	"GATA6"	4.00781345046063	6
+"level"	"SC-alpha"	"Endocrine association"	"INSM1"	6.61882214452754	6
+"level"	"SC-alpha"	"Islet association"	"MAFA"	1.01595365232188	6
+"level"	"SC-alpha"	"Endocrine association"	"NEUROD1"	7.90864119165852	6
+"level"	"SC-alpha"	"Islet association"	"NKX6-1"	3.6130310268628	6
+"level"	"SC-alpha"	"Intestinal association"	"PITX2"	0.285559902676048	6
+"level"	"SC-alpha"	"Intestinal association"	"SATB2"	2.79445589307636	6
+"level"	"SC-alpha"	"Endocrine association"	"NKX2-2"	5.81276143764169	6
+"level"	"SC-alpha"	"Islet association"	"PDX1"	3.23529848240327	6
+"level"	"SC-alpha"	"Endocrine association"	"RFX6"	8.44121707427833	6
+"level"	"SC-alpha"	"Endocrine association"	"NEUROG3"	1.21815166373487	6
+"level"	"SC-alpha"	"Endocrine association"	"PAX6"	7.58471333102308	6
+"level"	"SC-alpha"	"Islet association"	"MAFB"	8.05791075619358	6
+"level"	"SC-alpha"	"EC / SC-SIC association"	"NEUROD4"	0.310816972885144	6
+"level"	"SC-alpha"	"Endocrine association"	"PAX4"	3.49115449594782	6
+"level"	"SC-alpha"	"Islet association"	"PLAGL1"	6.01390764978809	6
+"level"	"SC-alpha"	"Endocrine association"	"SOX4"	6.68533756626221	6
+"level"	"SC-alpha"	"Islet association"	"RFX3"	8.52385039054578	6
+"level"	"SC-alpha"	"Endocrine association"	"ZNF800"	5.29272914376654	6
+"level"	"SC-beta"	"Endocrine association"	"ASCL1"	5.14821496462074	6
+"level"	"SC-beta"	"EC / SC-SIC association"	"FEV"	6.20527191957312	6
+"level"	"SC-beta"	"Intestinal association"	"GATA4"	5.68606030051777	6
+"level"	"SC-beta"	"Intestinal association"	"HOXB13"	0.0365703373472443	6
+"level"	"SC-beta"	"Islet association"	"DACH2"	8.44329618516802	6
+"level"	"SC-beta"	"Islet association"	"GLIS3"	8.53266000814784	6
+"level"	"SC-beta"	"Endocrine association"	"HES6"	4.36938511837208	6
+"level"	"SC-beta"	"Endocrine association"	"ARX"	3.34145959918522	6
+"level"	"SC-beta"	"Intestinal association"	"GATA6"	2.93346894769296	6
+"level"	"SC-beta"	"Endocrine association"	"INSM1"	7.29277615878988	6
+"level"	"SC-beta"	"Intestinal association"	"CDX1"	0.0284542528235521	6
+"level"	"SC-beta"	"Endocrine association"	"NEUROD1"	7.67040496150933	6
+"level"	"SC-beta"	"Islet association"	"NKX6-1"	6.56819669517275	6
+"level"	"SC-beta"	"EC / SC-SIC association"	"LMX1B"	5.83470283547016	6
+"level"	"SC-beta"	"Islet association"	"MYT1L"	5.91251050791683	6
+"level"	"SC-beta"	"Endocrine association"	"NKX2-2"	6.21245783398301	6
+"level"	"SC-beta"	"EC / SC-SIC association"	"LMX1A"	6.27726255663134	6
+"level"	"SC-beta"	"EC / SC-SIC association"	"MNX1"	6.38565717067698	6
+"level"	"SC-beta"	"Endocrine association"	"NEUROG3"	1.7960986008196	6
+"level"	"SC-beta"	"Endocrine association"	"ISL1"	8.27411162258854	6
+"level"	"SC-beta"	"Intestinal association"	"CDX2"	0.632571975511617	6
+"level"	"SC-beta"	"EC / SC-SIC association"	"NEUROD4"	0.852775699786809	6
+"level"	"SC-beta"	"Endocrine association"	"PAX4"	5.90587849190091	6
+"level"	"SC-beta"	"Islet association"	"MAFA"	2.26668091237643	6
+"level"	"SC-beta"	"Endocrine association"	"SOX4"	6.97647681214426	6
+"level"	"SC-beta"	"Islet association"	"PDX1"	6.34090336832041	6
+"level"	"SC-beta"	"Intestinal association"	"PITX2"	0.430143139869175	6
+"level"	"SC-beta"	"Intestinal association"	"SATB2"	1.12689022144007	6
+"level"	"SC-beta"	"Endocrine association"	"PAX6"	7.55788774137292	6
+"level"	"SC-beta"	"Islet association"	"MAFB"	8.29902478537711	6
+"level"	"SC-beta"	"Endocrine association"	"RFX6"	7.49971617681735	6
+"level"	"SC-beta"	"Islet association"	"PLAGL1"	7.88864049355692	6
+"level"	"SC-beta"	"Endocrine association"	"ZNF800"	5.25759612568253	6
+"level"	"SC-beta"	"Islet association"	"RFX3"	8.247212571633	6
+"level"	"SC-SIC"	"Islet association"	"DACH2"	9.92753815731261	6
+"level"	"SC-SIC"	"Intestinal association"	"GATA4"	5.60619066734217	6
+"level"	"SC-SIC"	"Intestinal association"	"GATA6"	5.66418346685088	6
+"level"	"SC-SIC"	"EC / SC-SIC association"	"FEV"	9.03916251277919	6
+"level"	"SC-SIC"	"Intestinal association"	"CDX1"	0	6
+"level"	"SC-SIC"	"Intestinal association"	"HOXB13"	0.722528526880107	6
+"level"	"SC-SIC"	"Endocrine association"	"ASCL1"	6.30741587278574	6
+"level"	"SC-SIC"	"Islet association"	"MYT1L"	6.90598315059371	6
+"level"	"SC-SIC"	"Endocrine association"	"NEUROD1"	8.08147147141873	6
+"level"	"SC-SIC"	"Endocrine association"	"ARX"	3.6669595503625	6
+"level"	"SC-SIC"	"EC / SC-SIC association"	"MNX1"	7.08581659891143	6
+"level"	"SC-SIC"	"Islet association"	"GLIS3"	9.49245027784453	6
+"level"	"SC-SIC"	"Endocrine association"	"HES6"	5.4321270720235	6
+"level"	"SC-SIC"	"Intestinal association"	"CDX2"	2.48109777448005	6
+"level"	"SC-SIC"	"EC / SC-SIC association"	"NEUROD4"	2.62657373048124	6
+"level"	"SC-SIC"	"Endocrine association"	"INSM1"	7.70548235265578	6
+"level"	"SC-SIC"	"Islet association"	"MAFA"	0.893690078424272	6
+"level"	"SC-SIC"	"Endocrine association"	"SOX4"	7.58186885667577	6
+"level"	"SC-SIC"	"Islet association"	"NKX6-1"	7.07999079457637	6
+"level"	"SC-SIC"	"EC / SC-SIC association"	"LMX1B"	6.63544487454955	6
+"level"	"SC-SIC"	"Intestinal association"	"SATB2"	1.49890025198517	6
+"level"	"SC-SIC"	"Endocrine association"	"NKX2-2"	6.98673265707229	6
+"level"	"SC-SIC"	"EC / SC-SIC association"	"LMX1A"	8.43140413698143	6
+"level"	"SC-SIC"	"Endocrine association"	"RFX6"	7.82085277151279	6
+"level"	"SC-SIC"	"Endocrine association"	"NEUROG3"	2.75728094964727	6
+"level"	"SC-SIC"	"Endocrine association"	"ISL1"	5.89475954541926	6
+"level"	"SC-SIC"	"Islet association"	"MAFB"	7.46641252614498	6
+"level"	"SC-SIC"	"Endocrine association"	"ZNF800"	5.50627304813284	6
+"level"	"SC-SIC"	"Endocrine association"	"PAX4"	6.35455335099666	6
+"level"	"SC-SIC"	"Islet association"	"PLAGL1"	5.63836400020478	6
+"level"	"SC-SIC"	"Endocrine association"	"PAX6"	6.43062157005763	6
+"level"	"SC-SIC"	"Islet association"	"PDX1"	5.26464317604917	6
+"level"	"SC-SIC"	"Intestinal association"	"PITX2"	1.1146732344536	6
+"level"	"SC-SIC"	"Islet association"	"RFX3"	8.84733100644297	6
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"ASCL1"	8.59210821842345	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"CDX1"	0	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"ARX"	1.10401908883196	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"DACH2"	7.86785357225127	1
+"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"FEV"	8.37770865048801	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"GATA4"	6.00273246623185	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"CDX2"	3.1801019074654	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"GATA6"	6.93303161935409	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"INSM1"	8.46307765113461	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"MAFA"	0.712990511264	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"NEUROD1"	8.1059579746729	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"HOXB13"	0	1
+"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"LMX1B"	6.38721727024597	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"MYT1L"	0	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"HES6"	8.22208355831011	1
+"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"LMX1A"	1.19217414694851	1
+"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"MNX1"	6.73622590904673	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"GLIS3"	6.91460022324854	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"ISL1"	5.79886969780854	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"MAFB"	2.61088693566267	1
+"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"NEUROD4"	0.650152482733995	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"PAX4"	4.9962615285098	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"PLAGL1"	4.49439089573533	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"SOX4"	10.1814519568121	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"NKX6-1"	0.78596555776489	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"PITX2"	0	1
+"level"	"Singh 2024 induced EC"	"Intestinal association"	"SATB2"	3.44722930470946	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"NKX2-2"	7.60154219759418	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"PDX1"	4.21097289072668	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"RFX6"	9.45074905128738	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"NEUROG3"	5.48154811723687	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"PAX6"	6.23383645865983	1
+"level"	"Singh 2024 induced EC"	"Islet association"	"RFX3"	10.2836778902393	1
+"level"	"Singh 2024 induced EC"	"Endocrine association"	"ZNF800"	6.09336599044619	1
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"ARX"	4	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"ASCL1"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"CDX1"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"CDX2"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"DACH2"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"EC / SC-SIC association"	"FEV"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"GATA4"	2	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"GATA6"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"GLIS3"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"HES6"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"HOXB13"	3	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"INSM1"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"ISL1"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"EC / SC-SIC association"	"LMX1A"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"EC / SC-SIC association"	"LMX1B"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"MAFA"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"MAFB"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"EC / SC-SIC association"	"MNX1"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"MYT1L"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"NEUROD1"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"EC / SC-SIC association"	"NEUROD4"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"NEUROG3"	4	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"NKX2-2"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"NKX6-1"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"PAX4"	4	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"PAX6"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"PDX1"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"PITX2"	5	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"PLAGL1"	0	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Islet association"	"RFX3"	6	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"RFX6"	3	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"SATB2"	5	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"SOX4"	5	6
+"sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"ZNF800"	6	6

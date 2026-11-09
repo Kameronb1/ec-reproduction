@@ -1,0 +1,2 @@
+family	study	cells	floor_binds_below	calls_at_live	ec_cells	nofloor_candidates	nofloor_survive_veto	live_cutoff	band_lo	band_hi	raw_fold_threshold_lo	raw_fold_threshold_hi
+gse214852_hio	McCauley 2023 · HIO graft	598	-0.306965487494055	319	322	598	0	0.464589305356261	0.398231027701638	0.547798640856766	0.243564933945299	0.75989634013097

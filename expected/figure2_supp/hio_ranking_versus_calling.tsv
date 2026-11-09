@@ -1,0 +1,4 @@
+"study"	"metric"	"value"
+"SF_GSE214852_HIO_GRAFT"	"Ranking: ROC AUC"	0.999122333243316
+"SF_GSE214852_HIO_GRAFT"	"Calling: sensitivity"	0.987577639751553
+"SF_GSE214852_HIO_GRAFT"	"Calling: specificity"	1

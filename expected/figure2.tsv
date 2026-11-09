@@ -1,0 +1,14 @@
+output	expected	mode	key_columns	rel_tolerance	reason
+A_histogram.tsv	A_histogram.tsv	exact			Table drawn in 2A (score histogram)
+A_mixture_curves.tsv	A_mixture_curves.tsv	exact			Table drawn in 2A (fitted mixture curves)
+B_units.tsv	B_units.tsv	exact			Table drawn in 2B
+C_primary_labels.tsv	C_primary_labels.tsv	exact			Table drawn in 2C
+D_effect_heatmap.tsv	D_effect_heatmap.tsv	numeric		1e-12	Table drawn in 2D. limma_fdr differs by at most 2.7e-14 (relative) in 152 of 160 rows between R 4.2.0 on Linux, which made the published table, and R 4.6.1 on Windows (limma 3.68.4). Effects, genes and row order are identical, and all other cells match exactly
+E_concordance.tsv	E_concordance.tsv	exact			Table drawn in 2E
+primary_only_training_calls.tsv	primary_only_training_calls.tsv	exact			Table drawn in 2E (the 20-gene classifier trained on primary study labels only)
+hio_BC_classifier_calls_by_label.tsv	hio_BC_classifier_calls_by_label.tsv	exact			Table drawn in 2B and 2C (HIO grafts)
+hio_D_hio_effects.tsv	hio_D_hio_effects.tsv	exact			Table drawn in 2D (HIO grafts)
+hio_E_hio_summary.tsv	hio_E_hio_summary.tsv	exact			Table drawn in 2E (HIO grafts)
+C_marker_detection.tsv	C_marker_detection.tsv	exact			Table drawn in 2C (each label's detection and mean log expression of the four markers)
+D_detection.tsv	D_detection.tsv	exact			Table drawn in 2D (share of each dataset's EC cells detecting each gene)
+E_cells.tsv	E_cells.tsv	numeric		1e-10	Table drawn in 2E. score20 differs by at most 1.0e-14 absolute (7e-13 relative) in 401 of 4,817 rows between R 4.2.0 with Matrix 1.6.1.1 and single-threaded BLAS, which made the published table, and R 4.6.1 with Matrix 1.7.5; the Figure 2 supplement compares these scores the same way. Family, class, four-marker score and call, 20-gene call, threshold and row order match exactly, and no cell moves across the threshold

@@ -1,0 +1,152 @@
+# Recreates the tables behind every main and supplementary figure panel and checks each table
+# against the published source data in expected/; then draws each panel from its checked tables
+# and checks the image against the published panel.
+#
+#   snakemake --cores 4 --resources heavy_r=1 --config data_dir=/path/to/unpacked/deposit
+#
+# Each figure has three registry files, all tab-separated:
+#   inputs/<figure>.tsv      input files the figure needs (path under data_dir, sha256)
+#   panels/<figure>.tsv      panel -> output table(s) -> analysis script -> plot script -> image
+#   expected/<figure>.tsv    output table -> published table in expected/<figure>/ -> comparison
+# and one rules file, workflow/rules/<figure>.smk. Published panel images are in
+# expected/<figure>/panels/.
+
+import csv
+from pathlib import Path
+
+configfile: "config/config.yaml"
+
+REPO = Path(workflow.basedir).parent
+DATA = Path(config["data_dir"])
+RESULTS = Path(config["results_dir"])
+RSCRIPT = config.get("rscript", "Rscript")
+PYTHON = config.get("python", "python")
+
+
+def read_tsv(path):
+    with open(path, newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle, delimiter="\t"))
+
+
+def data(name):
+    """Path of an input file under data_dir."""
+    return str(DATA / name)
+
+
+def result(figure, name):
+    return str(RESULTS / figure / name)
+
+
+def script(figure, name):
+    return str(REPO / "workflow" / "scripts" / figure / name)
+
+
+FIGURES = config["figures"]
+# Figures whose plots also read another figure's tables: the Figure 2 supplement draws Fig. 2D's 20 genes
+# and their per-study effects (S4A, S5A-B). Those figures' rules are loaded too, but not targeted.
+PLOT_NEEDS = {"figure2_supp": ["figure2"]}
+# Figures whose analysis reads another figure's results: the Figure 3 supplement's S6A uses the TPH1-only
+# classifier fitted by the Figure 2 supplement. Those rules are loaded too (with what they need), but not targeted.
+RULE_NEEDS = {"figure3_supp": ["figure2_supp"], "figure2_supp": ["figure2"]}
+LOADED = list(FIGURES)
+for fig in LOADED:
+    for need in PLOT_NEEDS.get(fig, []) + RULE_NEEDS.get(fig, []):
+        if need not in LOADED:
+            LOADED.append(need)
+EXPECTED = {fig: read_tsv(REPO / "expected" / f"{fig}.tsv") for fig in LOADED}
+IMAGES = {fig: {row["image"]: row for row in read_tsv(REPO / "panels" / f"{fig}.tsv") if row["image"]}
+          for fig in FIGURES}
+
+wildcard_constraints:
+    fig=r"[^/]+",
+    image=r"[^/]+\.png",
+
+
+for fig in LOADED:
+    include: f"rules/{fig}.smk"
+
+
+rule all:
+    input:
+        [result(fig, "checks/" + row["output"] + ".check.json") for fig in FIGURES for row in EXPECTED[fig]],
+        [str(RESULTS / f"{fig}_inputs_verified.txt") for fig in FIGURES],
+        [result(fig, f"checks/panels/{image}.json") for fig in FIGURES for image in IMAGES[fig]],
+
+
+rule verify_inputs:
+    """Refuse to start a figure unless every input matches its recorded checksum."""
+    input:
+        manifest=str(REPO / "inputs" / "{fig}.tsv"),
+    output:
+        str(RESULTS / "{fig}_inputs_verified.txt"),
+    shell:
+        '"{PYTHON}" "{REPO}/workflow/scripts/common/verify_inputs.py" "{input.manifest}" "{DATA}" "{output}"'
+
+
+def expected_row(fig, output):
+    for row in EXPECTED[fig]:
+        if row["output"] == output:
+            return row
+    raise ValueError(f"{output} is not registered in expected/{fig}.tsv")
+
+
+rule check_table:
+    """Compare one recreated table with the published one (exact unless expected/<fig>.tsv says otherwise)."""
+    input:
+        observed=str(RESULTS / "{fig}" / "{output}"),
+        expected=lambda w: str(REPO / "expected" / w.fig / expected_row(w.fig, w.output)["expected"]),
+    output:
+        str(RESULTS / "{fig}" / "checks" / "{output}.check.json"),
+    params:
+        mode=lambda w: expected_row(w.fig, w.output)["mode"],
+        key_columns=lambda w: expected_row(w.fig, w.output)["key_columns"] or "-",
+        tol=lambda w: expected_row(w.fig, w.output)["rel_tolerance"] or "0",
+        set_columns=lambda w: expected_row(w.fig, w.output).get("set_columns") or "-",
+    shell:
+        '"{PYTHON}" "{REPO}/workflow/scripts/common/compare_table.py" "{input.observed}" "{input.expected}" '
+        '"{output}" --mode {params.mode} --keys {params.key_columns} --rel-tolerance {params.tol} --set-columns {params.set_columns}'
+
+
+def table_checks(fig):
+    """The checks of every table a figure's plots may read: its own and those of PLOT_NEEDS."""
+    figs = [fig] + PLOT_NEEDS.get(fig, [])
+    return [(RESULTS / f / "checks" / (row["output"] + ".check.json")).as_posix() for f in figs
+            for row in EXPECTED[f]]
+
+
+def plot_folder(w):
+    return Path(script(w.fig, IMAGES[w.fig][w.image]["plot"])).parent
+
+
+rule draw_panel:
+    """Draw one panel from the figure's checked tables, cut out of the figure page by its box."""
+    input:
+        checks=lambda w: table_checks(w.fig),
+        plot=lambda w: script(w.fig, IMAGES[w.fig][w.image]["plot"]),
+        # helpers.R and any page code shared by several panels in the same folder
+        helpers=lambda w: sorted(str(p) for p in plot_folder(w).glob("*.R")),
+        # label positions and display groupings the plots read from their own folder
+        drawing=lambda w: sorted(str(p) for p in plot_folder(w).glob("*.tsv")),
+        study_names=str(REPO / "config" / "study_names.tsv"),
+    output:
+        str(RESULTS / "{fig}" / "panels" / "{image}"),
+    params:
+        box=lambda w: IMAGES[w.fig][w.image]["box"],
+        mode=config.get("image_check", "tolerance"),
+    shell:
+        '"{RSCRIPT}" "{REPO}/workflow/scripts/common/draw_panel.R" "{input.plot}" {params.box} "{RESULTS}" "{output}" '
+        '{params.mode}'
+
+
+rule check_image:
+    """Compare one drawn panel with the published one (exact, or within the tolerance in compare_image.R)."""
+    input:
+        observed=str(RESULTS / "{fig}" / "panels" / "{image}"),
+        expected=str(REPO / "expected" / "{fig}" / "panels" / "{image}"),
+    output:
+        str(RESULTS / "{fig}" / "checks" / "panels" / "{image}.json"),
+    params:
+        mode=config.get("image_check", "tolerance"),
+    shell:
+        '"{RSCRIPT}" "{REPO}/workflow/scripts/common/compare_image.R" "{input.observed}" "{input.expected}" '
+        '"{output}" {params.mode}'

@@ -1,0 +1,19 @@
+# Where the input data live. After downloading the Zenodo deposit (see README), point
+# data_dir at the unpacked folder. Every file is checked against inputs/<figure>.tsv first.
+data_dir: data
+
+# Where tables are written. Must not be inside data_dir.
+results_dir: results
+
+# How drawn panels are compared with the published ones: "exact" (every pixel identical; holds on
+# the reference setup, R 4.6.1 on Windows with Arial) or "tolerance" (the same picture; see
+# workflow/scripts/common/compare_image.R).
+image_check: tolerance
+
+# Which figures to build. Remove entries to build a subset.
+figures: [figure1, figure2, figure2_supp, figure3, figure3_supp, figure4, figure5]
+
+# Executables: R (installed as in envs/r_packages.tsv) and the Python of the conda environment in envs/python.yaml.
+# Give full paths if they are not on PATH.
+rscript: Rscript
+python: python

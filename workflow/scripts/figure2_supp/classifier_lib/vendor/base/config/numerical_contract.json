@@ -1,0 +1,13 @@
+{
+  "description": "Gene-eligibility parameters of the 20-gene classifier's gene ranking, set before any classifier outcome was computed. They control minimum representation, not EC biology.",
+  "parameters": {
+    "minimum_cells_per_unit_class": 5,
+    "training_detection_floor": 0.05,
+    "minimum_training_families": 3
+  },
+  "parameter_meaning": {
+    "minimum_cells_per_unit_class": "cells a donor or sample needs in a class (EC or other terminal EEC) for its class mean to enter the gene ranking",
+    "training_detection_floor": "share of a training study's cells that must detect a gene for that study to count toward the gene's eligibility",
+    "minimum_training_families": "training studies that must pass the detection floor for a gene to be eligible"
+  }
+}

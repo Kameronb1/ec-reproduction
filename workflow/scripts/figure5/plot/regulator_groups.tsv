@@ -1,0 +1,36 @@
+# Display groups of the 34 transcription factors drawn in Figure 5A: the heatmap's column blocks, in drawing order. Groups by each factor's association (EC / SC-SIC, endocrine, islet, intestinal).
+group	tf
+EC / SC-SIC association	LMX1A
+EC / SC-SIC association	NEUROD4
+EC / SC-SIC association	LMX1B
+EC / SC-SIC association	FEV
+EC / SC-SIC association	MNX1
+Endocrine association	NEUROG3
+Endocrine association	INSM1
+Endocrine association	NEUROD1
+Endocrine association	NKX2-2
+Endocrine association	PAX4
+Endocrine association	RFX6
+Endocrine association	ZNF800
+Endocrine association	PAX6
+Endocrine association	ARX
+Endocrine association	ISL1
+Endocrine association	HES6
+Endocrine association	SOX4
+Endocrine association	ASCL1
+Islet association	PDX1
+Islet association	NKX6-1
+Islet association	MAFA
+Islet association	MAFB
+Islet association	RFX3
+Islet association	GLIS3
+Islet association	MYT1L
+Islet association	DACH2
+Islet association	PLAGL1
+Intestinal association	GATA6
+Intestinal association	CDX1
+Intestinal association	CDX2
+Intestinal association	GATA4
+Intestinal association	SATB2
+Intestinal association	HOXB13
+Intestinal association	PITX2

@@ -1,0 +1,11 @@
+# Python side of the workflow (conda). Versions are those the published tables were checked with.
+#   conda env create -f envs/python.yaml && conda activate ec-reproduction
+name: ec-reproduction
+channels: [conda-forge, bioconda]
+dependencies:
+  - python=3.13
+  - numpy=2.5.2
+  - pandas=3.0.5
+  - scipy=1.18.1
+  - h5py=3.16.0
+  - snakemake-minimal=9.23.1

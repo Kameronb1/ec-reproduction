@@ -1,0 +1,4 @@
+variant	population	wt_nuclei	ko_nuclei	wt_median_umi	ko_median_umi
+all transferred	SC_EC	764	685	10687.0	7543.0
+all transferred	SC_beta	1326	1638	12873.0	7671.0
+all transferred	SC_alpha	1492	4515	8828.0	5170.0

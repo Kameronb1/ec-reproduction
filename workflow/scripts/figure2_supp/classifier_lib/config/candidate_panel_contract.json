@@ -1,0 +1,47 @@
+{
+  "description": "Method parameters of the label-trained 20-gene classifier, read by classifier.R and classifier_explainer.R. Gene eligibility is set in vendor/base/config/numerical_contract.json, training labels and excluded genes in R/population_policy.R.",
+  "gene_ranking": {
+    "method": "Descending limma moderated t of EC versus other terminal EEC, fitted on donor/sample-by-class mean log-expression, paired within donor/sample, each donor/sample weighted 1 / (donors/samples in its study); ties by gene symbol. Panels of 10, 20 and 30 genes are the top of this one ranked list.",
+    "redundancy_ceiling": 1,
+    "redundancy_note": "A gene would be dropped only when its absolute Spearman correlation with a higher-ranked kept gene is above the ceiling; at 1 every ranked gene is kept."
+  },
+  "composite_score": {
+    "standardization": "Gene mean and SD fitted on the training cells only, each training study weighted equally.",
+    "gene_weight": "Median across training studies of the EC minus other terminal EEC difference of donor/sample means, negative values set to 0, normalized to sum to 1.",
+    "score": "Weighted mean of the panel genes' standardized expression.",
+    "detection_requirement": "min(panel_size, max(2, ceiling(0.25 * panel_size))) panel genes detected, e.g. 5 of 20."
+  },
+  "gmm": {
+    "model": "Two-component equal-variance Gaussian mixture fitted to the scores of training cells that meet the detection requirement, each training study weighted equally. The threshold is where the two weighted components cross; a fit that fails a floor below has no threshold.",
+    "initial_quantile_pairs": [
+      [
+        0.1,
+        0.9
+      ],
+      [
+        0.25,
+        0.75
+      ],
+      [
+        0.4,
+        0.8
+      ]
+    ],
+    "max_iterations": 1000,
+    "tolerance": 1e-08,
+    "variance_floor": 0.0025,
+    "minimum_component_weight": 0.02,
+    "minimum_component_sd": 0.05,
+    "minimum_mean_separation_pooled_sd": 0.5
+  },
+  "local_enrichment_check": {
+    "description": "Second stage of the call, as in the four-marker EC classifier: inside the scored study, a candidate is kept when its nearest neighbors hold more candidates than the study-wide candidate share predicts (hypergeometric upper tail, Benjamini-Hochberg within the study's candidates). The graph is built from the study's own cells, without reading any label.",
+    "feature_detection_fraction_minimum": 0.01,
+    "feature_detection_fraction_maximum": 0.99,
+    "highly_variable_genes": 250,
+    "minimum_graph_features": 20,
+    "principal_components": 20,
+    "k_nearest_neighbors": 25,
+    "q_threshold": 0.05
+  }
+}

@@ -1,0 +1,35 @@
+output	expected	mode	key_columns	rel_tolerance	reason	set_columns
+s1_marker_limma/top20.tsv	s1/top20.tsv	exact			Table drawn in S15B (the 20 genes; also behind S15A)	
+s1_marker_limma/heatmap_effects.tsv	s1/heatmap_effects.tsv	exact			Table drawn in S15A	
+s1_marker_stability/a_fold_ranks.tsv.gz	s1/a_fold_ranks.tsv.gz	exact			Table drawn in S15B	
+s1_marker_stability/b_label_swaps.tsv.gz	s1/b_label_swaps.tsv.gz	exact			Table drawn in S15C	
+s1_marker_stability/c_matched_random.tsv.gz	s1/c_matched_random.tsv.gz	exact			Table drawn in S15D	
+s2_classifier_swap/calls_by_study.tsv	s2/calls_by_study.tsv	exact			Table drawn in S6A (also read by S6B)	
+s2_classifier_swap/sc_cells.tsv.gz	s2/s2b_sc_cells.tsv.gz	exact			Table drawn in S6B: every SC endocrine cell's four-marker and 20-gene (Figure 2E's classifier) scores, cutoffs and calls; its calls give back the MARKER_RULE_GATED and GUTG_GUTT counts of calls_by_study.tsv	
+s3_per_donor/dots_pooled_vs_balanced.tsv	s3/dots_pooled_vs_balanced.tsv	exact			Table drawn in S7A	
+s3_signature/gene_signatures.tsv.gz	s3/gene_signatures.tsv.gz	exact			Table drawn in S7B (each gene's fold changes)	
+s3_signature/concordance.tsv	s3/concordance.tsv	exact			Table behind S7B: per population, Spearman rho, slope and direction share against the gut EC signature, with and without the 18 excluded genes	
+s3_signature/share_two_fold.tsv	s3/share_two_fold.tsv	exact			Table behind S7B: per population, the share of gut EC signature genes also up 2-fold (and 1.4-fold)	
+s3_artifact_checks/genes_before_after.tsv.gz	s3/genes_before_after.tsv.gz	exact			Table drawn in S9	
+s4_hio/genes_all.tsv.gz	s4/genes_all.tsv.gz	exact			Table drawn in S8A and S8B: each gene's HIO three-way pattern	
+s4_hio/enrichment/enrichment_all_terms.tsv	s4/enrichment_all_terms.tsv	exact			Table behind S8B: every pathway term tested for the six HIO pattern gene lists (S8B draws the called ones). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s4_hio/enrichment/enrichment_called.tsv	s4/enrichment_called.tsv	exact			Table drawn in S8B (called pathway terms of the six HIO pattern gene lists). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s4_hio/enrichment_celltype/celltype_all_terms.tsv	s4/celltype_all_terms.tsv	exact			Table behind S8B: every C8 cell-type term tested for the six HIO pattern gene lists (S8B draws the called ones). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s4_hio/enrichment_celltype/celltype_called.tsv	s4/celltype_called.tsv	exact			Table drawn in S8B (called C8 cell-type terms). The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s6_gene_groups/g1_g2_heatmap.tsv	s6/s3_g1_g2_heatmap.tsv	exact			Table drawn in S10A and S10B	
+s6_gene_groups/g3_heatmap.tsv	s6/s3_g3_heatmap.tsv	exact			Table drawn in S11	
+s8_mixed/pathways/enrichment_all_terms.tsv.gz	s8/mixed_pathways/enrichment_all_terms.tsv.gz	exact			Table drawn in S13A: every pathway term tested for each Figure 3 gene group alone and with its mixed genes. The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s8_mixed/pathways/enrichment_called.tsv	s8/mixed_pathways/enrichment_called.tsv	exact			Table behind S13A: the called pathway terms of the same run. The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s8_mixed/pathways/group_vs_group_with_mixed.tsv	s8/mixed_pathways/group_vs_group_with_mixed.tsv	exact			Table behind S13A: each group's called pathway terms alone and with its mixed genes (kept, lost or new), with the mixed genes inside each term. mixed_genes_in_term is compared as a set: it is cut from clusterProfiler's genes field, whose gene order changes between runs of the same code. All other cells must match exactly	mixed_genes_in_term
+s8_mixed/pathways/lists.tsv	s8/mixed_pathways/lists.tsv	exact			The nine gene lists read by S13A and S13B	
+s8_mixed/celltypes/celltype_all_terms.tsv	s8/mixed_celltypes/celltype_all_terms.tsv	exact			Table drawn in S13B: every C8 cell-type term tested for each Figure 3 gene group alone and with its mixed genes. The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s8_mixed/celltypes/celltype_called.tsv	s8/mixed_celltypes/celltype_called.tsv	exact			Table behind S13B: the called C8 terms of the same run. The genes field is compared as a set: clusterProfiler orders the genes inside a term differently between runs of the same code. Terms, row order and all numbers must match exactly	genes
+s8_mixed/celltypes/group_vs_group_with_mixed.tsv	s8/mixed_celltypes/group_vs_group_with_mixed.tsv	exact			Table behind S13B: kept, new and lost C8 terms of each group with its mixed genes	
+s8_mixed/celltypes/called_terms_by_class.tsv	s8/mixed_celltypes/called_terms_by_class.tsv	exact			Table behind S13B: called C8 terms per term class	
+s9_brain/similarity_units.tsv	s9/supp_similarity_panels/units.tsv	exact			Table drawn in S12A	
+s9_brain/raphe_units.tsv	s9/raphe_comparison/units.tsv	exact			Table drawn in S12B	
+s9_brain/summary_by_group.tsv	s9/raphe_comparison/summary_by_group.tsv	exact			Table behind S12B: the medians of each group's samples	
+s9_brain/ser_genes_in_sc_sic.tsv	s9/raphe_comparison/ser_genes_in_sc_sic.tsv	exact			Table drawn in S12C	
+s9_brain/ser_da_genes.tsv	s9/raphe_comparison/ser_da_genes.tsv	exact			Table behind S12C: the serotonin-neuron (SER) and dopamine-neuron (DA) gene lists	
+s9_stac/stac_by_sample.tsv	s9/stac_panel/stac_by_sample.tsv	exact			Per-sample STAC table of every sample, before the adults-only step (adult islet alpha includes Bandesh 2026 Proliferating_Alpha); not drawn	
+s9_stac/stac_by_sample_drawn.tsv	s9/panel_tables/s3_stac_by_sample.tsv	exact			Table drawn in S12D: the per-sample table with the three rows of donor HPAP034 (aged 13) removed from the adult islet groups and the nuclei flag set per study (adult islet alpha includes Bandesh 2026 Proliferating_Alpha)	

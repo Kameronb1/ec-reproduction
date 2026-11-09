@@ -1,0 +1,49 @@
+factor	network	network_group	cell	regulon	sign	matched_fold	shared_count	measured_targets	tile_top	tile_bottom	hit_networks	networks_with_list	factor_label
+JUND	Augsornworawat 2020	SC-islet	hit	GSE151117__JUND(+)	+	2.48734287465277	64	1331	2.5	64/1331	5	11	hit in 5 of 11
+JUND	Augsornworawat 2023	SC-islet	no list								5	11	hit in 5 of 11
+JUND	Balboa 2022	SC-islet	hit	GSE167880__JUND(+)	+	1.71016611556238	142	3570	1.7	142/3570	5	11	hit in 5 of 11
+JUND	Du 2022	SC-islet	hit	GSE185036__JUND(+)	+	2.07316538369464	94	2046	2.1	94/2046	5	11	hit in 5 of 11
+JUND	Siehler 2024	SC-islet	hit	GSE226346__JUND(+)	+	2.96099313234638	57	1051	3.0	57/1051	5	11	hit in 5 of 11
+JUND	Zhu 2023	SC-islet	hit	GSE202497__JUND(+)	+	2.53608830957482	84	1528	2.5	84/1528	5	11	hit in 5 of 11
+JUND	Bandesh 2026	adult islet	tested, not a hit	GSE221156__JUND(+)	+	0.700633538758267	62	3902	0.7	62/3902	5	11	hit in 5 of 11
+JUND	Fasolino 2022	adult islet	tested, not a hit	GSE148073__JUND(+)	+	0.757312532555289	38	2306	0.8	38/2306	5	11	hit in 5 of 11
+JUND	Egozi 2021	intestine	tested, not a hit	EGOZI_2021_ZENODO__JUND(+)	+	0.879733317336986	9	551	0.9	9/551	5	11	hit in 5 of 11
+JUND	Elmentaite 2021 adult	intestine	tested, not a hit	E-MTAB-9543__JUND(+)	+	1.40707141691869	1	54	1.4	1/54	5	11	hit in 5 of 11
+JUND	Elmentaite 2021 fetal	intestine	tested, not a hit	E-MTAB-9536__JUND(+)	+	0.84315933256729	7	392	0.8	7/392	5	11	hit in 5 of 11
+JUND	Hickey 2023	intestine	tested, not a hit	HICKEY_2023_DRYAD__JUND(+)	+	1.85149221780847	1	22	1.9	1/22	5	11	hit in 5 of 11
+SOX4	Augsornworawat 2020	SC-islet	tested, not a hit	GSE151117__SOX4(+)	+	10.7183770883055	3	22	10.7	3/22	4	8	hit in 4 of 8
+SOX4	Augsornworawat 2023	SC-islet	tested, not a hit	GSE199636__SOX4(+)	+	5.22574578824659	2	23	5.2	2/23	4	8	hit in 4 of 8
+SOX4	Balboa 2022	SC-islet	hit	GSE167880__SOX4(+)	+	4.53003045589684	43	406	4.5	43/406	4	8	hit in 4 of 8
+SOX4	Du 2022	SC-islet	hit	GSE185036__SOX4(+)	+	4.57507347426229	41	401	4.6	41/401	4	8	hit in 4 of 8
+SOX4	Siehler 2024	SC-islet	hit	GSE226346__SOX4(+)	+	19.0140368578805	8	23	19.0	8/23	4	8	hit in 4 of 8
+SOX4	Zhu 2023	SC-islet	tested, not a hit	GSE202497__SOX4(+)	+	4.05587760861398	5	59	4.1	5/59	4	8	hit in 4 of 8
+SOX4	Bandesh 2026	adult islet	no list								4	8	hit in 4 of 8
+SOX4	Fasolino 2022	adult islet	no list								4	8	hit in 4 of 8
+SOX4	Egozi 2021	intestine	tested, not a hit	EGOZI_2021_ZENODO__SOX4(+)	+	2.38196991010497	14	278	2.4	14/278	4	8	hit in 4 of 8
+SOX4	Elmentaite 2021 adult	intestine	no list								4	8	hit in 4 of 8
+SOX4	Elmentaite 2021 fetal	intestine	hit	E-MTAB-9536__SOX4(+)	+	11.1356568488865	9	42	11.1	9/42	4	8	hit in 4 of 8
+SOX4	Hickey 2023	intestine	no list								4	8	hit in 4 of 8
+SOX11	Augsornworawat 2020	SC-islet	no list								2	2	hit in 2 of 2
+SOX11	Augsornworawat 2023	SC-islet	no list								2	2	hit in 2 of 2
+SOX11	Balboa 2022	SC-islet	no list								2	2	hit in 2 of 2
+SOX11	Du 2022	SC-islet	hit	GSE185036__SOX11(+)	+	3.70844601002751	19	211	3.7	19/211	2	2	hit in 2 of 2
+SOX11	Siehler 2024	SC-islet	no list								2	2	hit in 2 of 2
+SOX11	Zhu 2023	SC-islet	hit	GSE202497__SOX11(+)	+	15.917081425469	12	28	15.9	12/28	2	2	hit in 2 of 2
+SOX11	Bandesh 2026	adult islet	no list								2	2	hit in 2 of 2
+SOX11	Fasolino 2022	adult islet	no list								2	2	hit in 2 of 2
+SOX11	Egozi 2021	intestine	no list								2	2	hit in 2 of 2
+SOX11	Elmentaite 2021 adult	intestine	no list								2	2	hit in 2 of 2
+SOX11	Elmentaite 2021 fetal	intestine	no list								2	2	hit in 2 of 2
+SOX11	Hickey 2023	intestine	no list								2	2	hit in 2 of 2
+NFE2L1	Augsornworawat 2020	SC-islet	hit	GSE151117__NFE2L1(+)	+	15.6528314067286	9	30	15.7	9/30	1	6	hit in 1 of 6
+NFE2L1	Augsornworawat 2023	SC-islet	tested, not a hit	GSE199636__NFE2L1(+)	+	0	0	13	0.0	0/13	1	6	hit in 1 of 6
+NFE2L1	Balboa 2022	SC-islet	no list								1	6	hit in 1 of 6
+NFE2L1	Du 2022	SC-islet	no list								1	6	hit in 1 of 6
+NFE2L1	Siehler 2024	SC-islet	no list								1	6	hit in 1 of 6
+NFE2L1	Zhu 2023	SC-islet	tested, not a hit	GSE202497__NFE2L1(+)	+	0.697052803357035	1	83	0.7	1/83	1	6	hit in 1 of 6
+NFE2L1	Bandesh 2026	adult islet	no list								1	6	hit in 1 of 6
+NFE2L1	Fasolino 2022	adult islet	tested, not a hit	GSE148073__NFE2L1(+)	+	0.4980622819387	1	101	0.5	1/101	1	6	hit in 1 of 6
+NFE2L1	Egozi 2021	intestine	tested, not a hit	EGOZI_2021_ZENODO__NFE2L1(+)	+	1.51919036390825	5	167	1.5	5/167	1	6	hit in 1 of 6
+NFE2L1	Elmentaite 2021 adult	intestine	tested, not a hit	E-MTAB-9543__NFE2L1(+)	+	0	0	16	0.0	0/16	1	6	hit in 1 of 6
+NFE2L1	Elmentaite 2021 fetal	intestine	no list								1	6	hit in 1 of 6
+NFE2L1	Hickey 2023	intestine	no list								1	6	hit in 1 of 6

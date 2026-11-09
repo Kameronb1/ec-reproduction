@@ -1,0 +1,8 @@
+arm_id	study	role	cells	above	pct	zero_markers	all_four	median_depth
+E-MTAB-8901_paediatric	Elmentaite 2020 · child intestine	Fitting study (fitted)	71	31	43.6619718309859	7	26	9630
+E-MTAB-10187_intestinal	Yu 2021 · fetal intestine	Fitting study (fitted)	463	188	40.6047516198704	81	127	10411
+GSE125970	Wang 2020 · adult intestine	Fitting study (fitted)	128	45	35.15625	22	36	9677
+GSE185224	Burclaff 2022 · adult intestine	Fitting study (fitted)	154	39	25.3246753246753	16	37	15616
+E-MTAB-8901_fetal	Elmentaite 2020 · fetal intestine	Fitting study (fitted)	383	20	5.22193211488251	142	4	21112
+GSE214852_WT	McCauley 2023 · HIO graft	hPSC-derived organoid (transported, not in the fit)	598	319	53.3444816053512	70	303	19225
+E-MTAB-10268	Yu 2021 · HIO	hPSC-derived organoid (transported, not in the fit)	157	9	5.73248407643312	68	1	17164

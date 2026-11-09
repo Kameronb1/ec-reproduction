@@ -1,0 +1,4 @@
+"panel_size"	"ec_n"	"ec_called"	"ec_rule_called"	"other_n"	"other_called"	"other_rule_called"	"roc_auc"	"threshold"	"below_detection"
+10	322	316	319	276	0	0	0.998154649383383	0.45618685106977	3
+20	322	318	319	276	0	0	0.999122333243316	0.40101418060959	3
+30	322	318	319	276	0	0	0.999639931587001	0.412348245520708	10

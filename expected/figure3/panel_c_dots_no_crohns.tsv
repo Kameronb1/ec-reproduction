@@ -1,0 +1,4 @@
+population	study	spearman_median	n_pairs	n_genes_min	n_genes_median	n_genes_max	row
+HIO_GRAFT_EC	McCauley 2023 both organoids	0.35950169532845344	3	12083	13598.0	13679	HIO graft EEC (EC vs other EEC)
+HIO_GRAFT_EC	McCauley 2023 organoid wt1	0.3222605183430381	3	12079	13610.0	13701	HIO graft EEC (EC vs other EEC)
+HIO_GRAFT_EC	McCauley 2023 organoid wt2	0.34510554512834957	3	12118	13632.0	13717	HIO graft EEC (EC vs other EEC)

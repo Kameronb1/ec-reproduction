@@ -1,0 +1,37 @@
+panel	block	term	name	in_3g
+A	G3	GO_BP: presynapse organization	presynapse organization	TRUE
+A	G3	GO_BP: regulation of synapse structure or activity	regulation of synapse struct./activity	TRUE
+A	G3	GO_BP: presynapse assembly	presynapse assembly	TRUE
+A	G3	GO_BP: synapse organization	synapse organization	TRUE
+A	G3	GO_BP: modulation of chemical synaptic transmission	mod. of chem. synaptic transmission	TRUE
+A	G3	GO_BP: regulation of presynapse assembly	regulation of presynapse assembly	TRUE
+A	G3	REACTOME: Neuronal System	Neuronal System	FALSE
+A	G3	GO_BP: synaptic membrane adhesion	synaptic membrane adhesion	FALSE
+A	G3	GO_BP: regulation of synapse organization	regulation of synapse organization	FALSE
+A	G3	GO_BP: synapse assembly	synapse assembly	FALSE
+A	G2	REACTOME: Ethanol oxidation	Ethanol oxidation	TRUE
+A	G2	REACTOME: Metabolism of amine-derived hormones	Metab. of amine-derived hormones	TRUE
+A	G2	REACTOME: Effects of PIP2 hydrolysis	Effects of PIP2 hydrolysis	TRUE
+A	G2	REACTOME: G alpha (q) signalling events	G alpha (q) signalling events	FALSE
+A	G2	REACTOME: GPCR downstream signalling	GPCR downstream signalling	FALSE
+A	G2	GO_BP: regulation of blood circulation	regulation of blood circulation	FALSE
+A	G2	REACTOME: Serotonin Neurotransmitter Release Cycle	Serotonin Neurotransmitter Release Cycle	FALSE
+A	G2	GO_BP: action potential	action potential	FALSE
+A	G2	GO_BP: regulation of membrane potential	regulation of membrane potential	FALSE
+A	G2	GO_BP: regulation of heart contraction	regulation of heart contraction	FALSE
+A	G1	GO_BP: diterpenoid metabolic process	diterpenoid metabolic process	FALSE
+A	G1	GO_BP: digestion	digestion	FALSE
+A	G1	GO_BP: positive regulation of cell adhesion	positive regulation of cell adhesion	FALSE
+A	G1	GO_BP: regulation of T cell differentiation in thymus	regulation of T cell differentiation in thymus	FALSE
+B	G3	DESCARTES_FETAL_LUNG_VISCERAL_NEURONS	fetal lung visceral neurons	TRUE
+B	G3	MANNO_MIDBRAIN_NEUROTYPES_HNBML5	midbrain neuroblasts	TRUE
+B	G3	DESCARTES_FETAL_LIVER_MESOTHELIAL_CELLS	fetal liver mesothelium	TRUE
+B	G3	HE_LIM_SUN_FETAL_LUNG_C7_SST_POS_NEURON_CELL	fetal lung SST+ neurons	FALSE
+B	G2	DESCARTES_FETAL_INTESTINE_CHROMAFFIN_CELLS	fetal gut chromaffin	TRUE
+B	G2	HE_LIM_SUN_FETAL_LUNG_C1_PULMONARY_NEUROENDOCRINE_CELL	fetal lung neuroendocrine	TRUE
+B	G2	GAO_LARGE_INTESTINE_ADULT_CA_ENTEROENDOCRINE_CELLS	colon enteroendocrine	TRUE
+B	G2	DESCARTES_FETAL_STOMACH_NEUROENDOCRINE_CELLS	fetal stomach neuroendocrine	FALSE
+B	G1	BUSSLINGER_DUODENAL_EC_CELLS	duodenal EC	TRUE
+B	G1	GAO_LARGE_INTESTINE_ADULT_CA_ENTEROENDOCRINE_CELLS	colon enteroendocrine	TRUE
+B	G1	DESCARTES_FETAL_INTESTINE_CHROMAFFIN_CELLS	fetal gut chromaffin	TRUE
+B	G1	DESCARTES_FETAL_KIDNEY_URETERIC_BUD_CELLS	fetal kidney ureteric bud	FALSE

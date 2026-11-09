@@ -1,0 +1,17 @@
+study	context	age	label	f2	c2	f3	c3	f4	c4	f5	c5
+Elmentaite 2020 + 2021	Native intestine	fetal, child†, adult	Elmentaite 2020 + 2021	A|B,C,E|D	train|test|shown	C–H	shown	E,F	shown	A,E	shown
+Egozi 2021	Native intestine	fetal, neonatal	Egozi 2021	B,C,E|D	test|shown	C–H	shown	E,F	shown	A,E	shown
+Hickey 2023	Native intestine	adult, 24–78 y	Hickey 2023 ○	B,C,E|D	test|shown	C–H	shown	E,F	shown	A,E	shown
+Burclaff 2022	Native intestine	adult, 29–53 y	Burclaff 2022	A|D	train|shown	H	test	F	test		
+Wang 2020	Native intestine	adult, 50–67 y	Wang 2020	A|D	train|shown	H	test	F	test		
+Yu 2021	Native intestine	fetal, 7–19 wk	Yu 2021	A|D	train|shown	H	test	F	test		
+Singh 2024	Induced EEC	in vitro, day 3–6	Singh 2024	B,C,E|D	test|shown	C,H	shown			A	shown
+McCauley 2023	HIO graft	graft, 20 wk	McCauley 2023	B,C,E|D	test|shown	C,H	shown			A	shown
+Augsornworawat 2020	SC-islet	in vitro; graft	Augsornworawat 2020			A–H	shown	A–F	shown	A,E	shown
+Balboa 2022	SC-islet	in vitro; graft	Balboa 2022			A–H	shown	A–F	shown	A,E	shown
+Du 2022	SC-islet	in vitro; graft	Du 2022			A–H	shown	A–F	shown	A,E	shown
+Augsornworawat 2023	SC-islet	in vitro; graft	Augsornworawat 2023 ○			A–H	shown	A–F	shown	A,C–E	shown
+Zhu 2023	SC-islet	in vitro	Zhu 2023 ‡			A–H	shown			A,B,E,F	shown
+Siehler 2024	SC-islet	in vitro	Siehler 2024			A–H	shown			A,E	shown
+Fasolino 2022	Adult islet	adult	Fasolino 2022							A,E	shown
+Bandesh 2026	Adult islet	adult	Bandesh 2026							A,E	shown
