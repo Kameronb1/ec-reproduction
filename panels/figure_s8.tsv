@@ -1,0 +1,5 @@
+panel	shows	outputs	script	plot	image	box
+Figure S8A	Change of the 26 Reactome cholesterol-synthesis genes from the earlier in vitro samples in 8 grafts and 5 comparisons kept in culture, per cell type, and each row's median change	s2_cholesterol_tiles.tsv,s2_cholesterol_medians.tsv	cholesterol_culture.R	plot/S8A.R	S8A.png	24,48,4452,3336
+Figure S8B	Promoter accessibility of each gene group against the typical gene promoter of the same cell type in Hickey 2023 primary intestinal EC and other enteroendocrine cells, small intestine and colon	../figure4/c5_relative_zhu_hickey.tsv	../figure4/chromatin_promoters_relative.R	plot/S8B.R	S8B.png	38,3538,1807,1206
+Figure S8C	Promoter accessibility change of each gene group after grafting (Augsornworawat 2023, week 2 -> graft) against 10,000 random gene sets	../figure4/c5_graft_relative_by_population.tsv,../figure4/c5_graft_window_agreement.tsv	../figure4/chromatin_promoters_culture_grafts.R	plot/S8C.R	S8C.png	1953,3537,2490,1206
+Figure S8B-C key	Key shared by Figure S8B and S8C: the gene groups, median gene, middle half of the group genes and random gene sets			plot/S8BC_key.R	S8BC_key.png	628,4773,3281,166

@@ -1,34 +1,29 @@
-"""Figure 5F and S17G: what CDX2 knockout does to the Figure 3 gene groups in SC-SIC, SC-beta and SC-alpha (Zhu 2023,
+"""Figure 5C: what CDX2 knockout does to the gene groups of Figure 2 in SC-SIC, SC-beta and SC-alpha (Zhu 2023,
 GSE202493: day-21 H1 SC-islets, one CDX2 wild-type library MM844 and one knockout library MM845).
 
-Cell types are the labels transferred from Zhu 2023's reference with primary study labels (all-stage arm; see cdx2ko_composition.py).
-Genotype is the stored sample label (MM844 -> WT, MM845 -> CDX2-KO). Nuclei of one genotype are pooled; the two groups are
-two libraries, so nothing here models biological replication: the random-gene comparison tests whether a change is
-specific to a gene set, not whether it would replicate in another knockout differentiation.
+Cell types are the labels transferred from Zhu 2023's reference with published labels (all-stage arm; see
+cdx2ko_composition.py; SC_EC is SC-SIC). Genotype is the stored sample label (MM844 -> WT, MM845 -> CDX2-KO). Nuclei of one
+genotype are pooled; the two groups are two libraries, so nothing here models biological replication: the random-gene
+comparison tests whether a change is specific to a gene set, not whether it would replicate in another knockout
+differentiation.
 
 Counts are the study's reads recounted against GRCh38-2024-A (genes matched by its gene symbols, one per gene). Only the
 12,615 nuclei that are also in the study's GEO deposit are used (in_geo_deposit in the label table).
 
-Gene sets: G1, G2 and G3 from the gene-group table, with G2 split into the four-gene serotonin core (TPH1, SLC18A1, FEV,
-LMX1A) and the other G2 genes; beta identity (INS, IAPP, PDX1, NKX6-1, MAFA); alpha identity (GCG, ARX, IRX2, TTR).
-Readouts, knockout minus wild type within one transferred population (SC_EC = SC-SIC, SC_beta, SC_alpha):
+Gene sets: G1, G2 and G3 from the gene-group table, with G2 split into the four EC markers (TPH1, SLC18A1, FEV, LMX1A;
+set name "G2 serotonin core") and the other G2 genes; beta identity (INS, IAPP, PDX1, NKX6-1, MAFA); alpha identity
+(GCG, ARX, IRX2, TTR). Readouts, knockout minus wild type within one transferred population (SC_EC, SC_beta, SC_alpha):
   per-cell detection: share of the set's genes detected (>= 1 UMI) per nucleus; difference taken within UMI deciles of
       that population, weighted by knockout nuclei per decile;
   pseudobulk: summed counts per genotype, the deeper side binomially thinned to the shallower total (20 draws, each
       gene's log2(1 + CPM) averaged over them), mean over the set of knockout minus wild type.
 Each is compared with 500 random gene sets of the same size, drawn gene by gene from the same expression bin (20 quantile
-bins of the population's pooled pseudobulk level plus a zero bin) of all 38,606 genes, excluding every named-set gene. SC-beta-subtracted:
-(knockout minus wild type in SC_EC) minus (the same in SC_beta), the same random sets applied to both. Every transferred
-nucleus is used (variant column: "all transferred"). Also writes the per-gene readback of the
-eight genes of Zhu 2023's Figure 5E, and every set gene's own two readouts (pseudobulk log2 difference; depth-stratified
-detection difference, the same decile weighting applied to that one gene), behind each set's SC-SIC minus SC-beta
-value. SC_alpha (Figure 5F) is scored in a second loop, after SC_EC and SC_beta, so their rows
-do not depend on it. Seed 20260930; one numpy Generator in a fixed call order (the per-gene
-values draw no random numbers).
+bins of the population's pooled pseudobulk level plus a zero bin) of all 38,606 genes, excluding every named-set gene.
+Every transferred nucleus is used (variant column: "all transferred"). SC_alpha is scored in a second loop, after SC_EC
+and SC_beta, so their rows do not depend on it. Seed 20260930; one numpy Generator in a fixed call order.
 
-Inputs:  counts=<recounted_counts.h5ad>  labels=<transferred_labels.tsv.gz>  groups=<gene_groups_definitions.tsv.gz>
-Outputs: effects=<group_effects.tsv>  subtracted=<beta_subtracted.tsv>  genes=<figure5e_genes.tsv>  nuclei=<nuclei.tsv>
-         per_gene=<per_gene.tsv>
+Inputs:  counts=<recounted_counts.h5ad>  labels=<transferred_labels.tsv.gz>  groups=<gene-group table>
+Outputs: effects=<group_effects.tsv>  nuclei=<nuclei.tsv>
 """
 import sys
 
@@ -41,11 +36,10 @@ a = dict(x.split("=", 1) for x in sys.argv[1:])
 
 SEED, NRAND, REPS = 20260930, 500, 20
 POPS = ["SC_EC", "SC_beta"]
-LATER_POPS = ["SC_alpha"]                    # second loop (Figure 5F), after every SC_EC and SC_beta draw
+LATER_POPS = ["SC_alpha"]                    # second loop, after every SC_EC and SC_beta draw
 SEROTONIN = ["TPH1", "SLC18A1", "FEV", "LMX1A"]
 BETA_ID = ["INS", "IAPP", "PDX1", "NKX6-1", "MAFA"]
 ALPHA_ID = ["GCG", "ARX", "IRX2", "TTR"]
-FIG5E = ["TPH1", "SLC18A1", "LMX1A", "DDC", "INS", "IAPP", "PDX1", "NKX6-1"]
 
 
 def dec(x):
@@ -85,10 +79,9 @@ named = set(np.concatenate(list(sets.values())).tolist())
 ko_all = (T["genotype"] == "CDX2-KO").values
 lib_all = np.asarray(X.sum(axis=1)).ravel()
 rng = np.random.default_rng(SEED)
-eff, bsub, genes_out, counts, per_gene = [], [], [], [], []
+eff, counts = [], []
 passes = [("all transferred", np.ones(len(T), bool), POPS), ("all transferred", np.ones(len(T), bool), LATER_POPS)]
 for vname, vmask, pops in passes:
-    per_pop = {}
     for pop in pops:
         idx = np.where(vmask & (T["transferred_label_all_stages"] == pop).values)[0]
         Xp = X[idx]; ko = ko_all[idx]; lib = lib_all[idx]; det = (Xp > 0).tocsc()
@@ -108,7 +101,6 @@ for vname, vmask, pops in passes:
         nz = cand[pooled[cand] > 0]; qs = np.quantile(pooled[nz], np.linspace(0, 1, 21))
         binof = lambda v: -1 if v <= 0 else int(np.clip(np.searchsorted(qs, v, side="right") - 1, 0, 19))
         cb = np.array([binof(v) for v in pooled[cand]]); pools = {b: cand[cb == b] for b in np.unique(cb)}
-        res = {}
         for sname, ii in sets.items():
             sc = np.asarray(det[:, ii].sum(axis=1)).ravel() / len(ii)
             obs_c, obs_p = strat_diff(sc, ko, lib), float(pbd[ii].mean())
@@ -116,7 +108,6 @@ for vname, vmask, pops in passes:
             rsets = [np.array([rng.choice(pools[b]) for b in bins]) for _ in range(NRAND)]
             null_c = np.array([strat_diff(np.asarray(det[:, r].sum(axis=1)).ravel() / len(r), ko, lib) for r in rsets])
             null_p = np.array([pbd[r].mean() for r in rsets])
-            res[sname] = {"rsets": rsets, "null_c": null_c, "obs_c": obs_c, "obs_p": obs_p}
             for ro, obs, null in [("per-cell detection (depth-stratified)", obs_c, null_c), ("pseudobulk log2 (equal depth)", obs_p, null_p)]:
                 eff.append({"variant": vname, "population": pop, "set": sname, "readout": ro, "genes": len(ii),
                             "wt_score_mean": float(sc[~ko].mean()) if ro.startswith("per-cell") else float(lw[ii].mean()),
@@ -125,33 +116,6 @@ for vname, vmask, pops in passes:
                             "random_q975": float(np.quantile(null, 0.975)), "excess_over_random": obs - float(np.median(null)),
                             "random_share_at_or_below": float((np.sum(null <= obs) + 1) / (NRAND + 1)),
                             "random_share_at_or_above": float((np.sum(null >= obs) + 1) / (NRAND + 1))})
-        for sname, ii in sets.items():
-            for j in ii:
-                per_gene.append({"variant": vname, "population": pop, "set": sname, "gene": genes[j], "pseudobulk_ko_minus_wt_log2": float(pbd[j]),
-                                 "percell_detection_diff": float(strat_diff(np.asarray(det[:, j].todense()).ravel().astype(float), ko, lib))})
-        per_pop[pop] = {"res": res, "pbd": pbd, "det": det, "ko": ko, "lib": lib}
-        for g in FIG5E:
-            if g in gi:
-                j = gi[g]; dcol = np.asarray(det[:, j].todense()).ravel()
-                genes_out.append({"variant": vname, "population": pop, "gene": g, "wt_log2cpm": float(lw[j]), "ko_log2cpm": float(lk[j]),
-                                  "ko_minus_wt_log2": float(pbd[j]), "wt_pct_detected": 100 * float(dcol[~ko].mean()), "ko_pct_detected": 100 * float(dcol[ko].mean())})
-    # SC-beta-subtracted: EC change minus beta change; the null applies each of EC's random sets to both populations
-    if pops is not POPS:
-        print(vname, " ".join(pops), "done", flush=True); continue
-    E_, B_ = per_pop["SC_EC"], per_pop["SC_beta"]
-    for sname, ii in sets.items():
-        re_ = E_["res"][sname]
-        obs = re_["obs_p"] - float(B_["pbd"][ii].mean())
-        null = np.array([E_["pbd"][r].mean() - B_["pbd"][r].mean() for r in re_["rsets"]])
-        obs_c = re_["obs_c"] - B_["res"][sname]["obs_c"]
-        null_c = np.array([re_["null_c"][k] - strat_diff(np.asarray(B_["det"][:, r].sum(axis=1)).ravel() / len(r), B_["ko"], B_["lib"]) for k, r in enumerate(re_["rsets"])])
-        for ro, o, nl in [("per-cell detection (depth-stratified)", obs_c, null_c), ("pseudobulk log2 (equal depth)", obs, null)]:
-            bsub.append({"variant": vname, "set": sname, "readout": ro, "ec_minus_beta_change": o, "random_median": float(np.median(nl)),
-                         "random_q025": float(np.quantile(nl, 0.025)), "random_q975": float(np.quantile(nl, 0.975)),
-                         "random_share_at_or_below": float((np.sum(nl <= o) + 1) / (NRAND + 1)), "random_share_at_or_above": float((np.sum(nl >= o) + 1) / (NRAND + 1))})
-    print(vname, "done", flush=True)
+    print(vname, " ".join(pops), "done", flush=True)
 pd.DataFrame(eff).to_csv(a["effects"], sep="\t", index=False)
-pd.DataFrame(bsub).to_csv(a["subtracted"], sep="\t", index=False)
-pd.DataFrame(genes_out).to_csv(a["genes"], sep="\t", index=False)
 pd.DataFrame(counts).to_csv(a["nuclei"], sep="\t", index=False)
-pd.DataFrame(per_gene).to_csv(a["per_gene"], sep="\t", index=False)

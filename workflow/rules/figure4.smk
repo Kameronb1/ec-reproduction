@@ -1,10 +1,12 @@
-# Figure 4 and its supplementary Figures S14 and S16: SC-islet composition (B, S14), per-cell EC scores and expression in grafts
-# and longer culture (C), cholesterol synthesis (D, S16A), gap to primary intestinal EC (E), fetal-versus-adult age score (F),
-# NFE2L1 regulon target score (S16A) and regulon screens (S16B-D). Panel A is the curated design of the rows (samples in
-# rows_called.tsv).
+# Figure 4: SC-islet grafts and extended culture. A, mature endocrine composition of each graft against its in vitro
+# samples; B, cells classified as EC by the four-marker classifier and the four markers' expression change; C, gap to
+# primary intestinal EC on the gene groups; D, E, promoter and distal chromatin accessibility of the gene groups. The
+# composition table of Supplementary Figure S7 and the chromatin tables of Supplementary Figure S8B-C are made here too.
+# The four-marker constants come from the classifier unit (figure_s2_s3). Rules marked resources heavy_r=1 hold the
+# intestinal reference matrix or a chromatin peak matrix in memory; with --resources heavy_r=1 they run one at a time.
 
 FIG4_OK = str(RESULTS / "figure4_inputs_verified.txt")
-F4_TREES = ["GSE167880", "GSE151117", "GSE139535", "GSE185036_S6D2", "GSE185036_10wpt", "GSE202497", "GSE114412"]
+F4_TREES = ["GSE167880", "GSE151117", "GSE139535", "GSE185036_S6D2", "GSE185036_10wpt", "GSE202497"]
 
 
 def f4_tree_files(n):
@@ -17,13 +19,15 @@ def f4_tree_files(n):
 
 
 def f4_args(wildcards, input):
-    """name="path" for every named input except the input-check file (ok)."""
-    return " ".join(f'{k}="{v}"' for k, v in input.items() if k != "ok")
+    """name="path" for every named input except the input-check file (ok) and the script."""
+    return " ".join(f'{k}="{v}"' for k, v in input.items() if k not in ("ok", "script"))
 
 
 rule figure4_composition:
+    """Figure 4A and Figure S7: mature endocrine composition of every SC-islet sample (published labels)."""
     input:
         ok=FIG4_OK,
+        script=script("figure4", "composition.R"),
         balboa=data("figure4/pseudobulk/GSE167880/profiles.tsv"),
         hues8=data("figure4/pseudobulk/GSE151117/profiles.tsv"),
         ws4=data("figure4/pseudobulk/GSE139535/profiles.tsv"),
@@ -37,33 +41,36 @@ rule figure4_composition:
         f4b=result("figure4", "f4b_composition.tsv"),
         s1=result("figure4", "s1_composition.tsv"),
     params:
-        script=script("figure4", "composition.R"),
         args=f4_args,
     shell:
-        '"{RSCRIPT}" "{params.script}" {params.args} f4b="{output.f4b}" s1="{output.s1}"'
+        '"{RSCRIPT}" "{input.script}" {params.args} f4b="{output.f4b}" s1="{output.s1}"'
 
 
 rule figure4_ec_calls:
+    """Figure 4A (samples per row end) and 4B (four-marker scores and calls of every SC-SIC and SC-beta cell)."""
     input:
         ok=FIG4_OK,
-        calls=data("figure4/ec_calls_per_cell.tsv.gz"),
-        calls_soupx=data("figure4/ec_calls_per_cell_soupx.tsv.gz"),
+        script=script("figure4", "ec_calls.R"),
+        markers_soupx=data("figure4/graft_marker_counts/soupx.tsv.gz"),
+        markers_uncorrected=data("figure4/graft_marker_counts/uncorrected.tsv.gz"),
+        constants=result("figure_s2_s3", "fitted_constants.json"),
         comparisons=data("figure4/comparisons_whole_cell.tsv"),
         comparisons_nuclei=data("figure4/comparisons_nuclei.tsv"),
     output:
-        rows=result("figure4", "rows_called.tsv"),
-        rows_soupx=result("figure4", "rows_called_soupx.tsv"),
+        rows=result("figure4", "row_samples.tsv"),
         cells=result("figure4", "C_cells.tsv.gz"),
+        shares=result("figure4", "four_marker_row_shares.tsv"),
     params:
-        script=script("figure4", "ec_calls.R"),
         args=f4_args,
     shell:
-        '"{RSCRIPT}" "{params.script}" {params.args} rows="{output.rows}" rows_soupx="{output.rows_soupx}" cells="{output.cells}"'
+        '"{RSCRIPT}" "{input.script}" {params.args} rows="{output.rows}" cells="{output.cells}" shares="{output.shares}"'
 
 
 rule figure4_levels:
+    """Figure 4B (the four markers' expression change) and 4C (gap to primary intestinal EC on the gene groups)."""
     input:
         ok=FIG4_OK,
+        script=script("figure4", "levels.R"),
         **f4_tree_files(6),
         gut=data("shared/gut_reference_analysis.rds"),
         cfap92=data("figure4/gut_cfap92_alias_row.rds"),
@@ -72,120 +79,68 @@ rule figure4_levels:
         nuc_pseudobulk=data("figure4/gse199636_recount/pseudobulk_counts.tsv.gz"),
         soupx_profiles=data("figure4/soupx_graft_profiles.tsv"),
         soupx_pseudobulk=data("figure4/soupx_graft_pseudobulk.tsv.gz"),
-        rows=result("figure4", "rows_called.tsv"),
-        classifier=data("figure4/sc_sic_classifier_fold_models.rds"),
-        chol=data("figure4/cholesterol_biosynthesis_genes.tsv"),
+        rows=result("figure4", "row_samples.tsv"),
         groups=data("shared/fig3_gene_groups.tsv.gz"),
         roster=data("shared/gut_reference_roster/gut_reference_roster.json"),
     output:
         bars=result("figure4", "C_bars.tsv"),
-        chol_out=result("figure4", "D_cholesterol_medians.tsv"),
-        chol_genes=result("figure4", "D_cholesterol_per_gene.tsv"),
         gaps=result("figure4", "E_group_gaps.tsv"),
         end_spread=result("figure4", "E_end_spread.tsv"),
     params:
-        script=script("figure4", "levels.R"),
         args=f4_args,
+    resources:
+        heavy_r=1,
     shell:
-        '"{RSCRIPT}" "{params.script}" {params.args} bars="{output.bars}" chol_out="{output.chol_out}" '
-        'chol_genes="{output.chol_genes}" gaps="{output.gaps}" end_spread="{output.end_spread}"'
+        '"{RSCRIPT}" "{input.script}" {params.args} bars="{output.bars}" gaps="{output.gaps}" end_spread="{output.end_spread}"'
 
 
-F4_AGE_LISTS = {"adult": data("figure4/age_adult_high_genes.txt"), "fetal": data("figure4/age_fetal_high_genes.txt")}
-F4_AGE_FLOOR = {"adult_floor": result("figure4", "age_adult_high_genes_floor10.txt"),
-                "fetal_floor": result("figure4", "age_fetal_high_genes_floor10.txt")}
-F4_GUT_PB = "shared/ec_identity_pseudobulk/gut_primary"
-F4_TEST_PB = "figure3/h_test_sources_four_marker/four_marker_abstain"
-
-
-rule figure4_age_floor_genes:
+rule figure4_chromatin:
+    """Figure 4D (culture weeks 2-4, months 6 and 12, graft median), 4E and S8C (grafts against random gene sets):
+    promoter and distal accessibility of the gene groups in Augsornworawat 2023."""
     input:
         ok=FIG4_OK,
-        **F4_AGE_LISTS,
-        gut_detected=data(F4_GUT_PB + "_detected.tsv.gz"),
-        gut_groups=data(F4_GUT_PB + "_groups.tsv"),
+        script=script("figure4", "chromatin_promoters_culture_grafts.R"),
+        groups=data("shared/gene_groups/gene_groups_main/gene_groups_definitions.tsv.gz"),
+        gtf=data("figure5/coordinates/genes.gtf.gz"),
+        mtx=data("figure5/chromatin/gse199636/peaks_by_sample_label.mtx"),
+        peaks=data("figure5/chromatin/gse199636/peak_ids.txt"),
+        pbgroups=data("figure5/chromatin/gse199636/sample_label_groups.tsv"),
     output:
-        **F4_AGE_FLOOR,
-    params:
-        script=script("figure4", "age_floor_genes.R"),
-        args=f4_args,
+        culture=result("figure4", "c5_culture_within_pops_wk2to4.tsv"),
+        culture_genes=result("figure4", "c5_culture_per_gene.tsv"),
+        culture_ext=result("figure4", "c5_culture_extended.tsv"),
+        culture_ext_genes=result("figure4", "c5_culture_extended_per_gene.tsv"),
+        graft=result("figure4", "c5_graft_relative.tsv"),
+        graft_pop=result("figure4", "c5_graft_relative_by_population.tsv"),
+        agreement=result("figure4", "c5_graft_window_agreement.tsv"),
+    resources:
+        heavy_r=1,
     shell:
-        '"{RSCRIPT}" "{params.script}" {params.args} adult_floor="{output.adult_floor}" fetal_floor="{output.fetal_floor}"'
+        '"{RSCRIPT}" "{input.script}" groups="{input.groups}" gtf="{input.gtf}" mtx="{input.mtx}" peaks="{input.peaks}" '
+        'pbgroups="{input.pbgroups}" out_culture="{output.culture}" out_culture_genes="{output.culture_genes}" '
+        'out_culture_ext="{output.culture_ext}" out_culture_ext_genes="{output.culture_ext_genes}" '
+        'out_graft="{output.graft}" out_graft_pop="{output.graft_pop}" out_agreement="{output.agreement}"'
 
 
-rule figure4_age_score:
+rule figure4_chromatin_relative:
+    """Figure 4D (Zhu 2023, days 21, 32 and 39) and S8B (Hickey 2023, small intestine and colon): each gene group's
+    promoter accessibility against the typical gene of the same cell type."""
     input:
         ok=FIG4_OK,
-        **f4_tree_files(5),
-        nuc_profiles=data("figure4/gse199636_recount/profiles.tsv"),
-        nuc_pseudobulk=data("figure4/gse199636_recount/pseudobulk_counts.tsv.gz"),
-        gut_sums=data(F4_GUT_PB + "_sums.tsv.gz"),
-        gut_groups=data(F4_GUT_PB + "_groups.tsv"),
-        test_sums=data(F4_TEST_PB + "_sums.tsv.gz"),
-        test_groups=data(F4_TEST_PB + "_groups.tsv"),
-        **F4_AGE_FLOOR,
-        rows=result("figure4", "rows_called.tsv"),
+        script=script("figure4", "chromatin_promoters_relative.R"),
+        groups=data("shared/gene_groups/gene_groups_main/gene_groups_definitions.tsv.gz"),
+        zhu_counts=data("figure5/zhu_chromatin/promoter_counts_by_gene.tsv"),
+        zhu_groups=data("figure5/zhu_chromatin/groups.tsv"),
+        gtf=data("figure5/coordinates/genes.gtf.gz"),
+        hickey_mtx=data("figure5/chromatin/hickey/peaks_by_sample_label.mtx"),
+        hickey_peaks=data("figure5/chromatin/hickey/peak_ids.txt"),
+        hickey_pbgroups=data("figure5/chromatin/hickey/sample_label_groups.tsv"),
     output:
-        out=result("figure4", "age_score_by_sample.tsv"),
-        ticks=result("figure4", "fig3H_ticks.tsv"),
-        genes=result("figure4", "age_score_genes_by_sample.tsv"),
-    params:
-        script=script("figure4", "age_score.R"),
-        args=f4_args,
+        relative=result("figure4", "c5_relative_zhu_hickey.tsv"),
+        per_gene=result("figure4", "c5_relative_zhu_hickey_per_gene.tsv"),
+    resources:
+        heavy_r=1,
     shell:
-        '"{RSCRIPT}" "{params.script}" {params.args} out="{output.out}" ticks="{output.ticks}" genes="{output.genes}"'
-
-
-rule figure4_cholesterol_culture:
-    input:
-        ok=FIG4_OK,
-        **f4_tree_files(7),
-        gut=data("shared/gut_reference_analysis.rds"),
-        universe=data("shared/gene_groups/universe_paneld_tested.txt"),
-        nuc_profiles=data("figure4/gse199636_recount/profiles.tsv"),
-        nuc_pseudobulk=data("figure4/gse199636_recount/pseudobulk_counts.tsv.gz"),
-        soupx_profiles=data("figure4/soupx_graft_profiles.tsv"),
-        soupx_pseudobulk=data("figure4/soupx_graft_pseudobulk.tsv.gz"),
-        rows=result("figure4", "rows_called.tsv"),
-        comparisons=data("figure4/comparisons_whole_cell.tsv"),
-        chol=data("figure4/cholesterol_biosynthesis_genes.tsv"),
-        zhu_alpha_profiles=data("figure4/sc_alpha_profiles/GSE202497/profiles.tsv"),
-        zhu_alpha_counts=data("figure4/sc_alpha_profiles/GSE202497/counts.tsv.gz"),
-        veres_alpha_profiles=data("figure4/sc_alpha_profiles/GSE114412/profiles.tsv"),
-        veres_alpha_counts=data("figure4/sc_alpha_profiles/GSE114412/counts.tsv.gz"),
-        d_genes=result("figure4", "D_cholesterol_per_gene.tsv"),
-        d_medians=result("figure4", "D_cholesterol_medians.tsv"),
-    output:
-        tiles=result("figure4", "s2_cholesterol_tiles.tsv"),
-        medians=result("figure4", "s2_cholesterol_medians.tsv"),
-    params:
-        script=script("figure4", "cholesterol_culture.R"),
-        args=f4_args,
-    shell:
-        '"{RSCRIPT}" "{params.script}" {params.args} tiles="{output.tiles}" medians="{output.medians}"'
-
-
-rule figure4_regulon_screen_tables:
-    input:
-        ok=FIG4_OK,
-        screen=data("figure4/regulon_screen.tsv.gz"),
-    output:
-        a=result("figure4", "s3a_decline_screen.tsv"),
-        b=result("figure4", "s3b_cholesterol_screen.tsv"),
-        d=result("figure4", "s3d_regulon_recurrence.tsv"),
-    params:
-        script=script("figure4", "regulon_screen_tables.R"),
-    shell:
-        '"{RSCRIPT}" "{params.script}" screen="{input.screen}" a="{output.a}" b="{output.b}" d="{output.d}"'
-
-
-rule figure4_nfe2l1_activity:
-    input:
-        ok=FIG4_OK,
-        units=data("figure4/nfe2l1_regulon_unit_activity.tsv"),
-    output:
-        result("figure4", "s2_nfe2l1_bars.tsv"),
-    params:
-        script=script("figure4", "nfe2l1_activity.py"),
-    shell:
-        '"{PYTHON}" "{params.script}" units="{input.units}" out="{output}"'
+        '"{RSCRIPT}" "{input.script}" groups="{input.groups}" zhu_counts="{input.zhu_counts}" zhu_groups="{input.zhu_groups}" '
+        'gtf="{input.gtf}" hickey_mtx="{input.hickey_mtx}" hickey_peaks="{input.hickey_peaks}" hickey_pbgroups="{input.hickey_pbgroups}" '
+        'out_groups="{output.relative}" out_genes="{output.per_gene}"'

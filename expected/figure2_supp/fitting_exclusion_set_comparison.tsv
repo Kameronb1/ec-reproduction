@@ -1,5 +1,0 @@
-exclusion_set	is_primary	excluded_symbols	excluded_matrix_rows	candidates	vetoed	high_confidence	both_pass	both_veto	vetoed_only_by_primary	vetoed_only_by_this	disagreements	agreement_pct	q_spearman_vs_primary	class_changed_vs_primary
-none	TRUE	0	0	323	34	289	289	34	0	0	0	100	1	0
-core4	FALSE	4	4	323	42	281	280	33	1	9	10	96.9040247678019	0.987684934687535	10
-core6	FALSE	6	6	323	44	279	279	34	0	10	10	96.9040247678019	0.982366763839498	10
-shipped27	FALSE	27	27	323	52	271	271	34	0	18	18	94.4272445820433	0.974913345082316	18

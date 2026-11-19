@@ -1,0 +1,119 @@
+group	part	gene	position
+G2	higher in SC-SICs	RYR2	1
+G2	higher in SC-SICs	COL5A2	2
+G2	higher in SC-SICs	ARHGAP24	3
+G2	higher in SC-SICs	HDAC9	4
+G2	higher in SC-SICs	ASCL1	5
+G2	higher in SC-SICs	ARHGAP20	6
+G2	higher in SC-SICs	LUZP2	7
+G2	higher in SC-SICs	ZPLD1	8
+G2	higher in SC-SICs	DDC	9
+G2	no significant difference	KCNS3	10
+G2	no significant difference	CAMK1D	11
+G2	no significant difference	TRPC7	12
+G2	no significant difference	LMX1A	13
+G2	no significant difference	CADM2	14
+G2	no significant difference	KCNIP1	15
+G2	no significant difference	RAB3C	16
+G2	no significant difference	NPY1R	17
+G2	no significant difference	SERGEF	18
+G2	no significant difference	PRKCH	19
+G2	no significant difference	DNAJC12	20
+G2	no significant difference	FEV	21
+G2	no significant difference	ADH6	22
+G2	no significant difference	RETREG1	23
+G2	no significant difference	TMEFF2	24
+G2	no significant difference	SYT13	25
+G2	no significant difference	STUM	26
+G2	no significant difference	MOSPD2	27
+G2	no significant difference	SLC18A1	28
+G2	no significant difference	TPH1	29
+G2	no significant difference	SAAL1	30
+G2	no significant difference	CDHR3	31
+G2	no significant difference	TMEM178A	32
+G2	no significant difference	ADH1A	33
+G2	no significant difference	TAC1	34
+G3	all	STAC	1
+G3	all	PLCL1	2
+G3	all	ANKS1B	3
+G3	all	SORCS1	4
+G3	all	ERBB4	5
+G3	all	GLP1R	6
+G3	all	NLGN1	7
+G3	all	MYT1L	8
+G3	all	CBLN1	9
+G3	all	KCNK13	10
+G3	all	COL4A6	11
+G3	all	ARPP21	12
+G3	all	TTC29	13
+G3	all	MEGF11	14
+G3	all	SH3GL3	15
+G3	all	DACH2	16
+G3	all	IL1RAPL1	17
+G3	all	ZMAT4	18
+G3	all	COL4A5	19
+G3	all	GRIA2	20
+G3	all	ADAMTSL3	21
+G3	all	SLITRK1	22
+G3	all	MIR137HG	23
+G3	all	RGMA	24
+G3	all	SYT6	25
+G3	all	PAK5	26
+G3	all	DYNC1I1	27
+G3	all	DLGAP2	28
+G3	all	SLIT3	29
+G3	all	PEG10	30
+G3	all	SERTM2	31
+G3	all	ADAMTS9	32
+G3	all	SH3RF3	33
+G3	all	NTRK3	34
+G3	all	TENM1	35
+G3	all	RERG	36
+G3	all	DTX1	37
+G3	all	B3GAT1	38
+G3	all	GPC4	39
+G3	all	SNTG1	40
+G3	all	RNF220	41
+G3	all	FMNL2	42
+G3	all	SIX2	43
+G3	all	JPH4	44
+G3	all	ANOS1	45
+G3	all	LRRC4C	46
+G3	all	SHISA9	47
+G3	all	CLMP	48
+G3	all	TRABD2B	49
+G3	all	LINC02484	50
+G3	all	ESR1	51
+G3	all	SLC24A2	52
+G3	all	PRPS2	53
+G3	all	PTPRO	54
+G3	all	GPR85	55
+G3	all	RHOH	56
+G3	all	ANGPT2	57
+G3	all	PPFIA2	58
+G3	all	PLPP4	59
+G3	all	PPP1R17	60
+G3	all	GALNT17	61
+G3	all	TMEM114	62
+G3	all	LRTM1	63
+G3	all	NACAD	64
+G3	all	GPC3	65
+G3	all	ALX1	66
+G3	all	LINC02008	67
+G3	all	CHST1	68
+G3	all	SHANK2	69
+G3	all	EPHA7	70
+G3	all	KIAA2012	71
+G3	all	CIT	72
+G3	all	LTBP2	73
+G3	all	THSD7B	74
+G3	all	SLCO3A1	75
+G3	all	ADCYAP1	76
+G3	all	SLC17A8	77
+G3	all	LINC02550	78
+G3	all	DAB1	79
+G3	all	ACOXL	80
+G3	all	KCNA4	81
+G3	all	NEUROD4	82
+G3	all	LINC02552	83
+G3	all	KCNN2	84

@@ -1,39 +1,20 @@
 output	expected	mode	key_columns	rel_tolerance	reason
-regulator_rna/tf_expression_by_sample.tsv	regulator_rna/tf_expression_by_sample.tsv	exact			Table behind 5A: per-sample regulator RNA, from which the 5A table is built (adult alpha includes Bandesh 2026 Proliferating_Alpha)
-regulator_rna/tf_expression_pooled_sparse_gut.tsv	regulator_rna/tf_expression_pooled_sparse_gut.tsv	exact			Table behind 5A: the pooled profile of the gut study with no sample reaching 20 EC cells (Elmentaite 2020)
-regulator_rna/f5_5a_regulator_rna.tsv	regulator_rna/f5_5a_regulator_rna.tsv	exact			Table drawn in 5A (adult alpha includes Bandesh 2026 Proliferating_Alpha)
-regulator_rna/f5_5a_regulator_rna__hio_mccauley_rows.tsv	regulator_rna/f5_5a_regulator_rna__hio_mccauley_rows.tsv	exact			Table drawn in 5A (the McCauley 2023 HIO graft EC rows)
-regulator_rna/f5_s4_hio_mccauley_rna_detail.tsv	regulator_rna/f5_s4_hio_mccauley_rna_detail.tsv	exact			McCauley 2023 HIO graft EC CDX-family RNA for Figure S17E; not drawn
-cdx2_knockout/genotype_by_label.tsv	cdx2_knockout/genotype_by_label.tsv	exact			Table behind S17F (nuclei per genotype and transferred label)
-cdx2_knockout/figure5d_comparison.tsv	cdx2_knockout/figure5d_comparison.tsv	exact			Table drawn in S17F (beside the bars of Zhu 2023's published Figure 5D)
-cdx2_knockout/group_test/group_effects.tsv	cdx2_knockout/group_test/group_effects.tsv	exact			Table drawn in 5F and behind S17G: the knockout effect on each gene group in SC-SIC, SC-beta and SC-alpha (the study's deposited nuclei) against 500 expression-matched random gene sets
-cdx2_knockout/group_test/beta_subtracted.tsv	cdx2_knockout/group_test/beta_subtracted.tsv	exact			The knockout effect on each gene group in SC-SIC minus the same effect in SC-beta; not drawn
-cdx2_knockout/group_test/figure5e_genes.tsv	cdx2_knockout/group_test/figure5e_genes.tsv	exact			Table drawn in S17G: Zhu 2023's Figure 5E genes in wild-type and knockout SC-SIC and SC-beta
-cdx2_knockout/group_test/nuclei.tsv	cdx2_knockout/group_test/nuclei.tsv	exact			Table behind 5F and S17G: nuclei per genotype and cell type
-cdx2_knockout/group_test/per_gene.tsv	cdx2_knockout/group_test/per_gene.tsv	exact			Per-gene knockout changes in SC-SIC and SC-beta behind each gene set's value; not drawn
-c5_promoters_by_sibling.tsv	c5_promoters_by_sibling.tsv	exact			Table drawn in S17A (all three Augsornworawat 2023 samples on Figure 1 labels, SC-alpha = Alpha + Proliferating Alpha)
-c5_culture_within_pops_wk2to4.tsv	c5_culture_within_pops_wk2to4.tsv	exact			Table drawn in 5C
-c5_culture_per_gene.tsv	c5_culture_per_gene.tsv	exact			Per-gene table drawn as the 5C boxes (25th-75th percentile of each group's genes per week)
-c5_graft_relative.tsv	c5_graft_relative.tsv	exact			Table drawn in 5D (in vitro side = the three week-2 samples Figure 4 uses)
-c5_graft_window_agreement.tsv	c5_graft_window_agreement.tsv	exact			Table drawn in 5D (in vitro side = the three week-2 samples Figure 4 uses)
-c5_graft_relative_by_population.tsv	c5_graft_relative_by_population.tsv	exact			Table drawn in 5D and S17D: the 5D comparison within SC-SIC, SC-beta and SC-alpha (SC-SIC rows = c5_graft_relative.tsv)
-identity/all_programs.tsv	identity/all_programs.tsv	exact			Table behind 5E: every eligible regulon with its selection result
-identity/factors.tsv	identity/factors.tsv	exact			Table drawn in 5E: the selected factors
-identity/program_values.tsv	identity/program_values.tsv	exact			Table drawn in 5E: the values of every regulon of the selected factors
-identity/gut_parts.tsv	identity/gut_parts.tsv	exact			Table behind 5E: the gut values of each study part (all eligible regulons)
-identity/tests.tsv	identity/tests.tsv	exact			Table behind S19A and S19B: the target tests of each factor
-identity/factors_display.tsv	identity/factors_display.tsv	exact			Table behind S19A and S19B: each factor's tests and display details
-identity/f5_s_gh_values_ALL_ELIGIBLE.tsv	identity/f5_s_gh_values_ALL_ELIGIBLE.tsv	exact			Values drawn in S18A, S19A and S19B
-identity/f5_s_gh_singh_values_ALL_ELIGIBLE.tsv	identity/f5_s_gh_singh_values_ALL_ELIGIBLE.tsv	exact			Values drawn in S18B
-identity/gse214852_values_primary_labels.tsv	identity/gse214852_values_primary_labels.tsv	exact			McCauley 2023 (GSE214852) values on its primary study labels, drawn in S18B; S18A, S19A and S19B take their factor rows from it
-cdx_sites/f5_s4_cdx_sites_vs_rna.tsv	f5_s4_cdx_sites_vs_rna.tsv	exact			Table drawn in S17E, chromatin axis (four chromatin cohorts)
-c5_culture_extended.tsv	c5_culture_extended.tsv	exact			Table drawn in 5C: weeks 2-4 (as c5_culture_within_pops_wk2to4.tsv), months 6 and 12, and the median of the three grafts (single grafts kept, drawn = FALSE)
-c5_culture_extended_per_gene.tsv	c5_culture_extended_per_gene.tsv	exact			Per-gene table behind the 5C bars (25th-75th percentile of each group's genes per sample; graft median = each gene's median over the three grafts)
-c5_relative_zhu_hickey_singh.tsv	c5_relative_zhu_hickey_singh.tsv	exact			Table drawn in 5B (Zhu 2023, days 21, 32 and 39), S17B (Hickey 2023, small intestine and colon) and S17C (Singh 2024, days 5 and 6): 5C's measure, each gene group's median gene and middle half
-c5_relative_zhu_hickey_singh_per_gene.tsv	c5_relative_zhu_hickey_singh_per_gene.tsv	exact			Per-gene table behind 5B, S17B and S17C (each group gene's value against the typical gene of the same cell type)
-cdx_sites/f5_s4_cdx2_rna_ec_minus_other.tsv	f5_s4_cdx2_rna_ec_minus_other.tsv	exact			Table drawn in S17E, RNA axis: CDX2 RNA, EC minus other endocrine cells, per study
-cdx_sites/f5_s4_cdx2_rna_by_profile.tsv	f5_s4_cdx2_rna_by_profile.tsv	exact			CDX2 RNA of each pseudobulk profile behind S17E's RNA axis; not drawn
-cdx2_knockout/regulon_targets/set_effects.tsv	cdx2_knockout/regulon_targets/set_effects.tsv	exact			Table drawn in S17H: the knockout effect on the targets of CDX2's own regulons in SC-SIC, SC-beta and SC-alpha against 500 expression-matched random gene sets
-cdx2_knockout/regulon_targets/beta_subtracted.tsv	cdx2_knockout/regulon_targets/beta_subtracted.tsv	exact			SC-SIC minus SC-beta for the CDX2 regulon target sets; not drawn
-cdx2_knockout/regulon_targets/sets.tsv	cdx2_knockout/regulon_targets/sets.tsv	exact			Genes of each CDX2 regulon target set (current symbol and the name the network used) and whether each is measurable; behind S17H
-cdx2_knockout/regulon_targets/context_regulons.tsv	cdx2_knockout/regulon_targets/context_regulons.tsv	exact			Table drawn in S17I (its reproducible rows): every scorable Figure 5E regulon in SC-SIC, each against its own 500 random gene sets
+regulator_rna/tf_expression_by_sample.tsv	regulator_rna/tf_expression_by_sample.tsv	exact			Table behind 5A: per-sample regulator RNA, from which the 5A table and its per-study strip are built (adult alpha includes Bandesh 2026 Proliferating_Alpha)
+regulator_rna/tf_expression_pooled_sparse_gut.tsv	regulator_rna/tf_expression_pooled_sparse_gut.tsv	exact			Table behind 5A: the pooled profile of the intestinal study with no sample reaching 20 EC cells (Elmentaite 2020)
+regulator_rna/f5_5a_regulator_rna.tsv	regulator_rna/f5_5a_regulator_rna.tsv	rows_unordered			Table drawn in 5A (adult alpha includes Bandesh 2026 Proliferating_Alpha; Elmentaite 2020 and 2021 drawn as one row, the mean of the two). Rows in any order: the order of regulators within a column comes from R's merge(), which does not fix the order of rows sharing a key, and carries no meaning
+regulator_rna/f5_5a_regulator_rna__hio_mccauley_rows.tsv	regulator_rna/f5_5a_regulator_rna__hio_mccauley_rows.tsv	exact			Table drawn in 5A (the McCauley 2023 HIO graft EC row)
+regulons/all_programs.tsv	regulons/all_programs.tsv	exact			Table behind 5B: every regulon with its selection result
+regulons/factors.tsv	regulons/factors.tsv	exact			Table drawn in 5B (the selected factors; also the row list of S9A and S9B)
+regulons/program_values.tsv	regulons/program_values.tsv	exact			Table drawn in 5B (the values of every regulon of the selected factors; also the colors of S9A and the regulons of S9D)
+regulons/gut_parts.tsv	regulons/gut_parts.tsv	exact			Table behind 5B and S9A: the intestinal values of each study part
+regulons/tests.tsv	regulons/tests.tsv	exact			Table drawn in S9B (the q of each factor's lean test)
+regulons/factors_display.tsv	regulons/factors_display.tsv	exact			Table behind S9B: each factor's target tests and display details
+regulons/supplement_values.tsv	regulons/supplement_values.tsv	exact			Values drawn in S9A (intestinal study means) and S9B (G2 and G3 among pooled targets)
+regulons/mccauley2023_values.tsv	regulons/mccauley2023_values.tsv	exact			McCauley 2023 HIO graft EC values on the published labels, drawn in S9A
+cdx2_knockout/genotype_by_label.tsv	cdx2_knockout/genotype_by_label.tsv	exact			Table behind S9C (nuclei per genotype and transferred label)
+cdx2_knockout/figure5d_comparison.tsv	cdx2_knockout/figure5d_comparison.tsv	exact			Table drawn in S9C (beside the shares published in Figure 5D of Zhu 2023)
+cdx2_knockout/group_test/group_effects.tsv	cdx2_knockout/group_test/group_effects.tsv	exact			Table drawn in 5C: the knockout effect on each gene group in SC-SIC, SC-beta and SC-alpha (the study's deposited nuclei) against 500 expression-matched random gene sets
+cdx2_knockout/group_test/nuclei.tsv	cdx2_knockout/group_test/nuclei.tsv	exact			Table behind 5C: nuclei per genotype and cell type
+cdx2_knockout/regulon_targets/set_effects.tsv	cdx2_knockout/regulon_targets/set_effects.tsv	exact			Table behind S9D: the knockout effect on the targets of CDX2's own regulons in SC-SIC, SC-beta and SC-alpha against 500 expression-matched random gene sets; not drawn
+cdx2_knockout/regulon_targets/sets.tsv	cdx2_knockout/regulon_targets/sets.tsv	exact			Genes of each CDX2 regulon target set (current symbol and the name the network used) and whether each is measurable; behind S9D, not drawn
+cdx2_knockout/regulon_targets/context_regulons.tsv	cdx2_knockout/regulon_targets/context_regulons.tsv	exact			Table drawn in S9D (its reproducible scored rows): every scorable regulon of 5B in SC-SIC, each against its own 500 random gene sets

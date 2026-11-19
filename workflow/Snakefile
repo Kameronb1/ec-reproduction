@@ -42,12 +42,29 @@ def script(figure, name):
 
 
 FIGURES = config["figures"]
-# Figures whose plots also read another figure's tables: the Figure 2 supplement draws Fig. 2D's 20 genes
-# and their per-study effects (S4A, S5A-B). Those figures' rules are loaded too, but not targeted.
-PLOT_NEEDS = {"figure2_supp": ["figure2"]}
-# Figures whose analysis reads another figure's results: the Figure 3 supplement's S6A uses the TPH1-only
-# classifier fitted by the Figure 2 supplement. Those rules are loaded too (with what they need), but not targeted.
-RULE_NEEDS = {"figure3_supp": ["figure2_supp"], "figure2_supp": ["figure2"]}
+# Figures whose plots also read another figure's tables: 1E draws the classifier scores and cutoff fitted
+# for Figure S2; S1A, S7, S8B-C and S9 draw tables made by the rules of Figures 1, 4 and 5; S4 uses the
+# color range of 3B. Those figures' rules are loaded too, but not targeted.
+PLOT_NEEDS = {
+    "figure1": ["figure_s2_s3"],
+    "figure_s1": ["figure1"],
+    "figure_s4": ["figure3"],
+    "figure_s7": ["figure4"],
+    "figure_s8": ["figure4"],
+    "figure_s9": ["figure5"],
+}
+# Figures whose analysis reads another figure's results: the classifier constants and scores of Figure S2
+# (1E, 4B) and the gene groups of Figure 2D (Figures 3, 5, S4 and S6); S8A reads the sample rows of
+# Figure 4. Those rules are loaded too (with what they need), but not targeted.
+RULE_NEEDS = {
+    "figure1": ["figure_s2_s3"],
+    "figure3": ["figure2"],
+    "figure4": ["figure_s2_s3"],
+    "figure5": ["figure2"],
+    "figure_s4": ["figure2"],
+    "figure_s6": ["figure2"],
+    "figure_s8": ["figure4"],
+}
 LOADED = list(FIGURES)
 for fig in LOADED:
     for need in PLOT_NEEDS.get(fig, []) + RULE_NEEDS.get(fig, []):
@@ -127,7 +144,6 @@ rule draw_panel:
         helpers=lambda w: sorted(str(p) for p in plot_folder(w).glob("*.R")),
         # label positions and display groupings the plots read from their own folder
         drawing=lambda w: sorted(str(p) for p in plot_folder(w).glob("*.tsv")),
-        study_names=str(REPO / "config" / "study_names.tsv"),
     output:
         str(RESULTS / "{fig}" / "panels" / "{image}"),
     params:

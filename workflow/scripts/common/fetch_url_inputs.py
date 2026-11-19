@@ -7,7 +7,10 @@ with the right checksum is already there, and refuses a download whose SHA-256 d
 import csv
 import glob
 import hashlib
+import shutil
 import sys
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -18,6 +21,24 @@ def sha256(path):
         for block in iter(lambda: handle.read(1 << 20), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def download(url, path, attempts=5):
+    """Fetch url into path. Some servers refuse the default Python client name or limit the request
+    rate, so the request names this workflow and a refused request is repeated after a pause."""
+    request = urllib.request.Request(url, headers={"User-Agent": "ec-reproduction-workflow/1.0", "Accept": "*/*"})
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response, open(path, "wb") as handle:
+                shutil.copyfileobj(response, handle)
+            return
+        except urllib.error.HTTPError as error:
+            if error.code not in (429, 503) or attempt == attempts:
+                sys.exit(f"{url}: the server answered {error.code}. Download the file by hand from this "
+                         f"address, put it at the path given in inputs/, and run this script again.")
+            wait = max(int(error.headers.get("Retry-After") or 0), 10 * attempt)
+            print(f"  server answered {error.code}; trying again in {wait} s")
+            time.sleep(wait)
 
 
 def main(data_dir):
@@ -35,7 +56,7 @@ def main(data_dir):
         target.parent.mkdir(parents=True, exist_ok=True)
         partial = target.with_name(target.name + ".part")
         print(f"downloading {row['url']}")
-        urllib.request.urlretrieve(row["url"], partial)
+        download(row["url"], partial)
         if sha256(partial) != row["sha256"]:
             partial.unlink()
             sys.exit(f"{name}: downloaded file does not match the recorded SHA-256; nothing kept")

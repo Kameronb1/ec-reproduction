@@ -1,0 +1,3 @@
+panel	shows	outputs	script	plot	image	box
+Figure S4A	The 34 G2 genes in each study's primary intestinal EC, HIO graft EC and SC-SICs: log2(1 + CPM) of counts pooled over the study's samples; the nine genes higher in SC-SICs first.	g2_g3_pooled_levels.tsv,gene_order.tsv,column_counts.tsv	pooled_levels.R	plot/S4A.R	S4A.png	0,0,4500,2650
+Figure S4B	The 84 G3 genes in each study's primary intestinal EC, HIO graft EC and SC-SICs: log2(1 + CPM) of counts pooled over the study's samples.	g2_g3_pooled_levels.tsv,gene_order.tsv,column_counts.tsv	pooled_levels.R	plot/S4B.R	S4B.png	0,2650,4500,3161

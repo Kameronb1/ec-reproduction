@@ -1,11 +1,11 @@
-"""Figure S17F: cell-type shares in the CDX2 wild-type and knockout SC-islets (Zhu 2023, GSE202493).
+"""Figure S9C: cell-type shares in the CDX2 wild-type and knockout SC-islets (Zhu 2023, GSE202493).
 
 The label table covers every recounted nucleus passing QC; only the 12,615 nuclei that are also in the study's GEO
-deposit are counted here (in_geo_deposit). Each carries a cell-type label transferred from Zhu 2023's own SC-islet
-reference (GSE202497, primary study labels). This script
+deposit are counted here (in_geo_deposit). Each carries a cell-type label transferred from the SC-islet
+reference (GSE202497, published labels; SC_EC is SC-SIC). This script
   1. counts nuclei per genotype and transferred label, for both reference arms (all stages, day 21), exactly as the
      label transfer assigned them (genotype_by_label.tsv);
-  2. compares the all-stage and day-21 shares of the five cell types Zhu's Figure 5D draws (ENP3, SC-alpha, SC-EC,
+  2. compares the all-stage and day-21 shares of the five cell types drawn in Figure 5D of Zhu 2023 (ENP3, SC-alpha, SC-EC,
      SC-beta, SC-delta; shares rescaled to sum to 1 within each genotype) with the published bar heights, read from the
      paper's Figure 5D bar rectangles (figure5d_comparison.tsv). Genotype is the sample label (MM844 = WT, MM845 =
      CDX2-KO): one library per genotype, so the shares describe two samples, not replicated groups.

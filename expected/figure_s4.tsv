@@ -1,0 +1,4 @@
+output	expected	mode	key_columns	rel_tolerance	reason	set_columns
+g2_g3_pooled_levels.tsv	g2_g3_pooled_levels.tsv	exact			Table drawn in S4A and S4B: the 34 G2 and 84 G3 genes x 10 study columns	
+column_counts.tsv	column_counts.tsv	exact			Samples and cells behind each S4 column	
+gene_order.tsv	gene_order.tsv	exact			Gene order and blocks drawn in S4A and S4B	

@@ -3,7 +3,6 @@ Matrix	1.7.5	CRAN
 jsonlite	2.0.0	CRAN
 data.table	1.18.6.1	CRAN
 digest	0.6.39	CRAN
-glmnet	5.0	CRAN
 cluster	2.1.8.2	CRAN
 uwot	0.2.5	CRAN
 ggplot2	4.0.3	CRAN
@@ -20,6 +19,7 @@ msigdbr	26.1.1	CRAN
 babelgene	22.9	CRAN
 Seurat	5.5.1	CRAN
 SeuratObject	5.4.0	CRAN
+harmony	2.0.5	CRAN
 limma	3.68.4	Bioconductor 3.23
 edgeR	4.10.1	Bioconductor 3.23
 clusterProfiler	4.20.0	Bioconductor 3.23

@@ -1,0 +1,2 @@
+panel	shows	outputs	script	plot	image	box
+Figure S7	Mature endocrine composition (published labels) of every sequenced SC-islet sample, in vitro and graft, with the SC-SIC share and the number of mature endocrine cells	../figure4/s1_composition.tsv	../figure4/composition.R	plot/S7.R	S7.png	0,0,4500,5665

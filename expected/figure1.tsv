@@ -1,7 +1,7 @@
 output	expected	mode	key_columns	rel_tolerance	reason
-native_age_chips.tsv	native_age_chips.tsv	exact			Table drawn in 1A, with the study name Yu 2021 used in the paper (the deposited source table says Yu Q 2021)
-study_roles_drawn.tsv	study_roles_drawn.tsv	exact			Table drawn in 1B (also read by 1C)
-display_embedding_cells.tsv.gz	display_embedding_cells.tsv.gz	exact			Table drawn in 1C
+display_embedding_cells.tsv.gz	display_embedding_cells.tsv.gz	exact			Cells drawn in 1C (coordinates and color group); compared after decompression
+sc_sic_share.tsv	sc_sic_share.tsv	exact			SC-SIC share printed over each 1C UMAP
 serotonin_codetection.tsv	serotonin_codetection.tsv	exact			Table drawn in 1D
 serotonin_gene_count.tsv	serotonin_gene_count.tsv	exact			Table drawn in 1D (its last column)
-hormones_in_tph1_cells.tsv	hormones_in_tph1_cells.tsv	exact			Table drawn in 1E
+hormones_by_group.tsv	hormones_by_group.tsv	exact			Table drawn in Supplementary Figure S1A
+sc_islet_above_cutoff.tsv	sc_islet_above_cutoff.tsv	exact			Shares above the cutoff printed at the right of 1E

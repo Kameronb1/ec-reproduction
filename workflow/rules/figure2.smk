@@ -1,181 +1,154 @@
-# Figure 2: fit of the label-free four-marker EC classifier (A), the cells it classifies as EC across
-# donors and samples (B) and within primary study labels, with the four markers' detection per label (C),
-# the gene-ranking datasets' 20-gene panel, its per-study effects and detection (D), and the label-trained
-# 20-gene classifier against the four-marker classifier, cell by cell (E).
-# The leave-one-study-out run of the 20-gene classifier was run on a computing cluster; its results are
-# deposited (figure2/classifier_run/ under data_dir) and read as inputs. Everything else runs locally.
+# Figure 2: tables behind panels A-E. Scripts are in workflow/scripts/figure2/. The gene-group results (gene_groups.tsv.gz,
+# mixed_genes.tsv, universe.txt) and the donor fit are read by other figures.
+# R model fits carry resources heavy_r=1; run with --resources heavy_r=1 to keep them one at a time.
 
-FIG2_OK = str(RESULTS / "figure2_inputs_verified.txt")
-FIG2_RUN = "figure2/classifier_run/"
+F2_OK = str(RESULTS / "figure2_inputs_verified.txt")
+F2_S = script("figure2", "").rstrip("/\\")
+F2_AGG = "shared/ec_identity_pseudobulk/"
+F2_SC_SAMPLES = [
+    "GSE151117__GSE151117__SRR11837751__SC_SIC.tsv.gz",
+    "GSE167880__GSE167880__SRR13805895__SC_SIC.tsv.gz",
+    "GSE167880__GSE167880__SRR13805896__SC_SIC.tsv.gz",
+    "GSE167880__GSE167880__SRR13805897__SC_SIC.tsv.gz",
+    "GSE185036_hCiPSC-islets_S6D2__hCiPSC-islets_S6D2__SC_SIC.tsv.gz",
+    "GSE202497__GSE202497__SRR19140222__SC_SIC.tsv.gz",
+    "GSE202497__GSE202497__SRR19140223__SC_SIC.tsv.gz",
+    "GSE226346_MUC18396__S6_WT__SC_SIC.tsv.gz",
+    "GSE199636__sc_islet_1.tsv.gz",
+    "GSE199636__sc_islet_2.tsv.gz",
+    "GSE199636__s6_week2.tsv.gz",
+]
 
 
-rule figure2_four_marker_fit:
+def f2_agg(key, stem):
+    """The three files of one pseudobulk, as key_sums= key_detected= key_groups= arguments."""
+    return {f"{key}_sums": data(F2_AGG + stem + "_sums.tsv.gz"),
+            f"{key}_detected": data(F2_AGG + stem + "_detected.tsv.gz"),
+            f"{key}_groups": data(F2_AGG + stem + "_groups.tsv")}
+
+
+def f2_args(named):
+    return " ".join(f'{k}="{v}"' for k, v in named.items())
+
+
+F2_A_IN = {**f2_agg("gut", "gut_primary"), **f2_agg("sc", "sc"), **f2_agg("hio", "hio_mccauley_endocrine1"),
+           "roster": data("shared/gut_reference_roster/gut_reference_roster.json")}
+
+rule figure2_signature_correlations:
     input:
-        ok=FIG2_OK,
-        matrix=data("shared/fitting_matrix/fitting_matrix.f64le"),
-        features=data("shared/fitting_matrix/features.tsv"),
-        cells=data("shared/fitting_matrix/cells.tsv"),
-        meta=data("shared/fitting_matrix/cell_metadata.tsv.gz"),
+        ok=F2_OK,
+        **F2_A_IN,
     output:
-        hist=result("figure2", "A_histogram.tsv"),
-        curves=result("figure2", "A_mixture_curves.tsv"),
-        fit=result("figure2", "intermediate/four_marker_fit.json"),
-        hio=result("figure2", "intermediate/hio_four_marker_calls.tsv"),
+        dots=result("figure2", "signature_dots.tsv"),
+        hio_dots=result("figure2", "signature_hio_dots.tsv"),
+        pairwise=result("figure2", "signature_pairwise.tsv"),
+        hio_pairwise=result("figure2", "signature_hio_pairwise.tsv"),
+        gut_folds=result("figure2", "gut_ec_fold_changes.tsv.gz"),
     params:
-        script=script("figure2", "four_marker_fit.R"),
+        args=f2_args(F2_A_IN),
     shell:
-        '"{RSCRIPT}" "{params.script}" matrix="{input.matrix}" features="{input.features}" '
-        'cells="{input.cells}" meta="{input.meta}" hist="{output.hist}" curves="{output.curves}" '
-        'fit="{output.fit}" hio="{output.hio}"'
+        '"{PYTHON}" "{F2_S}/signature_correlations.py" {params.args} dots="{output.dots}" hio_dots="{output.hio_dots}" '
+        'pairwise="{output.pairwise}" hio_pairwise="{output.hio_pairwise}" gut_folds="{output.gut_folds}"'
 
 
-rule figure2_heldout_marker_calls:
+# Figure 2B: only the populations the panel draws enter the normalization and gene selection (dopamine neurons left out).
+rule figure2_brain_similarity:
     input:
-        ok=FIG2_OK,
-        fit=result("figure2", "intermediate/four_marker_fit.json"),
-        gca=data("figure2/heldout_studies/gut_cell_atlas.h5ad"),
-        hickey=data("figure2/heldout_studies/hickey.h5ad"),
-        egozi=data("figure2/heldout_studies/egozi.h5ad"),
-        singh=data("figure2/heldout_studies/gse238274.h5ad"),
+        ok=F2_OK,
+        gut_sums=data(F2_AGG + "gut_primary_sums.tsv.gz"),
+        gut_groups=data(F2_AGG + "gut_primary_groups.tsv"),
+        sc_sums=data(F2_AGG + "sc_sums.tsv.gz"),
+        sc_groups=data(F2_AGG + "sc_groups.tsv"),
+        hio_sums=data(F2_AGG + "hio_mccauley_endocrine1_sums.tsv.gz"),
+        hio_groups=data(F2_AGG + "hio_mccauley_endocrine1_groups.tsv"),
+        islet_sums=data(F2_AGG + "islet_sums.tsv.gz"),
+        islet_groups=data(F2_AGG + "islet_groups.tsv"),
+        gut_roster=data("shared/gut_reference_roster/gut_reference_roster.json"),
+        islet_roster=data("shared/adult_islet_roster/roster.json"),
+        brain_sums=data("figure3_supp/s9/siletti2023_neurons_sums.tsv.gz"),
+        brain_groups=data("figure3_supp/s9/siletti2023_neurons_groups.tsv"),
     output:
-        units=result("figure2", "B_units.tsv"),
-        labels=result("figure2", "C_primary_labels.tsv"),
-        cells=result("figure2", "intermediate/heldout_cells.tsv"),
-    params:
-        script=script("figure2", "heldout_marker_calls.R"),
+        similarity=result("figure2", "brain_similarity.tsv"),
+        unrounded=result("figure2", "brain_similarity_unrounded.tsv"),
     shell:
-        '"{RSCRIPT}" "{params.script}" fit="{input.fit}" '
-        'h5ad_gut_cell_atlas="{input.gca}" h5ad_hickey="{input.hickey}" h5ad_egozi="{input.egozi}" '
-        'h5ad_gse238274="{input.singh}" units="{output.units}" labels="{output.labels}" cells="{output.cells}"'
+        '"{RSCRIPT}" "{F2_S}/brain_similarity.R" gut_sums="{input.gut_sums}" gut_groups="{input.gut_groups}" '
+        'sc_sums="{input.sc_sums}" sc_groups="{input.sc_groups}" hio_sums="{input.hio_sums}" hio_groups="{input.hio_groups}" '
+        'islet_sums="{input.islet_sums}" islet_groups="{input.islet_groups}" gut_roster="{input.gut_roster}" '
+        'islet_roster="{input.islet_roster}" brain_sums="{input.brain_sums}" brain_groups="{input.brain_groups}" '
+        'drop="Brain dopamine neurons" similarity="{output.similarity}" similarity_unrounded="{output.unrounded}"'
 
 
-rule figure2_gene_panel_effects:
+rule figure2_donor_fit:
     input:
-        ok=FIG2_OK,
-        analysis=data("shared/gut_reference_analysis.rds"),
-        secondary=data("figure2/classifier_inputs/secondary_validation.rds"),
-        run_metadata=data(FIG2_RUN + "training_metadata.tsv.gz"),
-        nested_predictions=data(FIG2_RUN + "nested_predictions.tsv.gz"),
-        sv_predictions=data(FIG2_RUN + "sv_predictions.tsv.gz"),
-        sv_labels=data(FIG2_RUN + "sv_labels.tsv.gz"),
-        sv_panels=data(FIG2_RUN + "sv_panels.tsv"),
-        labels=result("figure2", "C_primary_labels.tsv"),
+        ok=F2_OK,
+        gut_sums=data(F2_AGG + "gut_primary_sums.tsv.gz"),
+        gut_groups=data(F2_AGG + "gut_primary_groups.tsv"),
+        roster=data("shared/gut_reference_roster/gut_reference_roster.json"),
+        samples=[data("shared/sc_sic_sample_pseudobulk/" + f) for f in F2_SC_SAMPLES],
     output:
-        heatmap=result("figure2", "D_effect_heatmap.tsv"),
-        concordance=result("figure2", "E_concordance.tsv"),
-        ranking=result("figure2", "intermediate/gene_ranking.tsv"),
+        levels=result("figure2", "donor_fit.tsv.gz"),
+        profiles=result("figure2", "pooled_voom_profiles.tsv.gz"),
+        tested=result("figure2", "tested_genes.txt"),
     params:
-        script=script("figure2", "gene_panel_effects.R"),
+        sc_dir=data("shared/sc_sic_sample_pseudobulk"),
+    resources:
+        heavy_r=1,
     shell:
-        '"{RSCRIPT}" "{params.script}" analysis="{input.analysis}" '
-        'secondary="{input.secondary}" run_metadata="{input.run_metadata}" '
-        'nested_predictions="{input.nested_predictions}" sv_predictions="{input.sv_predictions}" '
-        'sv_labels="{input.sv_labels}" sv_panels="{input.sv_panels}" labels="{input.labels}" '
-        'heatmap="{output.heatmap}" concordance="{output.concordance}" ranking="{output.ranking}"'
+        '"{RSCRIPT}" "{F2_S}/donor_fit.R" gut_sums="{input.gut_sums}" gut_groups="{input.gut_groups}" '
+        'roster="{input.roster}" sc_dir="{params.sc_dir}" levels="{output.levels}" '
+        'profiles="{output.profiles}" tested="{output.tested}"'
 
 
-rule figure2_primary_label_classifier:
+F2_D_IN = {**f2_agg("sc", "sc"), "gut_sums": data(F2_AGG + "gut_primary_sums.tsv.gz"),
+           "gut_groups": data(F2_AGG + "gut_primary_groups.tsv"), "roster": data("shared/gut_reference_roster/gut_reference_roster.json")}
+
+rule figure2_gene_groups:
     input:
-        ok=FIG2_OK,
-        analysis=data("shared/gut_reference_analysis.rds"),
-        secondary=data("figure2/classifier_inputs/secondary_validation.rds"),
-        core=data(FIG2_RUN + "candidate_panel_core_result.rds"),
-        ranking=result("figure2", "intermediate/gene_ranking.tsv"),
-        nested_panels=data(FIG2_RUN + "nested_panels.tsv.gz"),
-        nested_predictions=data(FIG2_RUN + "nested_predictions.tsv.gz"),
-        sv_predictions=data(FIG2_RUN + "sv_predictions.tsv.gz"),
-        sv_labels=data(FIG2_RUN + "sv_labels.tsv.gz"),
+        ok=F2_OK,
+        gut_folds=result("figure2", "gut_ec_fold_changes.tsv.gz"),
+        fit=result("figure2", "donor_fit.tsv.gz"),
+        profiles=result("figure2", "pooled_voom_profiles.tsv.gz"),
+        **F2_D_IN,
     output:
-        calls=result("figure2", "primary_only_training_calls.tsv"),
-        scores=result("figure2", "intermediate/primary_only_cell_scores.tsv"),
+        definitions=result("figure2", "gene_groups.tsv.gz"),
+        mixed=result("figure2", "mixed_genes.tsv"),
+        universe=result("figure2", "universe.txt"),
     params:
-        script=script("figure2", "primary_label_classifier.R"),
+        args=f2_args(F2_D_IN),
     shell:
-        '"{RSCRIPT}" "{params.script}" analysis="{input.analysis}" '
-        'secondary="{input.secondary}" core="{input.core}" ranking="{input.ranking}" '
-        'nested_panels="{input.nested_panels}" nested_predictions="{input.nested_predictions}" '
-        'sv_predictions="{input.sv_predictions}" sv_labels="{input.sv_labels}" calls="{output.calls}" '
-        'scores="{output.scores}"'
+        '"{PYTHON}" "{F2_S}/gene_groups.py" {params.args} gut_folds="{input.gut_folds}" fit="{input.fit}" '
+        'profiles="{input.profiles}" definitions="{output.definitions}" mixed="{output.mixed}" universe="{output.universe}"'
 
 
-rule figure2_hio_grafts:
+rule figure2_enrich_pathways:
     input:
-        ok=FIG2_OK,
-        counts=data("shared/gse214852_hio/counts.mtx"),
-        genes=data("shared/gse214852_hio/genes.txt"),
-        cells=data("shared/gse214852_hio/cells.tsv"),
-        hio=result("figure2", "intermediate/hio_four_marker_calls.tsv"),
-        analysis=data("shared/gut_reference_analysis.rds"),
-        ranking=result("figure2", "intermediate/gene_ranking.tsv"),
+        ok=F2_OK,
+        groups=result("figure2", "gene_groups.tsv.gz"),
+        universe=result("figure2", "universe.txt"),
+        fit=result("figure2", "donor_fit.tsv.gz"),
+        msigdb=data("shared/msigdb/msigdb.2026.1.zip"),
     output:
-        bc=result("figure2", "hio_BC_classifier_calls_by_label.tsv"),
-        d=result("figure2", "hio_D_hio_effects.tsv"),
-        e=result("figure2", "hio_E_hio_summary.tsv"),
-        scores=result("figure2", "intermediate/hio_cell_scores.tsv"),
-    params:
-        script=script("figure2", "hio_grafts.R"),
+        all_terms=result("figure2", "pathways_all_terms.tsv.gz"),
+        called=result("figure2", "pathways_called.tsv"),
+    resources:
+        heavy_r=1,
     shell:
-        '"{RSCRIPT}" "{params.script}" counts="{input.counts}" genes="{input.genes}" '
-        'cells="{input.cells}" hio="{input.hio}" analysis="{input.analysis}" ranking="{input.ranking}" '
-        'bc="{output.bc}" d="{output.d}" e="{output.e}" scores="{output.scores}"'
+        '"{RSCRIPT}" "{F2_S}/enrich_pathways.R" groups="{input.groups}" universe="{input.universe}" '
+        'fit="{input.fit}" msigdb_zip="{input.msigdb}" all_terms="{output.all_terms}" called="{output.called}"'
 
 
-rule figure2_c_marker_detection:
+rule figure2_enrich_c8:
     input:
-        ok=FIG2_OK,
-        cells=result("figure2", "intermediate/heldout_cells.tsv"),
-        analysis=data("shared/gut_reference_analysis.rds"),
-        secondary=data("figure2/classifier_inputs/secondary_validation.rds"),
-        counts=data("shared/gse214852_hio/counts.mtx"),
-        genes=data("shared/gse214852_hio/genes.txt"),
-        hio_cells=data("shared/gse214852_hio/cells.tsv"),
-        hio=result("figure2", "intermediate/hio_four_marker_calls.tsv"),
-        labels=result("figure2", "C_primary_labels.tsv"),
-        bc=result("figure2", "hio_BC_classifier_calls_by_label.tsv"),
+        ok=F2_OK,
+        groups=result("figure2", "gene_groups.tsv.gz"),
+        universe=result("figure2", "universe.txt"),
+        fit=result("figure2", "donor_fit.tsv.gz"),
+        msigdb=data("shared/msigdb/msigdb.2026.1.zip"),
     output:
-        result("figure2", "C_marker_detection.tsv"),
-    params:
-        script=script("figure2", "c_marker_detection.R"),
+        all_terms=result("figure2", "celltypes_all_terms.tsv"),
+        called=result("figure2", "celltypes_called.tsv"),
+    resources:
+        heavy_r=1,
     shell:
-        '"{RSCRIPT}" "{params.script}" cells="{input.cells}" analysis="{input.analysis}" '
-        'secondary="{input.secondary}" counts="{input.counts}" genes="{input.genes}" '
-        'hio_cells="{input.hio_cells}" hio="{input.hio}" labels="{input.labels}" bc="{input.bc}" out="{output}"'
-
-
-rule figure2_d_detection:
-    input:
-        ok=FIG2_OK,
-        analysis=data("shared/gut_reference_analysis.rds"),
-        secondary=data("figure2/classifier_inputs/secondary_validation.rds"),
-        sv_labels=data(FIG2_RUN + "sv_labels.tsv.gz"),
-        counts=data("shared/gse214852_hio/counts.mtx"),
-        genes=data("shared/gse214852_hio/genes.txt"),
-        cells=data("shared/gse214852_hio/cells.tsv"),
-        hio=result("figure2", "intermediate/hio_four_marker_calls.tsv"),
-        heatmap=result("figure2", "D_effect_heatmap.tsv"),
-        hio_d=result("figure2", "hio_D_hio_effects.tsv"),
-    output:
-        result("figure2", "D_detection.tsv"),
-    params:
-        script=script("figure2", "d_detection.R"),
-    shell:
-        '"{RSCRIPT}" "{params.script}" analysis="{input.analysis}" secondary="{input.secondary}" '
-        'sv_labels="{input.sv_labels}" counts="{input.counts}" genes="{input.genes}" cells="{input.cells}" '
-        'hio="{input.hio}" heatmap="{input.heatmap}" hio_d="{input.hio_d}" out="{output}"'
-
-
-rule figure2_e_cells:
-    input:
-        ok=FIG2_OK,
-        cells=result("figure2", "intermediate/heldout_cells.tsv"),
-        scores=result("figure2", "intermediate/primary_only_cell_scores.tsv"),
-        hio=result("figure2", "intermediate/hio_four_marker_calls.tsv"),
-        hio_scores=result("figure2", "intermediate/hio_cell_scores.tsv"),
-        hio_cells=data("shared/gse214852_hio/cells.tsv"),
-    output:
-        result("figure2", "E_cells.tsv"),
-    params:
-        script=script("figure2", "e_cells.R"),
-    shell:
-        '"{RSCRIPT}" "{params.script}" cells="{input.cells}" scores="{input.scores}" hio="{input.hio}" '
-        'hio_scores="{input.hio_scores}" hio_cells="{input.hio_cells}" out="{output}"'
+        '"{RSCRIPT}" "{F2_S}/enrich_c8.R" groups="{input.groups}" universe="{input.universe}" '
+        'fit="{input.fit}" msigdb_zip="{input.msigdb}" all_terms="{output.all_terms}" called="{output.called}"'

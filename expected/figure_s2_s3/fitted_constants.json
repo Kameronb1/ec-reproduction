@@ -1,0 +1,134 @@
+{
+  "n_cells": 1164,
+  "ec_core_genes": ["TPH1", "SLC18A1", "FEV", "LMX1A"],
+  "ec_support_genes": ["DDC", "TAC1"],
+  "standardisation": [
+    {
+      "gene": "TPH1",
+      "mean": 2.4996489462796716,
+      "sd": 3.4894038714411688
+    },
+    {
+      "gene": "SLC18A1",
+      "mean": 2.1794865589443342,
+      "sd": 2.5966983586300496
+    },
+    {
+      "gene": "FEV",
+      "mean": 4.355810926718215,
+      "sd": 3.0217074293674546
+    },
+    {
+      "gene": "LMX1A",
+      "mean": 1.3215414749833292,
+      "sd": 2.4814414319088791
+    },
+    {
+      "gene": "DDC",
+      "mean": 4.503124429932269,
+      "sd": 2.5392812452057414
+    },
+    {
+      "gene": "TAC1",
+      "mean": 0.35024063075382228,
+      "sd": 1.3782772936615864
+    }
+  ],
+  "ec_core_cutoff": 0.4820111398300706,
+  "gaussian_mixture": {
+    "mu_low": -0.43024460217588956,
+    "mu_high": 1.2020396780266711,
+    "prop_low": 0.73641564316082386,
+    "prop_high": 0.26358435683917614,
+    "var": 0.15269756562169981,
+    "sd": 0.39076535877902457,
+    "loglik": -1.0017246048534929,
+    "init_index": 0,
+    "iterations": 12,
+    "threshold": 0.4820111398300706
+  },
+  "min_markers_detected": 2,
+  "ddc_threshold": 0.21158169495614584,
+  "tac1_threshold": -0.25411477963433549,
+  "neighbourhood": {
+    "neighbours": 25,
+    "components": 20,
+    "top_hvgs": 250,
+    "detected_fraction_range": [0.01, 0.98999999999999999],
+    "excluded_genes": [],
+    "excluded_gene_set_name": "none",
+    "scope": "WITHIN_ANALYTIC_ARM",
+    "q_threshold": 0.050000000000000003
+  },
+  "classes": ["HIGH_CONFIDENCE_EC", "LOW_CONFIDENCE_EC", "INSUFFICIENT_EC_EVIDENCE"],
+  "exclusion_set_comparison": [
+    {
+      "exclusion_set": "none",
+      "is_primary": true,
+      "excluded_symbols": 0,
+      "excluded_matrix_rows": 0,
+      "candidates": 305,
+      "vetoed": 40,
+      "high_confidence": 265,
+      "both_pass": 265,
+      "both_veto": 40,
+      "vetoed_only_by_primary": 0,
+      "vetoed_only_by_this": 0,
+      "disagreements": 0,
+      "agreement_pct": 100,
+      "q_spearman_vs_primary": 1,
+      "class_changed_vs_primary": 0
+    },
+    {
+      "exclusion_set": "core4",
+      "is_primary": false,
+      "excluded_symbols": 4,
+      "excluded_matrix_rows": 4,
+      "candidates": 305,
+      "vetoed": 47,
+      "high_confidence": 258,
+      "both_pass": 257,
+      "both_veto": 39,
+      "vetoed_only_by_primary": 1,
+      "vetoed_only_by_this": 8,
+      "disagreements": 9,
+      "agreement_pct": 97.049180327868854,
+      "q_spearman_vs_primary": 0.98718121661430458,
+      "class_changed_vs_primary": 9
+    },
+    {
+      "exclusion_set": "core6",
+      "is_primary": false,
+      "excluded_symbols": 6,
+      "excluded_matrix_rows": 6,
+      "candidates": 305,
+      "vetoed": 49,
+      "high_confidence": 256,
+      "both_pass": 256,
+      "both_veto": 40,
+      "vetoed_only_by_primary": 0,
+      "vetoed_only_by_this": 9,
+      "disagreements": 9,
+      "agreement_pct": 97.049180327868854,
+      "q_spearman_vs_primary": 0.98152770997065886,
+      "class_changed_vs_primary": 9
+    },
+    {
+      "exclusion_set": "shipped27",
+      "is_primary": false,
+      "excluded_symbols": 27,
+      "excluded_matrix_rows": 27,
+      "candidates": 305,
+      "vetoed": 55,
+      "high_confidence": 250,
+      "both_pass": 250,
+      "both_veto": 40,
+      "vetoed_only_by_primary": 0,
+      "vetoed_only_by_this": 15,
+      "disagreements": 15,
+      "agreement_pct": 95.081967213114751,
+      "q_spearman_vs_primary": 0.9751101533108526,
+      "class_changed_vs_primary": 15
+    }
+  ]
+}

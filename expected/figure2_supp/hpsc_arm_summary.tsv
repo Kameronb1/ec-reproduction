@@ -1,3 +1,0 @@
-arm_id	cells	above_cutoff	above_cutoff_pct	candidates	high	low	none	high_pct	zero_markers	all_four	median_depth	hvgs	components	neighbours	prevalence_pct
-E-MTAB-10268	157	9	5.73248407643312	9	4	5	148	2.54777070063694	68	1	17164	250	20	25	5.73248407643312
-GSE214852_WT	598	319	53.3444816053512	319	319	0	279	53.3444816053512	70	303	19225	250	20	25	53.3444816053512

@@ -1,6 +1,6 @@
 # MSigDB C8 cell type signature gene sets
 
-The cell-type enrichments of Figure 3G and Figures S8B and S13B test gene lists against MSigDB collection C8, release 2026.1.Hs.
+The cell-type enrichments of Figures 2E and S5B test gene lists against MSigDB collection C8, release 2026.1.Hs.
 
 ## Source
 
@@ -35,14 +35,14 @@ The checksums are those of an export under R 4.6.1 on Windows, with msigdbr 26.1
 
 175 rows of the members table repeat a (set, symbol) pair because several source genes map to one symbol. They are kept because the enrichment receives them. All 866 sets carry a source PMID.
 
-Every C8 term tested or called in Figure 3G and Figures S8B and S13B is in this export.
+Every C8 term tested or called in Figures 2E and S5B is in this export.
 
 ## Terms and attribution
 
-MSigDB gene sets from v2022.1 onward are distributed under CC BY 4.0 (https://www.gsea-msigdb.org/gsea/msigdb_license_terms.jsp, read 2026-10-15). Additional terms on that page apply only to KEGG, BioCarta and the retired STKE sets, none of which are in C8. Attribution: cite MSigDB (Liberzon et al. 2015; Subramanian et al. 2005), msigdbr, and for any reported C8 set its source study, using the PMID in `c8_set_citations_msigdb_2026.1.Hs.tsv`.
+MSigDB gene sets from v2022.1 onward are distributed under CC BY 4.0 (https://www.gsea-msigdb.org/gsea/msigdb_license_terms.jsp). Additional terms on that page apply only to KEGG, BioCarta and the retired STKE sets, none of which are in C8. Attribution: cite MSigDB (Liberzon et al. 2015; Subramanian et al. 2005), msigdbr, and for any reported C8 set its source study, using the PMID in `c8_set_citations_msigdb_2026.1.Hs.tsv`.
 
 ## Not covered by these checks
 
 - Whether an msigdbr cache made on another machine gives the same files. Run on such a cache, `export_c8_members.R` first compares its three files with the SHA-256 values above and stops if any differs.
-- Equality with Broad's `c8.all.v2026.1.Hs.symbols.gmt`. Not used and not compared.
+- Equality with the Broad Institute file `c8.all.v2026.1.Hs.symbols.gmt`. Not used and not compared.
 - The enrichment itself. These checks cover its gene-set input only.

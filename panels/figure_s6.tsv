@@ -1,0 +1,2 @@
+panel	shows	outputs	script	plot	image	box
+Figure S6	Expression of the G3 genes and of three serotonin genes (TPH1, DDC, SLC18A1) in the published cell types of two human fetal pancreas studies (Olaniru 2023, Yu 2021b), relative to random gene sets of matched expression; one point per specimen or embryo.	points.tsv,rows.tsv	fetal_pancreas_scores.R	plot/S6.R	S6.png	60,48,4380,2850

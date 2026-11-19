@@ -1,0 +1,24 @@
+output	expected	mode	key_columns	rel_tolerance	reason
+fitted_constants.json	fitted_constants.json	exact			
+fitting_cell_classes.tsv.gz	fitting_cell_classes.tsv.gz	exact			
+fitting_class_counts.tsv	fitting_class_counts.tsv	exact			
+intermediate/hpsc_cell_classes.tsv.gz	hpsc_cell_classes.tsv.gz	exact			
+A_histogram.tsv	A_histogram.tsv	exact			
+A_mixture_curves.tsv	A_mixture_curves.tsv	exact			
+intermediate/hio_four_marker_calls.tsv	hio_four_marker_calls.tsv	exact			
+cutoff_stability_summary.tsv	cutoff_stability_summary.tsv	exact			
+umap_coordinates.tsv.gz	umap_coordinates.tsv.gz	exact			
+harmony_embeddings.tsv.gz	harmony_embeddings.tsv.gz	exact			
+cluster_summary.tsv	cluster_summary.tsv	exact			
+cell_clusters.tsv.gz	cell_clusters.tsv.gz	exact			
+C_primary_labels.tsv	C_primary_labels.tsv	exact			
+intermediate/heldout_cells.tsv	heldout_cells.tsv.gz	exact			
+hio_BC_classifier_calls_by_label.tsv	hio_BC_classifier_calls_by_label.tsv	exact			
+C_marker_detection.tsv	C_marker_detection.tsv	exact			
+intermediate/heldout_scoring.tsv.gz	heldout_scoring.tsv.gz	exact			
+hio_four_marker_depth.tsv	hio_four_marker_depth.tsv	exact			
+four_marker_depth.tsv	four_marker_depth.tsv	exact			
+S3A_classified_across_cutoffs.tsv	S3A_classified_across_cutoffs.tsv	rows_unordered			The refit rows come out of a table merge whose row order carries no meaning; every row and value must match.
+sc_islet_scores_by_cell.tsv.gz	sc_islet_scores_by_cell.tsv.gz	exact			
+sc_islet_cutoff.tsv	sc_islet_cutoff.tsv	exact			
+classified_by_study.tsv	classified_by_study.tsv	exact			

@@ -1,18 +1,18 @@
-# Figure 4B and Figure S14A: mature endocrine composition of every SC-islet sample, from primary study labels.
+# Figure 4A and Supplementary Figure S7: mature endocrine composition of every SC-islet sample, from published labels.
 #
-# For each sample, cells are counted per primary-label category (SC-SIC, SC-alpha, SC-beta, SC-delta, other hormone
+# For each sample, cells are counted per published-label category (SC-SIC, SC-alpha, SC-beta, SC-delta, other hormone
 # cells; proliferating alpha cells are "cycling"; everything else, including the other cells labeled as dividing, is
 # "not mature endocrine"), and each mature category is given as a percentage of the sample's mature endocrine cells.
 # Timing and replicate labels come from the publications (table TIMING below). Samples with fewer than 50 mature
-# endocrine cells are flagged "low count". Figure 4B additionally flags the Augsornworawat 2023 month 6 and month 12
-# in vitro samples ("outlier, not interpreted"); Figure S14A does not. In Figure 4B the Augsornworawat 2023 stage 6
-# week 2 sample is counted on the graft-object labels, as are SC-islet 1 and 2 and Figures 4C, 4E and 4F; Figure S14A
-# counts it on the long-culture labels.
+# endocrine cells are flagged "low count". The Figure 4A table additionally flags the Augsornworawat 2023 month 6 and
+# month 12 in vitro samples ("outlier, not interpreted"); the Figure S7 table does not. For Figure 4A the Augsornworawat
+# 2023 stage 6 week 2 sample is counted on the graft-object labels, as are SC-islet 1 and 2 and Figures 4B and 4C; for
+# Figure S7 it is counted on the long-culture labels.
 #
 # Inputs: per-sample profile tables of the Balboa 2022, Augsornworawat 2020 (HUES8, WS4corr) and Du 2022 trees;
-# the Zhu 2023 per-cell primary study labels; the Augsornworawat 2023 recount profiles (per-sample nuclei per label) and
-# its primary study label groups; counts for Veres 2019 and Siehler 2024.
-# Outputs: f4b=<table for Figure 4B>  s1=<table for Figure S14A>
+# the Zhu 2023 per-cell published labels; the Augsornworawat 2023 recount profiles (per-sample nuclei per label) and
+# its published label groups; counts for Veres 2019 and Siehler 2024.
+# Outputs: f4b=<table for Figure 4A>  s1=<table for Figure S7>
 #
 #   Rscript composition.R balboa=... hues8=... ws4=... du_s6d2=... du_10wpt=... zhu=... a23_profiles=... \
 #           a23_groups=... extra=... f4b=... s1=...
@@ -51,12 +51,12 @@ AM <- c(SC_SIC = "SC-SIC", SC_ALPHA = "SC-alpha", SC_BETA = "SC-beta", SC_DELTA 
 
 # Augsornworawat 2023: SC-islet 1 and 2 carry the graft-object labels (author_label__graft_txp); the culture series and
 # the grafts come from the recount profiles, with proliferating alpha nuclei from the long-culture labels as "cycling".
-# week2_graft = TRUE (Figure 4B): the stage 6 week 2 sample also takes every label from the
-# graft-object layer, as in Figures 4C, 4E and 4F; its long-culture proliferating-alpha row is left out (the graft object
+# week2_graft = TRUE (Figure 4A): the stage 6 week 2 sample also takes every label from the
+# graft-object layer, as in Figures 4B and 4C; its long-culture proliferating-alpha row is left out (the graft object
 # has no such label). Its rows keep the category order of the long-culture rows (SC-SIC, SC-beta, SC-alpha, SC-delta).
-# week2_graft = FALSE (Figure S14A): week 2 on the long-culture labels.
-# pool_m3 = TRUE (Figure 4B): the three Balboa 2022 3-month grafts are counted as one pooled sample, as in Figures
-# 4A and 4C-F (1 to 33 SC-SIC cells each, too few to read singly); Figure S14A lists them one by one.
+# week2_graft = FALSE (Figure S7): week 2 on the long-culture labels.
+# pool_m3 = TRUE (Figure 4A): the three Balboa 2022 3-month grafts are counted as one pooled sample, as in Figures
+# 4B and 4C (1 to 33 SC-SIC cells each, too few to read singly); Figure S7 lists them one by one.
 M3 <- c("SRR13805903", "SRR13805904", "SRR13805905")
 counts <- function(week2_graft, pool_m3) {
   W2 <- "s6_week2"
@@ -121,9 +121,9 @@ write_table <- function(P, S, path) {
          path, sep = "\t", eol = "\n")
 }
 B <- summarise(counts(week2_graft = TRUE, pool_m3 = TRUE))
-S4B <- copy(B$S)[, flag := fifelse(study == "Augsornworawat2023" & context %in% c("S6_month6", "S6_month12"), "outlier, not interpreted",
+F4A <- copy(B$S)[, flag := fifelse(study == "Augsornworawat2023" & context %in% c("S6_month6", "S6_month12"), "outlier, not interpreted",
                             fifelse(mature < LOW_N, "low count", fifelse(study == "Du2022" & arm == "graft", "source sample not stated", "")))]
-write_table(B$P, S4B, A[["f4b"]])
+write_table(B$P, F4A, A[["f4b"]])
 S1 <- summarise(counts(week2_graft = FALSE, pool_m3 = FALSE))
 SS1 <- copy(S1$S)[, flag := fifelse(mature < LOW_N, "low count", fifelse(study == "Du2022" & arm == "graft", "source sample not stated", ""))]
 write_table(S1$P, SS1, A[["s1"]])

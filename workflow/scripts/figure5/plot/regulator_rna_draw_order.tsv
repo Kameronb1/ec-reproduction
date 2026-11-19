@@ -1,0 +1,309 @@
+# Order in which Figure 5A draws its heatmap tiles (heatmap row, regulator). Neighboring tiles' white borders overlap,
+# so the drawing order decides a few edge pixels; it carries no other meaning.
+row	tf
+Alpha	ARX
+Alpha	DACH2
+Alpha	GLIS3
+Alpha	ISL1
+Alpha	CDX2
+Alpha	GATA6
+Alpha	INSM1
+Alpha	CDX1
+Alpha	GATA4
+Alpha	HOXB13
+Alpha	ASCL1
+Alpha	FEV
+Alpha	HES6
+Alpha	LMX1A
+Alpha	MNX1
+Alpha	NEUROG3
+Alpha	PAX6
+Alpha	MAFB
+Alpha	NEUROD4
+Alpha	PAX4
+Alpha	MAFA
+Alpha	NEUROD1
+Alpha	NKX6-1
+Alpha	LMX1B
+Alpha	MYT1L
+Alpha	NKX2-2
+Alpha	PDX1
+Alpha	RFX6
+Alpha	PITX2
+Alpha	PLAGL1
+Alpha	RFX3
+Alpha	ZNF800
+Alpha	SATB2
+Alpha	SOX4
+Beta	DACH2
+Beta	GATA4
+Beta	GATA6
+Beta	GLIS3
+Beta	FEV
+Beta	HES6
+Beta	ARX
+Beta	MNX1
+Beta	NEUROG3
+Beta	ISL1
+Beta	CDX2
+Beta	NEUROD4
+Beta	INSM1
+Beta	CDX1
+Beta	NEUROD1
+Beta	HOXB13
+Beta	ASCL1
+Beta	MYT1L
+Beta	NKX2-2
+Beta	LMX1A
+Beta	RFX6
+Beta	PAX4
+Beta	PAX6
+Beta	MAFB
+Beta	ZNF800
+Beta	LMX1B
+Beta	MAFA
+Beta	SOX4
+Beta	NKX6-1
+Beta	SATB2
+Beta	PLAGL1
+Beta	PDX1
+Beta	PITX2
+Beta	RFX3
+Egozi 2021	DACH2
+Egozi 2021	ARX
+Egozi 2021	FEV
+Egozi 2021	CDX2
+Egozi 2021	MNX1
+Egozi 2021	GLIS3
+Egozi 2021	CDX1
+Egozi 2021	GATA4
+Egozi 2021	GATA6
+Egozi 2021	ASCL1
+Egozi 2021	MYT1L
+Egozi 2021	HES6
+Egozi 2021	LMX1A
+Egozi 2021	RFX6
+Egozi 2021	NEUROG3
+Egozi 2021	ISL1
+Egozi 2021	MAFB
+Egozi 2021	NEUROD4
+Egozi 2021	INSM1
+Egozi 2021	MAFA
+Egozi 2021	NEUROD1
+Egozi 2021	HOXB13
+Egozi 2021	LMX1B
+Egozi 2021	SATB2
+Egozi 2021	NKX2-2
+Egozi 2021	PDX1
+Egozi 2021	ZNF800
+Egozi 2021	PAX4
+Egozi 2021	PAX6
+Egozi 2021	RFX3
+Egozi 2021	NKX6-1
+Egozi 2021	PITX2
+Egozi 2021	PLAGL1
+Egozi 2021	SOX4
+Hickey 2023 (nuclei)	FEV
+Hickey 2023 (nuclei)	DACH2
+Hickey 2023 (nuclei)	ASCL1
+Hickey 2023 (nuclei)	GATA4
+Hickey 2023 (nuclei)	ARX
+Hickey 2023 (nuclei)	MNX1
+Hickey 2023 (nuclei)	MYT1L
+Hickey 2023 (nuclei)	HES6
+Hickey 2023 (nuclei)	CDX2
+Hickey 2023 (nuclei)	GATA6
+Hickey 2023 (nuclei)	GLIS3
+Hickey 2023 (nuclei)	CDX1
+Hickey 2023 (nuclei)	NEUROD1
+Hickey 2023 (nuclei)	HOXB13
+Hickey 2023 (nuclei)	LMX1B
+Hickey 2023 (nuclei)	SATB2
+Hickey 2023 (nuclei)	NKX2-2
+Hickey 2023 (nuclei)	LMX1A
+Hickey 2023 (nuclei)	RFX6
+Hickey 2023 (nuclei)	NEUROG3
+Hickey 2023 (nuclei)	ISL1
+Hickey 2023 (nuclei)	MAFB
+Hickey 2023 (nuclei)	NEUROD4
+Hickey 2023 (nuclei)	INSM1
+Hickey 2023 (nuclei)	MAFA
+Hickey 2023 (nuclei)	SOX4
+Hickey 2023 (nuclei)	NKX6-1
+Hickey 2023 (nuclei)	PITX2
+Hickey 2023 (nuclei)	PAX4
+Hickey 2023 (nuclei)	PAX6
+Hickey 2023 (nuclei)	PDX1
+Hickey 2023 (nuclei)	ZNF800
+Hickey 2023 (nuclei)	PLAGL1
+Hickey 2023 (nuclei)	RFX3
+SC-alpha	ASCL1
+SC-alpha	ARX
+SC-alpha	DACH2
+SC-alpha	FEV
+SC-alpha	CDX1
+SC-alpha	GATA4
+SC-alpha	HOXB13
+SC-alpha	LMX1B
+SC-alpha	MYT1L
+SC-alpha	HES6
+SC-alpha	LMX1A
+SC-alpha	MNX1
+SC-alpha	GLIS3
+SC-alpha	ISL1
+SC-alpha	CDX2
+SC-alpha	GATA6
+SC-alpha	INSM1
+SC-alpha	MAFA
+SC-alpha	NEUROD1
+SC-alpha	NKX6-1
+SC-alpha	PITX2
+SC-alpha	SATB2
+SC-alpha	NKX2-2
+SC-alpha	PDX1
+SC-alpha	RFX6
+SC-alpha	NEUROG3
+SC-alpha	PAX6
+SC-alpha	MAFB
+SC-alpha	NEUROD4
+SC-alpha	PAX4
+SC-alpha	PLAGL1
+SC-alpha	SOX4
+SC-alpha	RFX3
+SC-alpha	ZNF800
+SC-beta	ASCL1
+SC-beta	FEV
+SC-beta	GATA4
+SC-beta	HOXB13
+SC-beta	DACH2
+SC-beta	GLIS3
+SC-beta	HES6
+SC-beta	ARX
+SC-beta	GATA6
+SC-beta	INSM1
+SC-beta	CDX1
+SC-beta	NEUROD1
+SC-beta	NKX6-1
+SC-beta	LMX1B
+SC-beta	MYT1L
+SC-beta	NKX2-2
+SC-beta	LMX1A
+SC-beta	MNX1
+SC-beta	NEUROG3
+SC-beta	ISL1
+SC-beta	CDX2
+SC-beta	NEUROD4
+SC-beta	PAX4
+SC-beta	MAFA
+SC-beta	SOX4
+SC-beta	PDX1
+SC-beta	PITX2
+SC-beta	SATB2
+SC-beta	PAX6
+SC-beta	MAFB
+SC-beta	RFX6
+SC-beta	PLAGL1
+SC-beta	ZNF800
+SC-beta	RFX3
+SC-SIC	DACH2
+SC-SIC	GATA4
+SC-SIC	GATA6
+SC-SIC	FEV
+SC-SIC	CDX1
+SC-SIC	HOXB13
+SC-SIC	ASCL1
+SC-SIC	MYT1L
+SC-SIC	NEUROD1
+SC-SIC	ARX
+SC-SIC	MNX1
+SC-SIC	GLIS3
+SC-SIC	HES6
+SC-SIC	CDX2
+SC-SIC	NEUROD4
+SC-SIC	INSM1
+SC-SIC	MAFA
+SC-SIC	SOX4
+SC-SIC	NKX6-1
+SC-SIC	LMX1B
+SC-SIC	SATB2
+SC-SIC	NKX2-2
+SC-SIC	LMX1A
+SC-SIC	RFX6
+SC-SIC	NEUROG3
+SC-SIC	ISL1
+SC-SIC	MAFB
+SC-SIC	ZNF800
+SC-SIC	PAX4
+SC-SIC	PLAGL1
+SC-SIC	PAX6
+SC-SIC	PDX1
+SC-SIC	PITX2
+SC-SIC	RFX3
+McCauley 2023	LMX1A
+McCauley 2023	FEV
+McCauley 2023	LMX1B
+McCauley 2023	NEUROD4
+McCauley 2023	MNX1
+McCauley 2023	NEUROG3
+McCauley 2023	INSM1
+McCauley 2023	NEUROD1
+McCauley 2023	NKX2-2
+McCauley 2023	PAX4
+McCauley 2023	RFX6
+McCauley 2023	ZNF800
+McCauley 2023	PAX6
+McCauley 2023	ARX
+McCauley 2023	ISL1
+McCauley 2023	HES6
+McCauley 2023	SOX4
+McCauley 2023	ASCL1
+McCauley 2023	PDX1
+McCauley 2023	NKX6-1
+McCauley 2023	MAFA
+McCauley 2023	MAFB
+McCauley 2023	RFX3
+McCauley 2023	GLIS3
+McCauley 2023	MYT1L
+McCauley 2023	DACH2
+McCauley 2023	PLAGL1
+McCauley 2023	GATA6
+McCauley 2023	CDX1
+McCauley 2023	CDX2
+McCauley 2023	GATA4
+McCauley 2023	SATB2
+McCauley 2023	HOXB13
+McCauley 2023	PITX2
+Elmentaite 2020 + 2021	ARX
+Elmentaite 2020 + 2021	DACH2
+Elmentaite 2020 + 2021	ASCL1
+Elmentaite 2020 + 2021	FEV
+Elmentaite 2020 + 2021	HES6
+Elmentaite 2020 + 2021	LMX1A
+Elmentaite 2020 + 2021	MNX1
+Elmentaite 2020 + 2021	GLIS3
+Elmentaite 2020 + 2021	ISL1
+Elmentaite 2020 + 2021	CDX2
+Elmentaite 2020 + 2021	GATA6
+Elmentaite 2020 + 2021	INSM1
+Elmentaite 2020 + 2021	CDX1
+Elmentaite 2020 + 2021	GATA4
+Elmentaite 2020 + 2021	HOXB13
+Elmentaite 2020 + 2021	LMX1B
+Elmentaite 2020 + 2021	MYT1L
+Elmentaite 2020 + 2021	NKX2-2
+Elmentaite 2020 + 2021	PDX1
+Elmentaite 2020 + 2021	RFX6
+Elmentaite 2020 + 2021	NEUROG3
+Elmentaite 2020 + 2021	PAX6
+Elmentaite 2020 + 2021	MAFB
+Elmentaite 2020 + 2021	NEUROD4
+Elmentaite 2020 + 2021	PAX4
+Elmentaite 2020 + 2021	MAFA
+Elmentaite 2020 + 2021	NEUROD1
+Elmentaite 2020 + 2021	NKX6-1
+Elmentaite 2020 + 2021	PITX2
+Elmentaite 2020 + 2021	SATB2
+Elmentaite 2020 + 2021	PLAGL1
+Elmentaite 2020 + 2021	RFX3
+Elmentaite 2020 + 2021	ZNF800
+Elmentaite 2020 + 2021	SOX4

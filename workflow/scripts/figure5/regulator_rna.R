@@ -1,25 +1,24 @@
-# Figure 5A (and the CDX2 RNA axis of Figure S17E): RNA levels of 34 transcription factors in each cell type, in four groups
-# by association (EC / SC-SIC, endocrine, islet, intestinal).
+# Figure 5A: RNA levels of 34 candidate regulators (transcription factors) in each cell type, in four groups by
+# association (EC / SC-SIC, endocrine, islet, intestinal).
 #
-# From raw-count pseudobulk sums of cells with primary study labels (one profile per sample and cell type), every profile above
+# From raw-count pseudobulk sums of cells with published labels (one profile per sample and cell type), every profile above
 # 569,504 reads is binomially thinned to that depth (20 draws, seed 20260925, one seeded stream per cohort), and each
-# regulator's log2(1 + CPM) is averaged over the draws (tf_expression_by_sample.tsv). Intestinal EC = EC (primary study
-# labels) of four intestinal studies (the Elmentaite 2020 child Crohn's donors excluded); induced EC = Singh 2024; SC-SIC, SC-beta and
+# regulator's log2(1 + CPM) is averaged over the draws (tf_expression_by_sample.tsv). Intestinal EC = EC (published
+# labels) of four intestinal studies (the Elmentaite 2020 pediatric Crohn's disease donors excluded); SC-SIC, SC-beta and
 # SC-alpha = the six SC-islet studies; adult islet beta and alpha = two studies, adult donors only (beta_major and
 # beta_minor pooled per donor; Bandesh 2026 Proliferating_Alpha pooled with Alpha per donor, as Figure 1C-D counts it;
 # donor HPAP034, aged 13, left out). All islet profiles are thinned from one seeded stream, so each islet profile's draws
-# depend on the other islet profiles in the stream, the dividing alpha cells included; the published table holds these
-# draws. An intestinal study with no sample reaching 20 EC cells (Elmentaite 2020) enters as one pooled profile of all
-# its EC cells, thinned the same way (tf_expression_pooled_sparse_gut.tsv). Panel 5A table: samples with >= 20 cells, averaged within a study, studies
+# depend on the other islet profiles in the stream, the dividing alpha cells included. An intestinal study with no sample
+# reaching 20 EC cells (Elmentaite 2020) enters as one pooled profile of all its EC cells, thinned the same way
+# (tf_expression_pooled_sparse_gut.tsv). Panel 5A table: samples with >= 20 cells, averaged within a study, studies
 # averaged within a column; plus, per regulator, in how many of the six SC-islet studies SC-SIC carries more RNA than
-# SC-beta (f5_5a_regulator_rna.tsv). McCauley 2023 HIO graft EC (GSE214852; EC = the primary study's Endocrine_1
-# cluster) is computed the same way, one profile per organoid, mean of the two organoids
-# (f5_5a_regulator_rna__hio_mccauley_rows.tsv), and its CDX-family RNA for Figure S17E
-# (f5_s4_hio_mccauley_rna_detail.tsv). Descriptive: RNA levels say nothing about regulator activity.
+# SC-beta (f5_5a_regulator_rna.tsv). McCauley 2023 HIO graft EC (GSE214852; EC = the published Endocrine_1 cluster) is
+# computed the same way, one profile per organoid, mean of the two organoids (f5_5a_regulator_rna__hio_mccauley_rows.tsv).
+# Descriptive: RNA levels say nothing about regulator activity.
 #
-# Inputs (name=path): <cohort>_sums / <cohort>_groups for cohort sc, gut_primary, islet, induced, hio
+# Inputs (name=path): <cohort>_sums / <cohort>_groups for cohort sc, gut_primary, islet, hio
 #                     (pseudobulk sums: gene x profile; groups: one row per profile)
-# Outputs: by_sample, pooled, panel, hio_rows, hio_detail
+# Outputs: by_sample, pooled, panel, hio_rows
 args <- commandArgs(trailingOnly = TRUE)
 a <- setNames(sub("^[^=]*=", "", args), sub("=.*", "", args))
 rt <- function(p) read.delim(if (grepl("gz$", p)) gzfile(p) else p, check.names = FALSE, stringsAsFactors = FALSE)
@@ -50,7 +49,7 @@ ADULT_ISLET <- c("GSE148073", "GSE221156"); ADULT_EXCLUDED <- "HPAP034"
 BETA_LABELS <- c("beta", "beta_major", "beta_minor", "Beta"); ALPHA_LABELS <- c("alpha", "Alpha", "Proliferating_Alpha")
 CROHNS_FAMILY <- "SF_ELMENTAITE2020_DEVGUT"; CROHNS_UNITS <- c("T017", "T019", "T176", "T189", "T197", "T202", "T203")
 NAME <- c(SF_HICKEY2023_ADULT_EEC = "Hickey 2023", SF_ELMENTAITE2021_GUT_ATLAS = "Elmentaite 2021", SF_ELMENTAITE2020_DEVGUT = "Elmentaite 2020",
-          SF_EGOZI2021_DEVELOPMENTAL_EEC = "Egozi 2021", SF_INTESTINAL_GSE238274 = "Singh 2024", SF_GSE214852_HIO_GRAFT = "McCauley 2023")
+          SF_EGOZI2021_DEVELOPMENTAL_EEC = "Egozi 2021", SF_GSE214852_HIO_GRAFT = "McCauley 2023")
 POP_LABEL <- c(SC_SIC = "SC-SIC", SC_BETA = "SC-beta", SC_ALPHA = "SC-alpha")
 DEPTH <- 569504; REPS <- 20L; SEED <- 20260925L
 
@@ -69,7 +68,7 @@ thin_levels <- function(m, info, cohort) {
     cells = info$n_cells[j], library = info$lib[j], tf = tfs, mean_log2cpm = meanlv[, j], mcse = mcse[, j], min20 = info$n_cells[j] >= 20, below_depth = lib[j] < DEPTH)))
 }
 L <- list()
-for (prefix in c("sc", "gut_primary", "islet", "induced")) {
+for (prefix in c("sc", "gut_primary", "islet")) {
   info <- rt(a[[paste0(prefix, "_groups")]]); x <- rt(a[[paste0(prefix, "_sums")]])
   if (prefix == "gut_primary") {
     ex <- info$family_id == CROHNS_FAMILY & info$unit %in% CROHNS_UNITS
@@ -78,7 +77,7 @@ for (prefix in c("sc", "gut_primary", "islet", "induced")) {
   }
   stopifnot(!anyDuplicated(x$gene), !anyDuplicated(info$group), all(info$group %in% names(x)))
   m <- as.matrix(x[, info$group]); rownames(m) <- x$gene; stopifnot(all(is.finite(m)), all(m >= 0), all(m == floor(m)), all(colSums(m) == info$lib))
-  if (prefix == "islet") {   # adults only; primary labels mapped to beta/alpha; beta_major + beta_minor pooled per donor
+  if (prefix == "islet") {   # adults only; published labels mapped to beta/alpha; beta_major + beta_minor pooled per donor
     info <- info[info$family_id %in% ADULT_ISLET & !(info$unit %in% ADULT_EXCLUDED), ]
     info$class <- ifelse(info$class %in% BETA_LABELS, "beta", ifelse(info$class %in% ALPHA_LABELS, "alpha", NA)); info <- info[!is.na(info$class), ]
     key <- paste(info$family_id, info$unit, info$class, sep = "|"); m <- sapply(split(info$group, key), function(g) rowSums(m[, g, drop = FALSE]))
@@ -90,7 +89,7 @@ for (prefix in c("sc", "gut_primary", "islet", "induced")) {
   }
   if (prefix == "sc") stopifnot(setequal(unique(info$family_id), SC_STUDIES))
   keep <- if (prefix == "sc") info$class %in% c("SC_SIC", "SC_BETA", "SC_ALPHA") else if (prefix == "gut_primary") info$class == "POSITIVE" else
-    if (prefix == "induced") info$class %in% c("EC", "D", "T4", "X") else info$class %in% c("alpha", "beta")
+    info$class %in% c("alpha", "beta")
   info <- info[keep, ]; m <- m[, info$group, drop = FALSE]
   L[[prefix]] <- thin_levels(m, info, prefix)
 }
@@ -120,7 +119,6 @@ GUT_ALL <- c("SF_HICKEY2023_ADULT_EEC", "SF_ELMENTAITE2021_GUT_ATLAS", "SF_ELMEN
 GUT <- intersect(GUT_ALL, unique(x$family))
 x$column <- NA_character_
 x$column[x$cohort == "gut_primary"] <- paste0(NAME[x$family[x$cohort == "gut_primary"]], " gut EC")
-x$column[x$cohort == "induced" & x$population == "EC"] <- paste0(NAME[["SF_INTESTINAL_GSE238274"]], " induced EC")
 x$column[x$cohort == "sc"] <- POP_LABEL[x$population[x$cohort == "sc"]]
 x$column[x$cohort == "islet"] <- paste("adult islet", x$population[x$cohort == "islet"])
 x <- x[!is.na(x$column), ]
@@ -128,7 +126,7 @@ st <- aggregate(mean_log2cpm ~ column + family + tf, x, mean)                   
 D <- aggregate(mean_log2cpm ~ column + tf, st, mean)                                 # studies -> column
 nstud <- aggregate(family ~ column, unique(st[, c("column", "family")]), length); names(nstud)[2] <- "studies"
 D <- merge(D, nstud)
-COLS <- c(paste0(NAME[GUT], " gut EC"), paste0(NAME[["SF_INTESTINAL_GSE238274"]], " induced EC"), POP_LABEL, "adult islet beta", "adult islet alpha")
+COLS <- c(paste0(NAME[GUT], " gut EC"), POP_LABEL, "adult islet beta", "adult islet alpha")
 stopifnot(setequal(unique(D$column), COLS))
 D$set <- factor(rep(names(SETS), lengths(SETS))[match(D$tf, TFS)], names(SETS))
 sic <- st[st$column == "SC-SIC", ]; bet <- st[st$column == "SC-beta", ]
@@ -150,19 +148,3 @@ z <- lv_h[lv_h$population == "EC" & lv_h$min20 & lv_h$tf %in% TFS, ]
 h5a <- aggregate(mean_log2cpm ~ tf, aggregate(mean_log2cpm ~ family + tf, z, mean), mean)
 A <- data.frame(kind = "level", column = paste0(NAME[["SF_GSE214852_HIO_GRAFT"]], " HIO graft EC"), set = unname(SET_OF[h5a$tf]), tf = h5a$tf, value = h5a$mean_log2cpm, studies = 1L)
 A <- A[match(TFS, A$tf), ]; stopifnot(!anyNA(A$value)); wlf(A, a[["hio_rows"]])
-# Figure S17E RNA axis: the highest RNA of the CDX1/CDX2/HOXA10 motif family's members, as for the chromatin cohorts;
-# CDX2 alone given beside it
-CDX <- c("CDX1", "CDX2", "HOXA10")
-cdx_family_rna <- function(lv, pop) { r <- tapply(lv$mean_log2cpm[lv$population == pop], lv$tf[lv$population == pop], mean)[CDX]; list(rna = max(r, na.rm = TRUE), top_member = names(r)[which.max(r)]) }
-ec <- info[info$class == "EC", ]
-pm <- matrix(rowSums(hm[, ec$group, drop = FALSE]), ncol = 1, dimnames = list(rownames(hm), "SF_GSE214852_HIO_GRAFT|pooled_wt1_wt2|EC"))
-pinfo <- data.frame(group = colnames(pm), family_id = ec$family_id[1], unit = "pooled_wt1_wt2", class = "EC", n_cells = sum(ec$n_cells), lib = sum(ec$lib))
-lv_p <- thin_levels(pm, pinfo, "hio_graft_pooled_sensitivity")
-lv_s <- L[["induced"]]
-h4 <- cdx_family_rna(lv_h, "EC"); h4o <- lapply(c("wt1", "wt2"), function(u) cdx_family_rna(lv_h[lv_h$unit == u, ], "EC")); p4 <- cdx_family_rna(lv_p, "EC"); s4 <- cdx_family_rna(lv_s, "EC")
-wlf(data.frame(cohort = c("mccauley", "mccauley_wt1", "mccauley_wt2", "mccauley_pooled_sum", "singh_reproduced"),
-  rna = c(h4$rna, h4o[[1]]$rna, h4o[[2]]$rna, p4$rna, s4$rna), top_member = c(h4$top_member, h4o[[1]]$top_member, h4o[[2]]$top_member, p4$top_member, s4$top_member),
-  cdx2_only = c(mean(lv_h$mean_log2cpm[lv_h$population == "EC" & lv_h$tf == "CDX2"]),
-                sapply(c("wt1", "wt2"), function(u) lv_h$mean_log2cpm[lv_h$population == "EC" & lv_h$unit == u & lv_h$tf == "CDX2"]),
-                lv_p$mean_log2cpm[lv_p$tf == "CDX2"], mean(lv_s$mean_log2cpm[lv_s$population == "EC" & lv_s$tf == "CDX2"])),
-  z = NA_real_, z_note = "no chromatin assay in GSE214852; the panel's y axis cannot be computed"), a[["hio_detail"]])

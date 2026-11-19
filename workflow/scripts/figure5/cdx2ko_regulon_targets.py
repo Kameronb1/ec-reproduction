@@ -1,14 +1,15 @@
-"""Figure S17 (CDX2 regulon targets in the knockout): do CDX2's predicted regulon targets fall in Zhu 2023's CDX2 knockout
-(GSE202493: one wild-type library MM844, one knockout library MM845)? Readouts, sign and null are those of Figure 5F
-(cdx2ko_group_test.py); this script uses its own random-number stream, so its draws are independent of 5F's.
+"""Figure S9D (regulon targets in the CDX2 knockout): do CDX2's predicted regulon targets, and the targets of every
+reproducible regulon of Figure 5B, fall in Zhu 2023's CDX2 knockout (GSE202493: one wild-type library MM844, one knockout
+library MM845)? Readouts, sign and null are those of Figure 5C (cdx2ko_group_test.py); this script uses its own
+random-number stream, so its draws are independent of 5C's.
 
 Sets (CDX2(+) regulons from network_regulons; reproducible = program_pass in all_programs):
-  pooled: union of the reproducible CDX2(+) regulons' targets; "pooled outside G1-G3": the same without Figure 3 group genes;
+  pooled: union of the reproducible CDX2(+) regulons' targets; "pooled outside G1-G3": the same without Figure 2 group genes;
   each CDX2(+) regulon alone, with and without G1-G3 genes.
-Populations (transferred all-stage labels, the 12,615 nuclei of the study's GEO deposit): SC_EC (SC-SIC), SC_beta, SC_alpha,
-and SC_EC minus SC_beta. Readouts, knockout minus wild type: pseudobulk log2 (equal depth by binomial thinning, 20 draws averaged) and
-depth-stratified per-cell detection, as in 5F. Null: 500 random sets drawn gene by gene from the same expression bin (20
-quantile bins of the population's pooled pseudobulk level plus a zero bin), excluding the set's genes and every named 5F set
+Populations (transferred all-stage labels, the 12,615 nuclei of the study's GEO deposit): SC_EC (SC-SIC), SC_beta and
+SC_alpha. Readouts, knockout minus wild type: pseudobulk log2 (equal depth by binomial thinning, 20 draws averaged) and
+depth-stratified per-cell detection, as in 5C. Null: 500 random sets drawn gene by gene from the same expression bin (20
+quantile bins of the population's pooled pseudobulk level plus a zero bin), excluding the set's genes and every named 5C set
 gene (G1, G2, G3, beta and alpha identity). Primary test (fixed before any result): pooled set, SC_EC, pseudobulk, predicted
 lower in the knockout (CDX2(+) activates its targets); one-sided share of random sets at or below. Everything else is
 descriptive. Measurable target: detected (>= 1 UMI) in at least 5% of SC_EC nuclei (both genotypes pooled).
@@ -16,16 +17,16 @@ Targets named by an older symbol (the Hickey 2023 and Egozi 2021 networks; FAM49
 read under their current symbol from target_symbol_updates.tsv (43 of its 299 names occur in these regulons; each row's
 Ensembl ID is checked against the matrix). Four names stay unmatched: HIF1A-AS2, LINC01481, MFSD14C, ZNF816-ZNF321P.
 
-Context (descriptive): every regulon drawn in Figure 5E (program_values) scored in SC_EC with the pseudobulk readout and its
-own 500 random sets, from a second random stream, and kept when it has at least 5 measurable targets. Regulons share
-targets, so no test is made across them.
+Context (Figure S9D, descriptive): every regulon drawn in Figure 5B (program_values) scored in SC_EC with the pseudobulk
+readout and its own 500 random sets, from a second random stream, and kept when it has at least 5 measurable targets.
+Regulons share targets, so no test is made across them.
 
 Seeds: 20261029 for the CDX2 sets (one numpy Generator, fixed call order), 20261030 for the context regulons.
 
-Inputs:  counts=<recounted_counts.h5ad>  labels=<transferred_labels.tsv.gz>  groups=<gene_groups_definitions.tsv.gz>
+Inputs:  counts=<recounted_counts.h5ad>  labels=<transferred_labels.tsv.gz>  groups=<gene-group table>
          regulons=<network_regulons.tsv.gz>  all_programs=<all_programs.tsv>  program_values=<program_values.tsv>
          symbol_updates=<target_symbol_updates.tsv>
-Outputs: effects=<set_effects.tsv>  subtracted=<beta_subtracted.tsv>  sets=<sets.tsv>  context=<context_regulons.tsv>
+Outputs: effects=<set_effects.tsv>  sets=<sets.tsv>  context=<context_regulons.tsv>
 """
 import sys
 
@@ -98,7 +99,7 @@ ko_all = (T["genotype"] == "CDX2-KO").values
 lib_all = np.asarray(X.sum(axis=1)).ravel()
 cand_all = np.arange(len(genes))
 rng = np.random.default_rng(SEED)
-eff, bsub, per_pop = [], [], {}
+eff, per_pop = [], {}
 for pop in POPS:
     idx = np.where((T["transferred_label_all_stages"] == pop).values)[0]
     Xp = X[idx]; ko = ko_all[idx]; lib = lib_all[idx]; det = (Xp > 0).tocsc()
@@ -152,21 +153,6 @@ for row in eff:
     row["primary_test"] = (row["population"] == "SC_EC" and row["set"] == "pooled" and row["scope"] == "all targets"
                            and row["readout"] == PB)
 
-B = per_pop["SC_beta"]
-for (unit, scope), re_ in E["res"].items():
-    ii = re_["ii"]
-    obs = re_["obs_p"] - float(B["pbd"][ii].mean())
-    null = np.array([E["pbd"][r].mean() - B["pbd"][r].mean() for r in re_["rsets"]])
-    obs_c = re_["obs_c"] - B["res"][(unit, scope)]["obs_c"]
-    null_c = np.array([re_["null_c"][k] - strat_diff(np.asarray(B["det"][:, r].sum(axis=1)).ravel() / len(r), B["ko"], B["lib"])
-                       for k, r in enumerate(re_["rsets"])])
-    for ro, o, nl in [(PC, obs_c, null_c), (PB, obs, null)]:
-        bsub.append({"set": unit, "scope": scope, "readout": ro, "ec_minus_beta_change": o, "random_median": float(np.median(nl)),
-                     "random_q025": float(np.quantile(nl, .025)), "random_q975": float(np.quantile(nl, .975)),
-                     "excess_over_random": o - float(np.median(nl)),
-                     "random_share_at_or_below": float((np.sum(nl <= o) + 1) / (NRAND + 1)),
-                     "random_share_at_or_above": float((np.sum(nl >= o) + 1) / (NRAND + 1))})
-
 # set membership, one row per target
 rev = {v: k for k, v in upd.items()}
 assert len(rev) == len(upd)
@@ -182,7 +168,7 @@ for kind, unit, scope, gl in setdefs:
                       "measurable": bool(j is not None and meas[j]),
                       "sc_ec_pseudobulk_ko_minus_wt_log2": float(E["pbd"][j]) if j is not None else np.nan})
 
-# context: every Figure 5E regulon, SC_EC pseudobulk only, its own random stream
+# context: every Figure 5B regulon, SC_EC pseudobulk only, its own random stream
 PV = pd.read_csv(a["program_values"], sep="\t")
 rng2 = np.random.default_rng(SEED_CTX)
 ctx = []
@@ -208,7 +194,6 @@ C.loc[sc, "rank_excess_lowest_first"] = C.loc[sc, "excess_over_random"].rank(met
 C["scored_regulons"] = int(sc.sum())
 
 pd.DataFrame(eff).to_csv(a["effects"], sep="\t", index=False, lineterminator="\n")
-pd.DataFrame(bsub).to_csv(a["subtracted"], sep="\t", index=False, lineterminator="\n")
 pd.DataFrame(srows).to_csv(a["sets"], sep="\t", index=False, lineterminator="\n")
 C.to_csv(a["context"], sep="\t", index=False, lineterminator="\n")
 print("context scored:", int(sc.sum()), "of", len(C), flush=True)

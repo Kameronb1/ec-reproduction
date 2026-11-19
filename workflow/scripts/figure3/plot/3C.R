@@ -1,57 +1,36 @@
-# Figure 3C: how well each population's EC-versus-rest signature (per-gene fold changes against the other endocrine
-# cells of its study) agrees with intestinal EC's. For each population and study: its Spearman rho with each intestinal study's EC
-# signature (open dots, joined by a line) and their median (filled dot), the dots of a row spread vertically so every one
-# shows; the grey band spans the agreement among intestinal EC studies. Key below.
-
-C_HIO <- "McCauley 2023 both organoids"                 # HIO graft EC: the two organoids pooled
-dots <- read_table("panel_c_dots.tsv"); hio <- read_table("panel_c_hio_dots.tsv")
-hio <- hio[hio$study == C_HIO, ]; hio$population <- "HIO_EC"
-cd <- rbind(dots, hio)[, c("population", "study", "spearman_median")]
-pw <- read_table("panel_c_pairwise.tsv"); pwh <- read_table("panel_c_hio_pairwise.tsv")
-pwh <- pwh[pwh$study == C_HIO, ]; pwh$population <- "HIO_EC"
-cp <- rbind(pw, pwh)[, c("population", "study", "gut_study", "spearman")]
-# each filled dot is the median of its comparisons with the intestinal studies
-m <- merge(aggregate(spearman ~ population + study, data = cp, FUN = median), cd, by = c("population", "study"))
-stopifnot(nrow(m) == nrow(cd), max(abs(m$spearman - m$spearman_median)) < 1e-12)
-# SC-alpha's six study dots are in the tables but not drawn
-stopifnot(sum(cd$population == "SC_ALPHA") == 6)
-cd <- cd[cd$population != "SC_ALPHA", ]
-C_ROWS <- c(GUT_EC = "Intestinal EC vs\nother EEC", SC_SIC = "SC-SIC vs other\nSC endocrine", SC_BETA = "SC-beta vs other\nSC endocrine",
-            INDUCED_EEC = "Induced EC\n(EC vs other EEC)", HIO_EC = "HIO graft EC\n(EC vs other EEC)")   # top to bottom
-C_COLS <- c(GUT_EC = "#43A5B6", SC_SIC = "#AA3377", SC_BETA = "#4477AA", INDUCED_EEC = "#CCBB44", HIO_EC = "#6943AC")
-stopifnot(setequal(cd$population, names(C_ROWS)))
-# each dot's height = its row number (bottom row 1) plus an offset that spreads the row's dots apart
-# (positions_c_dots.tsv: the offset of each population-study dot within its row, placed at the drawn size)
-off <- read_placement("positions_c_dots.tsv")
-cd$y <- match(cd$population, rev(names(C_ROWS))) + off$offset[match(paste(cd$population, cd$study), paste(off$population, off$study))]
-stopifnot(!anyNA(cd$y))
-band <- range(cd$spearman_median[cd$population == "GUT_EC"])
-cp <- cp[cp$population != "SC_ALPHA", ]
-cp <- merge(cp, cd[, c("population", "study", "y")], by = c("population", "study"))
-stopifnot(all(paste(cd$population, cd$study) %in% paste(cp$population, cp$study)))
-cr <- do.call(rbind, lapply(split(cp, paste(cp$population, cp$study)), function(d)
-  data.frame(population = d$population[1], y = d$y[1], lo = min(d$spearman), hi = max(d$spearman))))
-C_TOP <- length(C_ROWS) + 0.6                           # y axis top: a little room above the top row
-# the key, below the panel, is drawn as shapes: open dot = each intestinal study, filled dot = median, grey square = the range
-# among intestinal studies
-KEY <- data.frame(x = 0, y = 1, what = factor(c("each intestinal study", "median", "intestinal range"), levels = c("each intestinal study", "median", "intestinal range")))
-
-plot_C <- ggplot(cd, aes(spearman_median, y)) +
-  annotate("rect", xmin = band[1], xmax = band[2], ymin = -Inf, ymax = Inf, fill = "#E6E6E6", colour = NA) +
-  geom_vline(xintercept = 0, colour = "grey70", linewidth = 0.3) +
-  geom_segment(data = cr, aes(x = lo, xend = hi, y = y, yend = y, colour = population), linewidth = 0.3, inherit.aes = FALSE) +
-  geom_point(data = cp, aes(spearman, y, colour = population), shape = 21, fill = "white", size = 0.85, stroke = 0.3, inherit.aes = FALSE) +
-  geom_point(aes(fill = population), shape = 21, colour = "black", size = 1.3, stroke = 0.15) +
-  geom_point(data = KEY, aes(x, y, shape = what), inherit.aes = FALSE, alpha = 0) +   # invisible; only feeds the key below the panel
-  scale_shape_manual(name = NULL, values = c(21, 21, 22), breaks = KEY$what,
-                     guide = guide_legend(nrow = 2, byrow = TRUE, override.aes = list(alpha = 1, fill = c("white", "grey35", "#E6E6E6"),
-                       colour = c("grey35", "black", "#E6E6E6"), size = c(0.85, 1.3, 2.2), stroke = c(0.3, 0.15, 0)))) +
-  scale_fill_manual(values = C_COLS, guide = "none") + scale_colour_manual(values = C_COLS, guide = "none") +
-  scale_y_continuous(breaks = seq_along(C_ROWS), labels = rev(unname(C_ROWS)), limits = c(0.6, C_TOP), expand = c(0, 0)) +
-  scale_x_continuous(breaks = c(-0.1, 0, 0.1, 0.2, 0.3, 0.4)) +
-  labs(x = "Spearman ρ with intestinal EC", y = NULL) +
-  theme_fig3() + theme(panel.grid.major.y = element_blank(), axis.text.y = element_text(lineheight = 0.82),
-                       legend.position = "bottom", legend.margin = margin(0, 0, 0, 0), legend.box.spacing = unit(2, "pt"),
-                       legend.key.size = unit(6, "pt"), legend.spacing.x = unit(1, "pt"), legend.text = element_text(size = theme_fig3()$axis.text$size))
-
-draw_panel <- function() draw_at(plot_C, .08, 1.791, 2.31, 2.388)
+# Figure 3C: for each published gene list of serotonin-producing SC-islet cells, the share of each gene group's genes in
+# the top of the list (filled), with the best other program or cluster of the same study as a tick.
+T9 <- as.data.table(read_table("preprint_gene_lists.tsv"))
+T9[, g := gene_set]
+SRC <- c("Liu 2025, SC-SIC program", "Fiancette 2026, H1 line", "Fiancette 2026, H3 line")
+T9[, src := factor(SRC[match(paste(preprint, cell_line), c("Liu 2025 (preprint) H1 and HUES8 knockout village", "Fiancette 2026 (preprint) H1",
+                                                           "Fiancette 2026 (preprint) H3"))], SRC)]
+stopifnot(!anyNA(T9$src), nrow(T9) == 9L)
+GSIZE <- c(G1 = 28L, G2 = 34L, G3 = 84L)
+if (!all(T9$genes_in_set == GSIZE[T9$g])) stop("group sizes are not 28, 34, 84")
+T9[, `:=`(n = genes_in_set, top = genes_meeting_rule, other = genes_meeting_rule_there)]
+T9[, `:=`(pct = 100 * top / n, opct = 100 * other / n, lab = sprintf("%d of %d", top, n), gy = factor(g, c("G3", "G2", "G1")))]
+T9[, yn := as.numeric(gy)]
+pc <- ggplot(T9) +
+  geom_rect(aes(xmin = 0, xmax = 100, ymin = yn - .34, ymax = yn + .34, colour = I(GROUP_COL[g])), fill = "white", linewidth = .35) +
+  geom_rect(aes(xmin = 0, xmax = pct, ymin = yn - .34, ymax = yn + .34, fill = I(GROUP_COL[g])), colour = NA) +
+  geom_segment(aes(x = opct, xend = opct, y = yn - .44, yend = yn + .44), colour = "grey15", linewidth = .6, lineend = "butt") +
+  geom_text(aes(x = 103, y = yn, label = lab), hjust = 0, size = PT / .pt, family = FONT) +
+  facet_wrap(~src, nrow = 1) +
+  scale_y_continuous(breaks = 1:3, labels = c("G3", "G2", "G1"), expand = expansion(add = .1)) +
+  scale_x_continuous(breaks = seq(0, 100, 25), expand = expansion(add = c(1, 1))) +
+  coord_cartesian(xlim = c(0, 100), clip = "off") +                # the count labels sit right of the 100% end
+  labs(x = "Group genes in the top of the published list (%)", y = NULL) + panel_theme() +
+  theme(panel.grid.major.x = element_line(colour = GRID_COL, linewidth = .2), panel.spacing.x = unit(.50, "in"),
+        strip.text = element_text(margin = margin(2, 0, 3, 0)), axis.text.y = element_text(colour = "black", size = PT, margin = margin(0, 2, 0, 0)),
+        plot.margin = margin(2, 36, 2, 2))
+C_W <- 7.3; C_PLOT_H <- 1.30; C_KEY_H <- .42; C_H <- C_PLOT_H + C_KEY_H
+draw_C <- function() {
+  .VH <<- C_H
+  pushViewport(viewport(x = 0, y = unit(C_H - C_PLOT_H, "in"), width = unit(C_W, "in"), height = unit(C_PLOT_H, "in"), just = c("left", "bottom")))
+  print(pc, newpage = FALSE); popViewport()
+  ky <- C_PLOT_H + .10
+  key_row(list(sq_item("All genes of the group", "white", "grey45", .9), tick_item("Best other program or cluster of the same study")), 0, C_W, ky)
+  key_row(list(sq_item("In the top of the list (Liu 2025: z score > 2; Fiancette 2026: first 500 markers)", "grey45")), 0, C_W, ky + .16)
+}
+draw_panel <- function() panel_canvas(120, 3969, C_W, C_H, draw_C)

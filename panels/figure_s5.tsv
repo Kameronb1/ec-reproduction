@@ -1,0 +1,4 @@
+panel	shows	outputs	script	plot	image	box
+Figure S5A	Pathway terms (GO biological process, Reactome) of each gene group (G1, G2, G3) alone and with the mixed genes it would join, as -log10 adjusted p, with the mixed genes inside each term.	pathways_all_terms.tsv.gz,lists.tsv	mixed_gene_pathways.R	plot/S5A.R	S5A.png	66,104,4350,2977
+Figure S5B	MSigDB C8 cell-type signature terms of each gene group alone and with the mixed genes it would join, as -log10 adjusted p, with the mixed genes inside each term.	celltypes_all_terms.tsv,lists.tsv	mixed_gene_celltypes.R,mixed_gene_pathways.R	plot/S5B.R	S5B.png	66,3252,4322,1932
+Figure S5 key	Key shared by Figures S5A and S5B: group alone, group with its mixed genes, no group gene in the term, the adjusted p = 0.05 line, and bold names for terms also drawn in Figure 2E.			plot/S5_key.R	S5_key.png	1050,5254,2400,175

@@ -1,0 +1,3 @@
+output	expected	mode	key_columns	rel_tolerance	reason
+s2_cholesterol_tiles.tsv	s2_cholesterol_tiles.tsv	exact			Table drawn in S8A: the per-gene tiles
+s2_cholesterol_medians.tsv	s2_cholesterol_medians.tsv	exact			Table drawn in S8A: the median bars (Balboa 2022 stage 7 wk 0 -> wk 3 is in the table but not drawn)

@@ -1,32 +1,27 @@
-# Figure 4C (right, expression bars), 4D (cholesterol synthesis change) and 4E (gap to primary intestinal EC on the
-# Figure 3 gene groups), from pseudobulk levels of all cells (no downsampling, "unthinned").
+# Figure 4B (right, the four markers' expression change) and 4C (gap to primary intestinal EC on the Figure 2D gene
+# groups), from pseudobulk levels of all cells (no downsampling, "unthinned").
 #
-# Profiles: one per sample x population (SC-SIC, SC-beta, SC-alpha) with >= 20 cells, raw UMI sums from primary study
+# Profiles: one per sample x population (SC-SIC, SC-beta, SC-alpha) with >= 20 cells, raw UMI sums from published
 # labels; Augsornworawat 2023 from its own recount (nuclei). Level = log2(1 + CPM) over the gene universe G (genes tested
-# in the donor-level Figure 3D model that are present in every tree and in the intestinal reference); the C bars use G
+# in the donor-level Figure 2C model that are present in every tree and in the intestinal reference); the B bars use G
 # plus CFAP92. Graft rows (A-HUES8 ... P-TXP) use SoupX-corrected sums for both ends; the three in vitro culture rows use
 # uncorrected sums. B-0-M3's later end (Balboa 2022 3-month grafts) is one pooled profile per population: its three
 # graft samples' sums added (>= 20 cells pooled), SRR13805905 uncorrected (SoupX could not estimate its contamination).
-# Row ends and samples come from the Figure 4C rows table (a pooled end is its samples joined with "+").
-#   C bars  (later mean - earlier mean), averaged over the four classifier markers (TPH1, SLC18A1, FEV, LMX1A) / over
-#           the 20 SC-SIC classifier genes
-#   D       each measured Reactome cholesterol biosynthesis gene's change (26 of 27; IDI2 is not in G) (later mean -
-#           earlier mean; the dots, D_cholesterol_per_gene) and their median (the tick, D_cholesterol_medians)
-#   E       per profile, median over a gene group of (level - primary intestinal EC reference); reference = mean of three
+# Row ends and samples come from the row table of ec_calls.R (a pooled end is its samples joined with "+").
+#   B bars  (later mean - earlier mean), averaged over the four classifier markers (TPH1, SLC18A1, FEV, LMX1A)
+#   C       per profile, median over a gene group of (level - primary intestinal EC reference); reference = mean of three
 #           intestinal studies, (mean(Elmentaite 2021, Elmentaite 2020) + Hickey 2023 + Egozi 2021) / 3, pooled EC cells
-#           with primary study labels; row end = mean over its samples. Drawn: Figure 3's groups (28/34/84 genes) with
+#           with published labels; row end = mean over its samples. Drawn: the Figure 2D groups (28/34/84 genes) with
 #           the seven Elmentaite 2020 Crohn's donor units left out of the reference (from/to). For comparison the table
 #           also carries the same values on uncorrected counts (*_unthinned_uncorrected).
-#   E bars  (E_end_spread) the spread of the group's genes at the later end: each gene's (level - reference) averaged
+#   C bars  (E_end_spread) the spread of the group's genes at the later end: each gene's (level - reference) averaged
 #           over the later samples, then the 25th, 50th and 75th percentiles over the group's genes (R quantile type 7).
 #           The pale bar spans q25 to q75; the arrow end (mean over samples of per-sample medians) need not equal q50.
 #
 # Inputs (name=path): tree1..tree6 _profiles/_genes/_counts, gut=<intestinal reference analysis.rds>, cfap92=<CFAP92 alias row>,
-#   universe=<genes tested in the Figure 3D model>, nuc_profiles, nuc_pseudobulk, soupx_profiles, soupx_pseudobulk, rows=<rows_called.tsv>,
-#   classifier=<SC-SIC classifier fold models>, chol=<Reactome cholesterol biosynthesis genes>,
-#   groups=<Fig. 3 groups>, roster=<Crohn's units JSON>
-# Outputs: bars=C_bars.tsv  chol_out=D_cholesterol_medians.tsv  chol_genes=D_cholesterol_per_gene.tsv  gaps=E_group_gaps.tsv
-#          end_spread=E_end_spread.tsv
+#   universe=<genes tested in the Figure 2C model>, nuc_profiles, nuc_pseudobulk, soupx_profiles, soupx_pseudobulk,
+#   rows=<row_samples.tsv>, groups=<Figure 2D gene groups>, roster=<Crohn's units JSON>
+# Outputs: bars=C_bars.tsv  gaps=E_group_gaps.tsv  end_spread=E_end_spread.tsv
 args <- commandArgs(trailingOnly = TRUE)
 A <- setNames(sub("^[^=]*=", "", args), sub("=.*$", "", args))
 suppressPackageStartupMessages({ library(Matrix); library(jsonlite) })
@@ -96,7 +91,7 @@ pool_soupx <- function(pooled) {
 }
 
 # ---- rows ----
-RC <- rt(A[["rows"]]); RC <- unique(RC[RC$rule == "FOUR_MARKER_UNGATED" & RC$population == "SC_SIC", c("id", "ref_samples", "test_samples")])
+RC <- rt(A[["rows"]])[, c("id", "ref_samples", "test_samples")]
 GRAFT <- c("A-HUES8", "A-WS4", "B-0-M1", "B-0-M3", "B-3-M6-CTRL", "B-3-M6-STZ", "H-10w", "P-TXP"); CULT <- c("B-w0-w6", "P-w2-m6", "P-w2-m12")
 stopifnot(setequal(RC$id, c(GRAFT, CULT)))
 for (pooled in grep("+", unique(c(RC$ref_samples, RC$test_samples)), fixed = TRUE, value = TRUE)) {
@@ -123,29 +118,14 @@ cl <- function(s, p) paste(s, p, sep = "|")
 chg <- function(T, id, p, genes) { r <- intersect(cl(REF[[id]], p), colnames(T)); t <- intersect(cl(TEST[[id]], p), colnames(T))
   if (!length(r) || !length(t)) return(rep(NA_real_, length(genes))); rowMeans(T[genes, t, drop = FALSE]) - rowMeans(T[genes, r, drop = FALSE]) }
 
-# ---- C bars ----
-MK <- c("TPH1", "SLC18A1", "FEV", "LMX1A"); SC20 <- readRDS(A[["classifier"]])$sc_genes; stopifnot(length(SC20) == 20L)
+# ---- B bars: the four markers' expression change ----
+MK <- c("TPH1", "SLC18A1", "FEV", "LMX1A")
 CB <- do.call(rbind, lapply(c(GRAFT, CULT), function(id) do.call(rbind, lapply(c("SC_SIC", "SC_BETA"), function(p) {
   data.frame(id = id, population = p, counts = if (soupx(id)) "soupx" else "uncorrected",
-    four_marker = mean(chg(tab_for(L, id, "G2"), id, p, MK)), sc_sic_20_gene = mean(chg(tab_for(L, id, "G2"), id, p, SC20)),
-    four_marker_unthinned_uncorrected = mean(chg(tab_unc(L, id, "G2"), id, p, MK)), sc_sic_20_gene_unthinned_uncorrected = mean(chg(tab_unc(L, id, "G2"), id, p, SC20))) }))))
+    four_marker = mean(chg(tab_for(L, id, "G2"), id, p, MK)), four_marker_unthinned_uncorrected = mean(chg(tab_unc(L, id, "G2"), id, p, MK))) }))))
 wtsv(CB, A[["bars"]])
 
-# ---- D: cholesterol medians ----
-CHT <- rt(A[["chol"]]); stopifnot(nrow(CHT) == 27L)
-CH <- sort(intersect(CHT$gene, intersect(G, GP)), method = "radix"); stopifnot(length(CH) == 26L)
-D <- do.call(rbind, lapply(c(GRAFT, CULT), function(id) do.call(rbind, lapply(DRAWN, function(p) {
-  data.frame(comparison = id, population = p, counts = if (soupx(id)) "soupx" else "uncorrected",
-             change = median(chg(tab_for(L, id, "G"), id, p, CH)), change_unthinned_uncorrected = median(chg(tab_unc(L, id, "G"), id, p, CH))) }))))
-wtsv(D, A[["chol_out"]])
-DG <- do.call(rbind, lapply(c(GRAFT, CULT), function(id) do.call(rbind, lapply(DRAWN, function(p)
-  data.frame(comparison = id, population = p, counts = if (soupx(id)) "soupx" else "uncorrected", gene = CH,
-             change = unname(chg(tab_for(L, id, "G"), id, p, CH)))))))
-dm <- aggregate(change ~ comparison + population, DG, median)
-stopifnot(nrow(DG) == 858L, identical(dm$change[match(paste(D$comparison, D$population), paste(dm$comparison, dm$population))], D$change))
-wtsv(DG, A[["chol_genes"]])
-
-# ---- E: gaps to the primary intestinal EC reference ----
+# ---- C: gaps to the primary intestinal EC reference ----
 GRPS <- c(G1 = "G1_EC_GENES_SC_SIC_LACK", G2 = "G2_EC_GENES_SC_SIC_HAVE", G3 = "G3_SC_SIC_OWN_PROGRAM")
 GG <- rt(A[["groups"]]); stopifnot(identical(as.vector(table(GG$group)[GRPS]), c(28L, 34L, 84L)))
 prim3 <- function(T) (rowMeans(T[, c("GCA2021", "ELM2020")]) + T[, "HICKEY2023"] + T[, "EGOZI2021"]) / 3
@@ -158,7 +138,7 @@ E <- do.call(rbind, lapply(names(GRPS), function(G) do.call(rbind, lapply(c(GRAF
     from_unthinned_uncorrected = gap_arm(tab_unc(L, id, "G"), id, p, "ref", G, GG), to_unthinned_uncorrected = gap_arm(tab_unc(L, id, "G"), id, p, "test", G, GG))))))))
 wtsv(E, A[["gaps"]])
 
-# ---- E bars: spread of the group's genes at the later end (drawn groups and reference, as from/to) ----
+# ---- C bars: spread of the group's genes at the later end (drawn groups and reference, as from/to) ----
 gap_genes <- function(T, id, p, G) { cols <- intersect(cl(TEST[[id]], p), colnames(T)); if (!length(cols)) return(NULL)
   g <- intersect(GG$gene[GG$group == GRPS[[G]]], rownames(T)); PR <- prim3(T)
   do.call(rbind, lapply(cols, function(c) data.frame(group = G, id = id, population = p, sample = sub("\\|.*$", "", c), gene = g, gap = unname(T[g, c] - PR[g])))) }

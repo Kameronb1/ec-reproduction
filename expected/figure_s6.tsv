@@ -1,0 +1,3 @@
+output	expected	mode	key_columns	rel_tolerance	reason	set_columns
+points.tsv	points.tsv	exact			Table drawn in S6: the score of every drawn specimen or embryo and cell type	
+rows.tsv	rows.tsv	exact			Table drawn in S6: per cell type, the mean score and the 95% range of the random gene sets	

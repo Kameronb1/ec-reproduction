@@ -1,0 +1,379 @@
+study	group	label	specimen	cells	delta	row	kind	col
+ol	G3	acinar	pool1_12PCW	348	-0.34675802838681	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool1_13PCW	257	-0.415682667339315	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool1_13PCW_1	402	-0.45915765116708	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool2_12PCW	155	-0.294449691796267	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool2_14PCW	309	-0.415965296478399	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool2_19PCW	221	-0.473130184476344	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool3_13PCW	408	-0.43400412916292	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool3_14PCW	579	-0.453058798541518	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool3_19PCW	234	-0.443588734765618	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool4_15PCW	28	-0.384939634577179	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool4_18PCW	285	-0.580092501708999	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	acinar	pool4_20PCW	180	-0.57960863778001	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	alpha	pool1_12PCW	35	0.068598086464486	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool1_13PCW	27	0.377359536677141	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool1_13PCW_1	20	0.428307481084064	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool2_12PCW	12	0.40952626600943	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool2_14PCW	37	0.574071856212537	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool2_19PCW	18	0.158579381682872	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool3_13PCW	30	-0.186805762376072	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool3_14PCW	30	0.0176550936062228	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool3_19PCW	57	-0.258405203347247	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool4_15PCW	31	-0.126536889729511	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool4_18PCW	48	-0.0764482915686919	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	alpha	pool4_20PCW	28	0.21432699836133	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool1_12PCW	107	0.275199713579453	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool1_13PCW	85	-0.013984271853686	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool1_13PCW_1	69	0.0846938896082405	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool2_12PCW	41	0.0421410578745469	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool2_14PCW	107	-0.00119241665458114	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool2_19PCW	110	-0.160080969110731	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool3_13PCW	131	-0.0351732003427938	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool3_14PCW	163	-0.117591872762495	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool3_19PCW	330	-0.118278368240008	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool4_15PCW	28	0.148604670141319	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool4_18PCW	147	-0.207069566506256	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	beta	pool4_20PCW	81	0.128330102322321	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool1_12PCW	50	0.57493547453911	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool1_13PCW	51	0.540758775319464	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool1_13PCW_1	26	0.253240260786001	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool2_12PCW	29	0.519229349473045	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool2_14PCW	47	0.543690521376865	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool2_19PCW	19	-0.142434631917783	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool3_13PCW	62	0.320894625068839	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool3_14PCW	65	0.204930331201274	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool3_19PCW	87	0.148962463800709	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool4_15PCW	46	0.424840737416706	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool4_18PCW	71	0.175913034850766	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	pool4_20PCW	68	0.497760934587603	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	ductal	pool1_12PCW	63	-0.407459920466517	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool1_13PCW	81	-0.297548307940337	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool1_13PCW_1	52	-0.207681607386145	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool2_12PCW	41	0.0657321035771159	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool2_14PCW	51	-0.228554571508318	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool2_19PCW	43	-0.165375305625563	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool3_13PCW	110	-0.548798399643668	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool3_14PCW	134	-0.393792314845375	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool3_19PCW	59	-0.265523124342179	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool4_18PCW	73	-0.466001173771816	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	ductal	pool4_20PCW	32	-0.189734361245908	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool1_12PCW	15	-0.117113183436151	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool1_13PCW	10	0.317436229429966	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool1_13PCW_1	14	-0.0117246577788093	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool2_12PCW	11	-0.144608036936814	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool2_14PCW	28	-0.189770561666108	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool3_13PCW	28	-0.217093554290464	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool3_14PCW	28	-0.221530017559073	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	pool3_19PCW	27	-0.29952312105092	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool1_12PCW	32	-0.271989981629618	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool1_13PCW	55	-0.155085250856672	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool1_13PCW_1	43	-0.188933668772911	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool2_12PCW	49	0.0336655454195385	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool2_14PCW	33	-0.356377572881629	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool2_19PCW	37	-0.455726301377979	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool3_13PCW	54	-0.457085660431392	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool3_14PCW	60	-0.376320745941208	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool3_19PCW	112	-0.307544815561443	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool4_15PCW	48	0.33690032558113	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool4_18PCW	59	-0.0920654864500987	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	endothelial	pool4_20PCW	51	-0.442697047136155	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool1_12PCW	333	-0.377570690905231	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool1_13PCW	221	-0.625024763388874	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool1_13PCW_1	257	-0.721068247193365	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool2_12PCW	281	-0.594619176742985	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool2_14PCW	181	-0.709093777028699	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool2_19PCW	724	-0.77553077130073	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool3_13PCW	241	-0.714246163291243	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool3_14PCW	225	-0.641275857303924	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool3_19PCW	379	-0.680724985020558	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool4_15PCW	352	-0.675493131524267	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool4_18PCW	603	-0.735000779332351	Immune	other	Separate SC-SIC program (G3)
+ol	G3	immune	pool4_20PCW	350	-0.937687816411874	Immune	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool1_12PCW	1206	0.676088109610824	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool1_13PCW	1507	0.596236320568144	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool1_13PCW_1	1472	0.601542340586405	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool2_12PCW	982	0.725139288510614	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool2_14PCW	643	0.601160356143241	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool2_19PCW	364	0.37865089247718	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool3_13PCW	771	0.497260296797886	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool3_14PCW	583	0.545327604986335	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool3_19PCW	705	0.502447174115453	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool4_15PCW	1015	0.398321767428074	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool4_18PCW	747	0.211591923453967	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	pool4_20PCW	687	0.237531172099678	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool1_12PCW	41	1.3521257946603	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool1_13PCW	104	1.0765068621369	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool1_13PCW_1	91	0.7406805902632	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool2_12PCW	63	1.25180063803392	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool2_14PCW	40	0.432345526860009	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool2_19PCW	19	1.25881885984624	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool3_13PCW	45	0.743452309265822	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool3_14PCW	38	0.559017613050329	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool3_19PCW	76	0.553054940513306	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool4_15PCW	22	0.105559608712703	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool4_18PCW	53	1.09383645591165	Schwann	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	pool4_20PCW	35	0.890788073810345	Schwann	other	Separate SC-SIC program (G3)
+ol	serotonin	acinar	pool1_12PCW	348	0.106080138893614	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool1_13PCW	257	0.00836830215317264	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool1_13PCW_1	402	0.166279726630318	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool2_12PCW	155	-0.154209874074177	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool2_14PCW	309	0.0564905000425287	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool2_19PCW	221	0.223401053410685	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool3_13PCW	408	-0.00043859544155489	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool3_14PCW	579	0.305348775006029	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool3_19PCW	234	-0.134863561599092	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool4_15PCW	28	-0.219020209977615	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool4_18PCW	285	0.200904434045023	Acinar	other	Serotonin genes
+ol	serotonin	acinar	pool4_20PCW	180	0.389410300754352	Acinar	other	Serotonin genes
+ol	serotonin	alpha	pool1_12PCW	35	0.0335406128319988	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool1_13PCW	27	0.0422180871664963	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool1_13PCW_1	20	0.206576901786442	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool2_12PCW	12	0.676217729500839	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool2_14PCW	37	0.0382134551259548	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool2_19PCW	18	1.07174239796034	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool3_13PCW	30	-0.13585675386859	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool3_14PCW	30	0.199784019958529	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool3_19PCW	57	1.04325826529586	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool4_15PCW	31	1.67226034895651	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool4_18PCW	48	0.0371416732822398	Alpha	endo	Serotonin genes
+ol	serotonin	alpha	pool4_20PCW	28	0.627335319782083	Alpha	endo	Serotonin genes
+ol	serotonin	beta	pool1_12PCW	107	0.851347022723663	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool1_13PCW	85	0.574044983875482	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool1_13PCW_1	69	1.77995197710192	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool2_12PCW	41	1.05831529394528	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool2_14PCW	107	1.13908165297031	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool2_19PCW	110	0.598916472772757	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool3_13PCW	131	0.604027484464693	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool3_14PCW	163	0.973648234397219	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool3_19PCW	330	0.66183311111689	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool4_15PCW	28	1.27911241482697	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool4_18PCW	147	0.875269349441118	Beta	endo	Serotonin genes
+ol	serotonin	beta	pool4_20PCW	81	0.145526451843254	Beta	endo	Serotonin genes
+ol	serotonin	delta	pool1_12PCW	50	-1.00129976468089	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool1_13PCW	51	-0.921249636034011	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool1_13PCW_1	26	1.33851312165224	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool2_12PCW	29	-0.485745828247251	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool2_14PCW	47	0.833845471265332	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool2_19PCW	19	-1.39617448504018	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool3_13PCW	62	-0.972040426490355	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool3_14PCW	65	-0.33971073991541	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool3_19PCW	87	0.322099435415076	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool4_15PCW	46	-0.549656696462154	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool4_18PCW	71	0.00292651532863109	Delta	endo	Serotonin genes
+ol	serotonin	delta	pool4_20PCW	68	-0.0031093155928823	Delta	endo	Serotonin genes
+ol	serotonin	ductal	pool1_12PCW	63	-0.602380544078518	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool1_13PCW	81	0.588644378809765	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool1_13PCW_1	52	-1.30453789819252	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool2_12PCW	41	-0.629153041875433	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool2_14PCW	51	-0.562542413892859	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool2_19PCW	43	-0.705910890539072	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool3_13PCW	110	0.181274276863089	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool3_14PCW	134	0.00909630484394364	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool3_19PCW	59	-0.838463215705084	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool4_18PCW	73	-1.42402707294156	Ductal	other	Serotonin genes
+ol	serotonin	ductal	pool4_20PCW	32	0.090176332574464	Ductal	other	Serotonin genes
+ol	serotonin	endocrine progenitors	pool1_12PCW	15	2.83023419401827	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool1_13PCW	10	1.3672922577321	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool1_13PCW_1	14	2.07571421497548	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool2_12PCW	11	2.3023924702269	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool2_14PCW	28	2.39935130229652	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool3_13PCW	28	3.20840374598855	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool3_14PCW	28	2.86890461410342	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endocrine progenitors	pool3_19PCW	27	0.51361522510076	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endothelial	pool1_12PCW	32	-1.00047877699971	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool1_13PCW	55	-1.18985285840884	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool1_13PCW_1	43	-0.360206754964901	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool2_12PCW	49	-1.32423666392267	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool2_14PCW	33	-0.342041459508436	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool2_19PCW	37	-1.37484787265088	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool3_13PCW	54	-0.821202344265097	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool3_14PCW	60	-1.59647134217074	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool3_19PCW	112	-0.39822251111831	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool4_15PCW	48	-0.484405594693223	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool4_18PCW	59	-0.815311509012944	Endothelial	other	Serotonin genes
+ol	serotonin	endothelial	pool4_20PCW	51	-0.341480313492009	Endothelial	other	Serotonin genes
+ol	serotonin	immune	pool1_12PCW	333	-1.21343071719449	Immune	other	Serotonin genes
+ol	serotonin	immune	pool1_13PCW	221	-0.772755783888976	Immune	other	Serotonin genes
+ol	serotonin	immune	pool1_13PCW_1	257	-0.803822425796655	Immune	other	Serotonin genes
+ol	serotonin	immune	pool2_12PCW	281	-0.810758935637379	Immune	other	Serotonin genes
+ol	serotonin	immune	pool2_14PCW	181	-0.592650833298372	Immune	other	Serotonin genes
+ol	serotonin	immune	pool2_19PCW	724	-0.976526551549065	Immune	other	Serotonin genes
+ol	serotonin	immune	pool3_13PCW	241	-0.738709988490875	Immune	other	Serotonin genes
+ol	serotonin	immune	pool3_14PCW	225	-0.901137592645865	Immune	other	Serotonin genes
+ol	serotonin	immune	pool3_19PCW	379	-1.06933953064599	Immune	other	Serotonin genes
+ol	serotonin	immune	pool4_15PCW	352	-0.413300819475572	Immune	other	Serotonin genes
+ol	serotonin	immune	pool4_18PCW	603	-0.785573981401494	Immune	other	Serotonin genes
+ol	serotonin	immune	pool4_20PCW	350	-1.09856380932331	Immune	other	Serotonin genes
+ol	serotonin	mesenchymal	pool1_12PCW	1206	-0.743402256554809	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool1_13PCW	1507	-0.656290992618113	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool1_13PCW_1	1472	-0.827104416241662	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool2_12PCW	982	-1.18502745448621	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool2_14PCW	643	-1.05762512832145	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool2_19PCW	364	-0.807024617643663	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool3_13PCW	771	-1.35207199499103	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool3_14PCW	583	-1.0278727604137	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool3_19PCW	705	-1.29625920169494	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool4_15PCW	1015	-0.62329545446348	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool4_18PCW	747	-1.03583176489856	Mesenchymal	other	Serotonin genes
+ol	serotonin	mesenchymal	pool4_20PCW	687	-1.00631312599185	Mesenchymal	other	Serotonin genes
+ol	serotonin	Schwann	pool1_12PCW	41	-1.12613649262107	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool1_13PCW	104	-0.800523309085489	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool1_13PCW_1	91	-0.614577905896924	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool2_12PCW	63	0.0282545582688445	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool2_14PCW	40	-0.487451464947154	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool2_19PCW	19	-1.22840679110507	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool3_13PCW	45	-0.345643894414366	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool3_14PCW	38	-1.18760646700776	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool3_19PCW	76	-1.26742043386487	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool4_15PCW	22	0.418466190755291	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool4_18PCW	53	-1.31007758523385	Schwann	other	Serotonin genes
+ol	serotonin	Schwann	pool4_20PCW	35	-1.29417935257261	Schwann	other	Serotonin genes
+yu	G3	Acinar cell	W10_1	24	0.0323596675548716	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	Acinar cell	W12_1	231	-0.186945581237251	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	Acinar cell	W14_1	218	-0.188450564647007	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	Acinar cell	W16_1	1275	-0.106283676664934	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	Acinar cell	W18_1	1385	-0.191848666267828	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	Acinar cell	W19_1	699	-0.213828889903218	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	α	W10_1	22	0.0308529599521924	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	α	W12_1	31	-0.396511870999682	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	α	W14_1	17	-0.165158190211646	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	α	W16_1	90	-0.196681502438858	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	α	W18_1	63	-0.223266251097803	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	α	W19_1	102	-0.124753521836978	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	β	W10_1	108	0.0530189958110872	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	β	W12_1	151	-0.327869762951741	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	β	W14_1	125	-0.155858019581749	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	β	W16_1	718	-0.0788695956320229	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	β	W18_1	274	-0.168830114732668	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	β	W19_1	618	-0.101524463922608	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	W10_1	18	0.192920724208329	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	W12_1	29	-0.195818090219602	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	W14_1	51	-0.034381376505912	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	W16_1	45	0.0782963821206562	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	W18_1	127	-0.0307011553493066	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	W19_1	52	0.087288455682119	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	Duct	W10_1	50	0.0715984387949353	Ductal	other	Separate SC-SIC program (G3)
+yu	G3	Duct	W14_1	32	0.143184963180126	Ductal	other	Separate SC-SIC program (G3)
+yu	G3	Duct	W16_1	95	-0.0465312338436403	Ductal	other	Separate SC-SIC program (G3)
+yu	G3	Duct	W18_1	160	-0.192332529701997	Ductal	other	Separate SC-SIC program (G3)
+yu	G3	Duct	W19_1	41	-0.291442747049613	Ductal	other	Separate SC-SIC program (G3)
+yu	G3	Endocrine progenitors	W10_1	40	0.0606435419745008	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+yu	G3	Endocrine progenitors	W16_1	15	0.140144763314625	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+yu	G3	Endocrine progenitors	W18_1	24	0.0646246256115222	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+yu	G3	Endocrine progenitors	W8_1	17	0.120329707386539	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W10_1	887	-0.474161446852305	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W12_1	797	-0.536317740052082	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W14_1	681	-0.509411473926092	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W16_1	640	-0.553458107104393	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W18_1	673	-0.527807907390367	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W19_1	318	-0.632693360299741	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Endothelium	W8_1	358	-0.342318636417596	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W10_1	152	-0.422246636933459	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W12_1	927	-0.619755208935284	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W14_1	168	-0.619787956232832	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W16_1	115	-0.34640623459886	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W18_1	629	-0.55695493897567	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W19_1	37	-0.47219913110143	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	W8_1	358	-0.4609258122657	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W10_1	2726	0.638879372791025	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W12_1	1551	0.488505699524777	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W14_1	946	0.681039273455836	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W16_1	223	0.614842954080825	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W18_1	729	0.421763301326223	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W19_1	56	0.770461795969137	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	W8_1	6799	0.666658520839816	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W10_1	498	0.788737827199183	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W12_1	25	1.1697330178553	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W14_1	67	0.869941219184105	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W16_1	130	1.00871745406931	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W18_1	37	1.04023841363135	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W19_1	25	0.834331291211957	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	W8_1	345	0.681023232724908	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Tip	W10_1	337	-0.0624476926326929	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Tip	W12_1	150	-0.0562906409727542	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Tip	W14_1	340	-0.175963590639648	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Tip	W16_1	64	-0.179646329155685	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Tip	W18_1	44	-0.132947452261783	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Tip	W19_1	37	-0.239877161766899	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Tip	W8_1	59	-0.0562566241130806	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	W10_1	402	-0.183304944174635	Trunk	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	W14_1	39	-0.26708314460471	Trunk	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	W16_1	53	-0.224726925930183	Trunk	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	W18_1	48	-0.162918984004726	Trunk	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	W19_1	24	-0.0476713403224256	Trunk	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	W8_1	324	-0.1728427353415	Trunk	endo	Separate SC-SIC program (G3)
+yu	serotonin	Acinar cell	W10_1	24	0.688071520507088	Acinar	other	Serotonin genes
+yu	serotonin	Acinar cell	W12_1	231	-0.0555412208984683	Acinar	other	Serotonin genes
+yu	serotonin	Acinar cell	W14_1	218	-0.266449781714404	Acinar	other	Serotonin genes
+yu	serotonin	Acinar cell	W16_1	1275	0.125077604617023	Acinar	other	Serotonin genes
+yu	serotonin	Acinar cell	W18_1	1385	0.0136588796865247	Acinar	other	Serotonin genes
+yu	serotonin	Acinar cell	W19_1	699	0.0407604754193134	Acinar	other	Serotonin genes
+yu	serotonin	α	W10_1	22	0.398248799508137	Alpha	endo	Serotonin genes
+yu	serotonin	α	W12_1	31	0.188098880315741	Alpha	endo	Serotonin genes
+yu	serotonin	α	W14_1	17	-1.25538437276246	Alpha	endo	Serotonin genes
+yu	serotonin	α	W16_1	90	-0.0550108625772146	Alpha	endo	Serotonin genes
+yu	serotonin	α	W18_1	63	0.240727410727597	Alpha	endo	Serotonin genes
+yu	serotonin	α	W19_1	102	1.03019432880266	Alpha	endo	Serotonin genes
+yu	serotonin	β	W10_1	108	1.45730731285914	Beta	endo	Serotonin genes
+yu	serotonin	β	W12_1	151	0.631472908595697	Beta	endo	Serotonin genes
+yu	serotonin	β	W14_1	125	0.896292455882811	Beta	endo	Serotonin genes
+yu	serotonin	β	W16_1	718	0.985831041473664	Beta	endo	Serotonin genes
+yu	serotonin	β	W18_1	274	0.744698400695314	Beta	endo	Serotonin genes
+yu	serotonin	β	W19_1	618	0.841409855447582	Beta	endo	Serotonin genes
+yu	serotonin	δ	W10_1	18	-0.169185806943072	Delta	endo	Serotonin genes
+yu	serotonin	δ	W12_1	29	-0.309738419303504	Delta	endo	Serotonin genes
+yu	serotonin	δ	W14_1	51	-0.462025904361478	Delta	endo	Serotonin genes
+yu	serotonin	δ	W16_1	45	-1.41093696538912	Delta	endo	Serotonin genes
+yu	serotonin	δ	W18_1	127	-1.05452105157377	Delta	endo	Serotonin genes
+yu	serotonin	δ	W19_1	52	-1.38758639595205	Delta	endo	Serotonin genes
+yu	serotonin	Duct	W10_1	50	-1.63976606659291	Ductal	other	Serotonin genes
+yu	serotonin	Duct	W14_1	32	-1.75765857408258	Ductal	other	Serotonin genes
+yu	serotonin	Duct	W16_1	95	-0.650997397270406	Ductal	other	Serotonin genes
+yu	serotonin	Duct	W18_1	160	-1.51451423896454	Ductal	other	Serotonin genes
+yu	serotonin	Duct	W19_1	41	-1.72124354136168	Ductal	other	Serotonin genes
+yu	serotonin	Endocrine progenitors	W10_1	40	0.847478764998012	Endocrine progenitors	endo	Serotonin genes
+yu	serotonin	Endocrine progenitors	W16_1	15	2.43221736365823	Endocrine progenitors	endo	Serotonin genes
+yu	serotonin	Endocrine progenitors	W18_1	24	2.66891073136009	Endocrine progenitors	endo	Serotonin genes
+yu	serotonin	Endocrine progenitors	W8_1	17	1.29703936175555	Endocrine progenitors	endo	Serotonin genes
+yu	serotonin	Endothelium	W10_1	887	-1.47412421829355	Endothelial	other	Serotonin genes
+yu	serotonin	Endothelium	W12_1	797	-1.87093615595042	Endothelial	other	Serotonin genes
+yu	serotonin	Endothelium	W14_1	681	-1.74497363617166	Endothelial	other	Serotonin genes
+yu	serotonin	Endothelium	W16_1	640	-1.26398685088793	Endothelial	other	Serotonin genes
+yu	serotonin	Endothelium	W18_1	673	-1.5748796441677	Endothelial	other	Serotonin genes
+yu	serotonin	Endothelium	W19_1	318	-1.62874753662006	Endothelial	other	Serotonin genes
+yu	serotonin	Endothelium	W8_1	358	-1.55859771100683	Endothelial	other	Serotonin genes
+yu	serotonin	Immune cell	W10_1	152	-1.27461466912709	Immune	other	Serotonin genes
+yu	serotonin	Immune cell	W12_1	927	-1.10307980392982	Immune	other	Serotonin genes
+yu	serotonin	Immune cell	W14_1	168	-1.40149837650786	Immune	other	Serotonin genes
+yu	serotonin	Immune cell	W16_1	115	-1.72255382120336	Immune	other	Serotonin genes
+yu	serotonin	Immune cell	W18_1	629	-1.10951600958527	Immune	other	Serotonin genes
+yu	serotonin	Immune cell	W19_1	37	-1.27242908957608	Immune	other	Serotonin genes
+yu	serotonin	Immune cell	W8_1	358	-1.62572507476637	Immune	other	Serotonin genes
+yu	serotonin	Mesenchyme	W10_1	2726	-1.48912345356001	Mesenchymal	other	Serotonin genes
+yu	serotonin	Mesenchyme	W12_1	1551	-1.47687677366681	Mesenchymal	other	Serotonin genes
+yu	serotonin	Mesenchyme	W14_1	946	-1.42117696865004	Mesenchymal	other	Serotonin genes
+yu	serotonin	Mesenchyme	W16_1	223	-1.01683989095255	Mesenchymal	other	Serotonin genes
+yu	serotonin	Mesenchyme	W18_1	729	-1.4065458331245	Mesenchymal	other	Serotonin genes
+yu	serotonin	Mesenchyme	W19_1	56	-0.937741352106033	Mesenchymal	other	Serotonin genes
+yu	serotonin	Mesenchyme	W8_1	6799	-1.50476163260128	Mesenchymal	other	Serotonin genes
+yu	serotonin	Neuron	W10_1	498	-0.9227554505961	Neuron	other	Serotonin genes
+yu	serotonin	Neuron	W12_1	25	2.07392166781943	Neuron	other	Serotonin genes
+yu	serotonin	Neuron	W14_1	67	-1.61733520758303	Neuron	other	Serotonin genes
+yu	serotonin	Neuron	W16_1	130	-1.71109374674283	Neuron	other	Serotonin genes
+yu	serotonin	Neuron	W18_1	37	-1.13103472581393	Neuron	other	Serotonin genes
+yu	serotonin	Neuron	W19_1	25	-1.7353134252034	Neuron	other	Serotonin genes
+yu	serotonin	Neuron	W8_1	345	-0.904932222927043	Neuron	other	Serotonin genes
+yu	serotonin	Tip	W10_1	337	-0.378886797366959	Tip	endo	Serotonin genes
+yu	serotonin	Tip	W12_1	150	-0.548650561853923	Tip	endo	Serotonin genes
+yu	serotonin	Tip	W14_1	340	-0.567070243938175	Tip	endo	Serotonin genes
+yu	serotonin	Tip	W16_1	64	-0.650800859863505	Tip	endo	Serotonin genes
+yu	serotonin	Tip	W18_1	44	-0.617132918279649	Tip	endo	Serotonin genes
+yu	serotonin	Tip	W19_1	37	-1.21987149960462	Tip	endo	Serotonin genes
+yu	serotonin	Tip	W8_1	59	-1.00004361673923	Tip	endo	Serotonin genes
+yu	serotonin	Trunk	W10_1	402	-0.605246216786367	Trunk	endo	Serotonin genes
+yu	serotonin	Trunk	W14_1	39	-1.29695948867854	Trunk	endo	Serotonin genes
+yu	serotonin	Trunk	W16_1	53	-1.21667728983288	Trunk	endo	Serotonin genes
+yu	serotonin	Trunk	W18_1	48	-1.91833204236013	Trunk	endo	Serotonin genes
+yu	serotonin	Trunk	W19_1	24	-0.505223939892936	Trunk	endo	Serotonin genes
+yu	serotonin	Trunk	W8_1	324	-0.988752765778561	Trunk	endo	Serotonin genes

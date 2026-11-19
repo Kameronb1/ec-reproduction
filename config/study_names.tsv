@@ -1,15 +1,9 @@
 unit_id	author_year	short_name	type_words
-SF_YU2021_ENDODERM:fetal	Yu 2021	Yu 2021 fetal	fetal intestine
-SF_YU2021_ENDODERM:hio	Yu 2021	Yu 2021 HIO	HIO
-E-MTAB-11338	Capeling 2022	Capeling 2022 alginate	HIO (alginate)
-E-MTAB-11347	Capeling 2022	Capeling 2022 suspension	HIO (suspension)
-E-MTAB-11335	Capeling 2022	Capeling 2022 fetal	fetal intestine
-E-MTAB-9228	Holloway 2020	Holloway 2020	HIO
-E-MTAB-9720	Holloway 2021	Holloway 2021 enteroid	fetal enteroid
-E-MTAB-9489	Holloway 2021	Holloway 2021 fetal	fetal intestine
-E-MTAB-9906	Hung 2021	Hung 2021	fetal intestine
+SF_YU2021_ENDODERM:fetal	Yu 2021a	Yu 2021a fetal	fetal intestine
+SF_YU2021_ENDODERM:hio	Yu 2021a	Yu 2021a HIO	HIO
+E-MTAB-9489	Yu 2021a	Yu 2021a fetal (libraries first deposited as E-MTAB-9489)	fetal intestine
+E-MTAB-9906	Yu 2021a	Yu 2021a fetal (libraries first deposited as E-MTAB-9906)	fetal intestine
 SF_GSE214852_HIO_GRAFT	McCauley 2023	McCauley 2023	HIO graft
-GSE313368	Capeling 2026	Capeling 2026	adult colonoid
 SF_ELMENTAITE2020_DEVGUT	Elmentaite 2020	Elmentaite 2020	fetal + child intestine
 SF_ELMENTAITE2020_DEVGUT:fetal	Elmentaite 2020	Elmentaite 2020 fetal	fetal intestine
 SF_ELMENTAITE2020_DEVGUT:child	Elmentaite 2020	Elmentaite 2020 child	child intestine
@@ -17,14 +11,9 @@ SF_ELMENTAITE2021_GUT_ATLAS	Elmentaite 2021	Elmentaite 2021	fetal + adult intest
 SF_ELMENTAITE2021_GUT_ATLAS:fetal	Elmentaite 2021	Elmentaite 2021 fetal	fetal intestine
 SF_ELMENTAITE2021_GUT_ATLAS:adult	Elmentaite 2021	Elmentaite 2021 adult	adult intestine
 SF_GSE125970_ADULT_INTESTINE	Wang 2020	Wang 2020	adult intestine
-GSE158702	Fawkner-Corbett 2021	Fawkner-Corbett 2021	fetal intestine
 SF_HICKEY2023_ADULT_EEC	Hickey 2023	Hickey 2023	adult intestine
 SF_EGOZI2021_DEVELOPMENTAL_EEC	Egozi 2021	Egozi 2021	fetal + neonatal intestine
 SF_GSE185224_ADULT_REGIONAL_INTESTINE	Burclaff 2022	Burclaff 2022	adult intestine
-SF_INTESTINAL_GSE238274	Singh 2024	Singh 2024	induced EEC
-GSE284419	Smith 2025	Smith 2025	adult enteroid (sorted EEC)
-GSE114853	Roberts 2019	Roberts 2019	adult intestine (sorted EEC)
-SF_GSE178342_ADULT_ENTEROID	Zeve 2022	Zeve 2022	induced EEC
 SF_AUGSORNWORAWAT2020_SC_TRANSPLANT:hues8	Augsornworawat 2020	Augsornworawat 2020 HUES8	SC-islet (HUES8)
 SF_AUGSORNWORAWAT2020_SC_TRANSPLANT:hues8-graft	Augsornworawat 2020	Augsornworawat 2020 HUES8 graft	SC-islet graft (HUES8)
 SF_AUGSORNWORAWAT2020_SC_TRANSPLANT:ws4-graft	Augsornworawat 2020	Augsornworawat 2020 WS4 graft	SC-islet graft (WS4)
@@ -37,19 +26,8 @@ SF_VERES2019_SC_DIFFERENTIATION	Veres 2019	Veres 2019	SC-islet
 GSE226346	Siehler 2024	Siehler 2024	SC-islet
 SF_HCIPSC	Du 2022	Du 2022	SC-islet
 SF_HCIPSC:graft	Du 2022	Du 2022 graft	SC-islet graft
-SF_HCIPSC:primary	Du 2022	Du 2022 primary	primary islet
-SF_SUI2021_APHIDICOLIN	Sui 2021	Sui 2021	SC-endocrine
-SF_MISRA2026_EC_VS_ISLET:sc-ec	Misra 2026	Misra 2026 SC-EC	SC-EC
-SF_MISRA2026_EC_VS_ISLET:sc-islet	Misra 2026	Misra 2026 SC-islet	SC-islet
-SF_LIU2025_MUTANT_VILLAGES	Liu 2025	Liu 2025	SC-islet
-GSE301598	Bradley 2026	Bradley 2026	SC-islet
-GSE301598:primary	Bradley 2026	Bradley 2026 primary	primary islet
-SF_DIABETES2018_ADULT_ISLET	Xin 2018	Xin 2018	primary islet
 SF_CHIOU2022_T1D_ISLET	Fasolino 2022	Fasolino 2022	primary islet
 GSE221156	Bandesh 2026	Bandesh 2026	primary islet
-SF_SANDER2023_SC_ISLET_MULTIOME:primary	Zhu 2023	Zhu 2023 primary	child islet
 SF_CELLMETAB2023_FETAL_PANCREAS	Olaniru 2023	Olaniru 2023	fetal pancreas
-SF_YU2021_FETAL_PANCREAS	Yu XX 2021	Yu XX 2021	fetal pancreas
-SF_TIEMANN2025_PANCREAS_POLARITY	Tiemann 2025	Tiemann 2025	SC-endocrine progenitor
+SF_YU2021_FETAL_PANCREAS	Yu 2021b	Yu 2021b	fetal pancreas
 GSE199636	Augsornworawat 2023	Augsornworawat 2023	SC-islet
-GSE266878	Dadheech 2025	Dadheech 2025	SC-islet

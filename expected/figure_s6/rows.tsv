@@ -1,0 +1,45 @@
+study	group	label	mean_delta	null_lo	null_hi	n	row	kind	col
+ol	G3	acinar	-0.440036329681705	-0.179083754960333	0.196858993416325	12	Acinar	other	Separate SC-SIC program (G3)
+ol	G3	alpha	0.133352379423047	-0.190141330456443	0.203989742226687	12	Alpha	endo	Separate SC-SIC program (G3)
+ol	G3	beta	0.00213323067127746	-0.178439128613603	0.189461012327782	12	Beta	endo	Separate SC-SIC program (G3)
+ol	G3	delta	0.338560156375217	-0.173275704633627	0.19564727017401	12	Delta	endo	Separate SC-SIC program (G3)
+ol	G3	ductal	-0.282248816654428	-0.184203999741995	0.192854616114854	11	Ductal	other	Separate SC-SIC program (G3)
+ol	G3	endocrine progenitors	-0.110490862911047	-0.239181490690963	0.242286477803375	8	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+ol	G3	endothelial	-0.22777172166987	-0.251961507539235	0.252923078697645	12	Endothelial	other	Separate SC-SIC program (G3)
+ol	G3	immune	-0.682278013287008	-0.266833667524848	0.319319684822648	12	Immune	other	Separate SC-SIC program (G3)
+ol	G3	mesenchymal	0.49760810389815	-0.231144239553816	0.224758210608473	12	Mesenchymal	other	Separate SC-SIC program (G3)
+ol	G3	Schwann	0.838165606088727	-0.213569555734338	0.233206631919563	12	Schwann	other	Separate SC-SIC program (G3)
+ol	serotonin	acinar	0.0789792491536069	-0.622711714169184	0.859900801102801	12	Acinar	other	Serotonin genes
+ol	serotonin	alpha	0.459369338148226	-0.798608578257849	0.830858371334296	12	Alpha	endo	Serotonin genes
+ol	serotonin	beta	0.878422870789963	-0.729389324599936	0.827724851552624	12	Beta	endo	Serotonin genes
+ol	serotonin	delta	-0.264300195733487	-0.7673806987823	0.780868804259282	12	Delta	endo	Serotonin genes
+ol	serotonin	ductal	-0.472529434921253	-0.802935225829	1.063681788655	11	Ductal	other	Serotonin genes
+ol	serotonin	endocrine progenitors	2.19573850305525	-0.787354734373498	1.15294198973132	8	Endocrine progenitors	endo	Serotonin genes
+ol	serotonin	endothelial	-0.837396500100647	-0.915128680269156	1.3380055003763	12	Endothelial	other	Serotonin genes
+ol	serotonin	immune	-0.848047580779004	-1.12229653412538	1.56837569807028	12	Immune	other	Serotonin genes
+ol	serotonin	mesenchymal	-0.968176597359956	-0.772663093193696	1.09798126804661	12	Mesenchymal	other	Serotonin genes
+ol	serotonin	Schwann	-0.76794191231042	-0.76753737917604	1.03889145435423	12	Schwann	other	Serotonin genes
+yu	G3	Acinar cell	-0.142499618527561	-0.146740789337899	0.162281054404092	6	Acinar	other	Separate SC-SIC program (G3)
+yu	G3	α	-0.179253062772129	-0.145598725264986	0.139116409891498	6	Alpha	endo	Separate SC-SIC program (G3)
+yu	G3	β	-0.12998882683495	-0.117250021757703	0.133868261643902	6	Beta	endo	Separate SC-SIC program (G3)
+yu	G3	δ	0.0162674899893805	-0.132345897381162	0.151528050631443	6	Delta	endo	Separate SC-SIC program (G3)
+yu	G3	Duct	-0.0631046217240379	-0.218224770750277	0.190740882690638	5	Ductal	other	Separate SC-SIC program (G3)
+yu	G3	Endocrine progenitors	0.0964356595717966	-0.166944900918454	0.169017106689383	4	Endocrine progenitors	endo	Separate SC-SIC program (G3)
+yu	G3	Endothelium	-0.510881238863225	-0.275213575055595	0.292861852689172	7	Endothelial	other	Separate SC-SIC program (G3)
+yu	G3	Immune cell	-0.499753702720462	-0.295902371489409	0.320300549737321	7	Immune	other	Separate SC-SIC program (G3)
+yu	G3	Mesenchyme	0.611735845426806	-0.219774101946169	0.24290826631087	7	Mesenchymal	other	Separate SC-SIC program (G3)
+yu	G3	Neuron	0.913246065125158	-0.23885440329087	0.267039228770376	7	Neuron	other	Separate SC-SIC program (G3)
+yu	G3	Tip	-0.129061355934649	-0.167516296229198	0.156884050145606	7	Tip	endo	Separate SC-SIC program (G3)
+yu	G3	Trunk	-0.17642467906303	-0.192647510770129	0.192197527651286	6	Trunk	endo	Separate SC-SIC program (G3)
+yu	serotonin	Acinar cell	0.0909295796028462	-0.715643039612263	0.906836008107381	6	Acinar	other	Serotonin genes
+yu	serotonin	α	0.0911456973357427	-0.687132780201435	0.746169310947421	6	Alpha	endo	Serotonin genes
+yu	serotonin	β	0.926168662492367	-0.624791756314267	0.722457004300378	6	Beta	endo	Serotonin genes
+yu	serotonin	δ	-0.798999090587166	-0.581852358986297	0.788170925195694	6	Delta	endo	Serotonin genes
+yu	serotonin	Duct	-1.45683596365442	-1.03314078227782	1.15188258722768	5	Ductal	other	Serotonin genes
+yu	serotonin	Endocrine progenitors	1.81141155544297	-0.889028513912607	0.922543506413215	4	Endocrine progenitors	endo	Serotonin genes
+yu	serotonin	Endothelium	-1.58803510758545	-1.24915166936744	1.61065546189375	7	Endothelial	other	Serotonin genes
+yu	serotonin	Immune cell	-1.35848812067084	-1.10275266324572	1.52432146215114	7	Immune	other	Serotonin genes
+yu	serotonin	Mesenchyme	-1.32186655780875	-1.14651677768894	1.48459105327208	7	Mesenchymal	other	Serotonin genes
+yu	serotonin	Neuron	-0.849791873006701	-0.974141620988318	1.53937857955008	7	Neuron	other	Serotonin genes
+yu	serotonin	Tip	-0.711779499663722	-0.846983554724712	1.0211775238771	7	Tip	endo	Serotonin genes
+yu	serotonin	Trunk	-1.08853195722157	-0.996172395970625	1.04868662047986	6	Trunk	endo	Serotonin genes

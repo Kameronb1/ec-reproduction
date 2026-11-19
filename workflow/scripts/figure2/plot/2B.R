@@ -1,79 +1,71 @@
-# Figure 2B: four-marker classifier call rate among the EC cells (primary study label) of each donor, day or HIO
-# sample group, in five study plots; a dashed line marks each study's pooled rate. Key below.
+# Figure 2B: correlation (Pearson r) of each sample with three references, primary intestinal EC, adult islet beta
+# cells and adult brain serotonin neurons, one row per group. A sample of a reference group is compared with the mean of
+# the other samples of its group. Black bar: group median. Filled points: whole cells; rings: single nuclei. Key below.
+# positions_b_rows.tsv gives each sample's drawing order and its fixed vertical step within its row (layout only).
 
-PLOT_Y <- .064; PLOT_H <- 2.64; KEY_Y <- 2.824     # top and height of the plot, top of the key
+suppressPackageStartupMessages(library(data.table))
+mlab <- function(b) vapply(b, function(z) if (is.na(z)) NA_character_ else gsub("-", "−", format(z, trim = TRUE, drop0trailing = TRUE)), "")
+SHP <- c("Whole cells" = 16, "Single nuclei" = 1)
+NUC_STUDY <- c("GSE199636", "SF_HICKEY2023_ADULT_EEC", "Siletti 2023")   # single-nucleus studies: rings
+# the group values of the table (names) and their drawn row labels and colors, top row first
+NAMES <- c("Brain serotonin neurons" = "Brain serotonin neurons, adult", "Primary gut EC" = "Primary intestinal EC", "HIO EC" = "HIO graft EC",
+           "SC-SIC" = "SC-SIC", "SC-beta" = "SC-beta", "SC-alpha" = "SC-alpha", "Adult islet beta" = "Adult islet beta")
+GCOL <- setNames(c("#222222", "#43A5B6", "#6943AC", "#AA3377", "#4477AA", "#117733", "#1C3A63"), NAMES)
 
-units_B <- read_table("B_units.tsv")[c("family", "unit", "n", "called", "rate", "label")]
-# McCauley 2023 HIO grafts: cells classified as EC among the Endocrine_1 (EC) cells of each HIO sample group
-hio_B <- read_table("hio_BC_classifier_calls_by_label.tsv")
-hio_B <- hio_B[hio_B$author_label == "Endocrine_1", ]
-hio_B <- hio_B[order(hio_B$sample), ]
-units_B <- rbind(units_B, data.frame(family = "hio", unit = hio_B$sample, n = hio_B$n, called = hio_B$rule_called,
-                                     rate = 100 * hio_B$rule_called / hio_B$n,
-                                     label = paste0(hio_B$rule_called, "/", hio_B$n)))
-POINT_MAX <- 2.9                                    # largest point (mm), for the largest row
-B_SHAPE <- c(gse238274 = 17, hio = 15)              # triangles for Singh 2024 days, squares for HIO samples, else circles
-B_COL <- c(gse238274 = "#CCBB44", hio = "#6943AC")  # else teal
-
-study_plot_B <- function(f, show_x) {
-  d <- units_B[units_B$family == f, ]
-  if (f == "egozi") d$unit <- gsub("_", " ", d$unit, fixed = TRUE)
-  if (f == "gut_cell_atlas") d$unit <- sub(" \\([^)]*\\)$", "", d$unit)       # atlas donor ID only
-  if (f == "gse238274") { d <- d[order(d$unit), ]; d$unit <- sub("^D", "Day ", d$unit) }
-  d$row <- factor(d$unit, levels = rev(d$unit))
-  pooled <- 100 * sum(d$called) / sum(d$n)
-  ggplot(d, aes(rate, row)) +
-    geom_vline(xintercept = pooled, color = "#777777", linetype = "dashed", linewidth = .35) +
-    geom_point(aes(size = n), shape = if (f %in% names(B_SHAPE)) B_SHAPE[[f]] else 16,
-               color = if (f %in% names(B_COL)) B_COL[[f]] else "#43A5B6", stroke = 0) +
-    geom_text(aes(label = label), x = 108, hjust = 0, size = 7 / ggplot2::.pt, color = "black", family = "Arial") +
-    scale_size_area(max_size = POINT_MAX, limits = c(0, max(units_B$n))) +
-    scale_x_continuous(limits = c(-2, 153), breaks = c(0, 50, 100), labels = function(x) paste0(x, "%"), expand = c(0, 0)) +
-    labs(x = NULL, y = NULL, title = STUDY[f], subtitle = CONTEXT[f]) +
-    theme_fig2() +
-    theme(panel.grid.major.y = element_blank(), axis.text.y = element_text(size = 7, color = "black"),
-          plot.title = element_text(size = 8, face = "bold", margin = margin(0, 0, 1, 0)),
-          plot.subtitle = element_text(size = PT, margin = margin(0, 0, 2, 0))) +
-    (if (show_x) NULL else theme(axis.text.x = element_blank()))
+panel_theme_b <- function() {
+  gl <- element_line(color = "#E4E4E4", linewidth = .2)
+  theme_minimal(base_family = FONT, base_size = PT) +
+    theme(text = element_text(color = "black", size = PT),
+          axis.text = element_text(color = "black", size = PT),
+          axis.title = element_text(color = "black", size = PT),
+          strip.text = element_text(color = "black", size = 8, face = "bold", hjust = 0),
+          plot.title = element_text(color = "black", size = 8, face = "bold"),
+          plot.subtitle = element_text(color = "black", size = PT),
+          legend.text = element_text(color = "black", size = PT),
+          legend.title = element_text(color = "black", size = PT),
+          legend.position = "bottom", legend.key.size = unit(.12, "in"),
+          panel.grid.minor = element_blank(), panel.grid.major.x = gl, panel.grid.major.y = element_blank(),
+          axis.line.x = element_line(color = "black", linewidth = .35),
+          axis.ticks.x = element_line(color = "black", linewidth = .3),
+          axis.ticks.length = unit(1.3, "pt"),
+          panel.spacing = unit(.16, "in"),
+          plot.margin = margin(2, 6, 2, 2))
 }
-pb <- setNames(lapply(FAMS, function(f) study_plot_B(f, show_x = f %in% c("hickey", "hio"))), FAMS)
-plot_B <- wrap_plots(wrap_plots(pb$gut_cell_atlas, pb$hickey, ncol = 1, heights = c(10, 9)),
-                     wrap_plots(pb$egozi, pb$gse238274, pb$hio, ncol = 1, heights = c(6, 4, 2)), ncol = 2)
 
-point_key <- function(n, x, y, shape = 16, col = "black")
-  grid.points(x = unit(x, "in"), y = unit(H - y, "in"), pch = shape,
-              gp = gpar(col = col, fontsize = POINT_MAX * sqrt(n / max(units_B$n)) * ggplot2::.pt))
+S <- as.data.table(read_table("brain_similarity.tsv"))
+pos <- as.data.table(read_placement("positions_b_rows.tsv"))
+stopifnot(setequal(S$group, pos$group), !anyDuplicated(pos$group))
+S <- S[match(pos$group, group)][, step := pos$step]
+S[, base := sub(" \\(nuclei study\\)$", "", grp)]
+S[, nuclei := study %in% NUC_STUDY]
+stopifnot(all(S$base %in% names(NAMES)))
+REF3 <- c(r_gut_ec = "Primary intestinal EC", r_beta = "Adult islet beta", r_serotonin = "Brain serotonin neurons")
+L <- melt(S, id.vars = c("group", "base", "nuclei", "step"), measure.vars = names(REF3), variable.name = "ref", value.name = "r")
+L[, `:=`(ref = factor(REF3[as.character(ref)], REF3), col = factor(NAMES[base], NAMES),
+         shp = factor(ifelse(nuclei, "Single nuclei", "Whole cells"), names(SHP)))]
+L[, row := as.integer(factor(col, rev(NAMES)))]
+L[, yj := row + step * .07]                             # fixed vertical spread within a row
+L <- L[order(nuclei, -as.integer(col))]                 # filled first, open (nuclei) points on top
+med <- L[, .(r = median(r)), by = .(row, ref)]
+plot_B <- ggplot(L) +
+  geom_vline(xintercept = 0, colour = "grey60", linewidth = .25) +
+  # whole cells: colored fill, hairline black edge; single nuclei: a colored ring with a hairline black ring just outside it;
+  # the invisible layer only feeds the shape key below the panel
+  geom_point(data = L[nuclei == FALSE], aes(r, yj, fill = col), shape = 21, colour = "black", size = 1.55, stroke = .15) +
+  geom_point(data = L[nuclei == TRUE], aes(r, yj), shape = 1, colour = "black", size = 1.9, stroke = .15) +
+  geom_point(data = L[nuclei == TRUE], aes(r, yj, colour = col), shape = 1, size = 1.2, stroke = .5) +
+  geom_point(aes(r, yj, shape = shp), alpha = 0) +
+  geom_segment(data = med, aes(x = r, xend = r, y = row - .36, yend = row + .36), linewidth = .5) +
+  facet_wrap(~ref, nrow = 1, labeller = as_labeller(function(x) sub("Brain serotonin neurons", "Brain serotonin\nneurons", x, fixed = TRUE))) +
+  scale_colour_manual(values = GCOL, drop = FALSE, guide = "none") + scale_fill_manual(values = GCOL, drop = FALSE, guide = "none") +
+  scale_shape_manual(values = c("Whole cells" = 21, "Single nuclei" = 1), drop = FALSE, name = NULL) +
+  guides(shape = guide_legend(override.aes = list(alpha = 1, size = c(2.3, 2), colour = "black", fill = c("grey35", NA), stroke = c(.15, .5)))) +
+  scale_y_continuous(breaks = seq_along(NAMES), labels = rev(NAMES), expand = expansion(add = .5)) +
+  scale_x_continuous(limits = c(-.35, 1), breaks = c(0, .5, 1), labels = mlab) +
+  labs(x = "Correlation (r) with the reference; black bar, group median", y = NULL) +
+  panel_theme_b() +
+  theme(strip.text = element_text(size = PT, face = "bold", hjust = .5, vjust = 0, lineheight = .9), legend.margin = margin(0, 0, 0, 0),
+        legend.box.spacing = unit(3, "pt"), legend.spacing.x = unit(2, "pt"),
+        panel.spacing = unit(.08, "in"))
 
-draw_panel <- function() {
-  g <- patchworkGrob(plot_B)
-  draw_at(g, 2.46, PLOT_Y, 4.94, PLOT_H)
-  # one x-axis title centered under both columns' plots
-  s <- panel_span(g, 4.94)
-  draw_xtitle("Called EC (% of EC cells)", 2.46 + mean(s), PLOT_Y + PLOT_H)
-  left <- 2.46; width <- 4.94; y <- KEY_Y
-  # key line 1: the three sample kinds
-  labels <- c("Donor or sample", "Day (one induced line)", "HIO sample group")
-  ww <- vapply(labels, str_in, 0) + .16; gap <- .24
-  x <- left + (width - sum(ww) - 2 * gap) / 2
-  for (i in 1:3) {
-    point_key(max(units_B$n), x + .055, y + .06, c(16, 17, 15)[i], c("#43A5B6", "#CCBB44", "#6943AC")[i])
-    text_at(labels[i], x + .16, y)
-    x <- x + ww[i] + gap
-  }
-  # key line 2: point sizes and the pooled-rate line
-  title <- "EC cells (primary study label):"; sizes <- c(10, 50, 150); pl <- "Pooled rate for the study"
-  sw <- vapply(as.character(sizes), str_in, 0) + .16
-  total <- str_in(title) + .17 + sum(sw) + .17 * 3 + .13 + .16 + str_in(pl)
-  x <- left + (width - total) / 2
-  text_at(title, x, y + .19)
-  x <- x + str_in(title) + .17
-  for (i in 1:3) {
-    point_key(sizes[i], x + .055, y + .24)
-    text_at(as.character(sizes[i]), x + .16, y + .19)
-    x <- x + sw[i] + .17
-  }
-  x <- x + .13
-  grid.lines(x = unit(rep(x + .055, 2), "in"), y = unit(H - c(y + .16, y + .26), "in"),
-             gp = gpar(col = "#777777", lty = 2, lwd = .35 * ggplot2::.pt))
-  text_at(pl, x + .16, y + .19)
-}
+draw_panel <- function() plot_at(plot_B, "B_plot")

@@ -1,6 +1,0 @@
-family	arm_id	cells	hvgs	components	n_neighbors	min_dist	spread	seed	n_threads	uwot_version	veto_reproduced
-gut_cell_atlas	E-MTAB-9536	780	250	20	25	0.3	1	20260920	1	0.2.5	TRUE
-gut_cell_atlas	E-MTAB-9543	117	250	20	25	0.3	1	20260920	1	0.2.5	TRUE
-hickey	HICKEY_2023_DRYAD	3533	250	20	25	0.3	1	20260920	1	0.2.5	TRUE
-gse238274	GSE238274	1104	250	20	25	0.3	1	20260920	1	0.2.5	TRUE
-egozi	EGOZI_2021_ZENODO	784	250	20	25	0.3	1	20260920	1	0.2.5	TRUE

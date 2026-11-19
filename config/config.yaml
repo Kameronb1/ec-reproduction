@@ -11,7 +11,8 @@ results_dir: results
 image_check: tolerance
 
 # Which figures to build. Remove entries to build a subset.
-figures: [figure1, figure2, figure2_supp, figure3, figure3_supp, figure4, figure5]
+figures: [figure1, figure2, figure3, figure4, figure5, figure_s1, figure_s2_s3, figure_s4, figure_s5, figure_s6,
+          figure_s7, figure_s8, figure_s9]
 
 # Executables: R (installed as in envs/r_packages.tsv) and the Python of the conda environment in envs/python.yaml.
 # Give full paths if they are not on PATH.

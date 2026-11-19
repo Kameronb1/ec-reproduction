@@ -1,0 +1,78 @@
+row	block	study	sample	context	graft	drawn_label	block_name	block_line
+1	A20_HUES8	Augsornworawat2020	SRR11837751	S6_in_vitro	FALSE	stage 6 day 14	Augsornworawat 2020	HUES8
+2	A20_HUES8	Augsornworawat2020	SRR11837746	M6_graft_HUES8	TRUE	6-mo graft #1 (from stage 6)	Augsornworawat 2020	HUES8
+3	A20_HUES8	Augsornworawat2020	SRR11837747	M6_graft_HUES8	TRUE	6-mo graft #2 (from stage 6)	Augsornworawat 2020	HUES8
+4	A20_HUES8	Augsornworawat2020	SRR11837748	M6_graft_HUES8	TRUE	6-mo graft #3 (from stage 6)	Augsornworawat 2020	HUES8
+5	A20_WS4corr	Augsornworawat2020	GSM4143264	WS4_baseline	FALSE	stage 6	Augsornworawat 2020	WS4corr
+6	A20_WS4corr	Augsornworawat2020	SRR11837749	M6_graft_WS4corr	TRUE	6-mo graft #1 (from stage 6)	Augsornworawat 2020	WS4corr
+7	A20_WS4corr	Augsornworawat2020	SRR11837750	M6_graft_WS4corr	TRUE	6-mo graft #2 (from stage 6)	Augsornworawat 2020	WS4corr
+8	A23	Augsornworawat2023	sc_islet_1	sc_islet_1	FALSE	SC-islet 1 (stage 6 ~wk 2)	Augsornworawat 2023	HUES8 (nuclei)
+9	A23	Augsornworawat2023	sc_islet_2	sc_islet_2	FALSE	SC-islet 2 (stage 6 ~wk 2)	Augsornworawat 2023	HUES8 (nuclei)
+10	A23	Augsornworawat2023	s6_week2	S6_week2	FALSE	stage 6 wk 2	Augsornworawat 2023	HUES8 (nuclei)
+11	A23	Augsornworawat2023	s6_week3	S6_week3	FALSE	stage 6 wk 3	Augsornworawat 2023	HUES8 (nuclei)
+12	A23	Augsornworawat2023	s6_week4	S6_week4	FALSE	stage 6 wk 4	Augsornworawat 2023	HUES8 (nuclei)
+13	A23	Augsornworawat2023	s6_month6	S6_month6	FALSE	stage 6 mo 6	Augsornworawat 2023	HUES8 (nuclei)
+14	A23	Augsornworawat2023	s6_month12	S6_month12	FALSE	stage 6 mo 12	Augsornworawat 2023	HUES8 (nuclei)
+15	A23	Augsornworawat2023	txp_1	M6_graft	TRUE	6-mo graft #1 (from stage 6 wk 2)	Augsornworawat 2023	HUES8 (nuclei)
+16	A23	Augsornworawat2023	txp_2	M6_graft	TRUE	6-mo graft #2 (from stage 6 wk 2)	Augsornworawat 2023	HUES8 (nuclei)
+17	A23	Augsornworawat2023	txp_3	M6_graft	TRUE	6-mo graft #3 (from stage 6 wk 2)	Augsornworawat 2023	HUES8 (nuclei)
+18	Balboa2022	Balboa2022	SRR13805890	S5_DT	FALSE	stage 5 end, doxycycline	Balboa 2022	H1
+19	Balboa2022	Balboa2022	SRR13805891	S5_NT	FALSE	stage 5 end, control	Balboa 2022	H1
+20	Balboa2022	Balboa2022	SRR13805892	S7w0	FALSE	stage 7 wk 0 #1	Balboa 2022	H1
+21	Balboa2022	Balboa2022	SRR13805893	S7w0	FALSE	stage 7 wk 0 #2	Balboa 2022	H1
+22	Balboa2022	Balboa2022	SRR13805894	S7w0	FALSE	stage 7 wk 0 #3	Balboa 2022	H1
+23	Balboa2022	Balboa2022	SRR13805895	S7w3	FALSE	stage 7 wk 3 #1	Balboa 2022	H1
+24	Balboa2022	Balboa2022	SRR13805896	S7w3	FALSE	stage 7 wk 3 #2	Balboa 2022	H1
+25	Balboa2022	Balboa2022	SRR13805897	S7w3	FALSE	stage 7 wk 3 #3	Balboa 2022	H1
+26	Balboa2022	Balboa2022	SRR13805898	S7w6	FALSE	stage 7 wk 6 #1	Balboa 2022	H1
+27	Balboa2022	Balboa2022	SRR13805899	S7w6	FALSE	stage 7 wk 6 #2	Balboa 2022	H1
+28	Balboa2022	Balboa2022	SRR13805900	M1_graft	TRUE	1-mo graft #1 (from stage 7 wk 0)	Balboa 2022	H1
+29	Balboa2022	Balboa2022	SRR13805901	M1_graft	TRUE	1-mo graft #2 (from stage 7 wk 0)	Balboa 2022	H1
+30	Balboa2022	Balboa2022	SRR13805902	M1_graft	TRUE	1-mo graft #3 (from stage 7 wk 0)	Balboa 2022	H1
+31	Balboa2022	Balboa2022	SRR13805903	M3_graft	TRUE	3-mo graft #1 (from stage 7 wk 0)	Balboa 2022	H1
+32	Balboa2022	Balboa2022	SRR13805904	M3_graft	TRUE	3-mo graft #2 (from stage 7 wk 0)	Balboa 2022	H1
+33	Balboa2022	Balboa2022	SRR13805905	M3_graft	TRUE	3-mo graft #3 (from stage 7 wk 0)	Balboa 2022	H1
+34	Balboa2022	Balboa2022	SRR13805906	M6_graft_CTRL	TRUE	6-mo graft, control host (from stage 7 wk 3)	Balboa 2022	H1
+35	Balboa2022	Balboa2022	SRR13805907	M6_graft_STZ	TRUE	6-mo graft, STZ host (from stage 7 wk 3)	Balboa 2022	H1
+36	Du2022	Du2022	hCiPSC-islets_S6D2	S6D2	FALSE	stage 6 day 2	Du 2022	hCiPSC
+37	Du2022	Du2022	hCiPSC-islets_10_wpt	10_wpt	TRUE	10-wk graft (from stage 6, day not stated)	Du 2022	hCiPSC
+38	Veres2019	Veres2019	differentiation_1_day_0	S5_day_0	FALSE	stage 5 day 0 #1	Veres 2019	HUES8, in vitro only
+39	Veres2019	Veres2019	differentiation_2_day_0	S5_day_0	FALSE	stage 5 day 0 #2	Veres 2019	HUES8, in vitro only
+40	Veres2019	Veres2019	differentiation_1_day_1	S5_day_1	FALSE	stage 5 day 1 #1	Veres 2019	HUES8, in vitro only
+41	Veres2019	Veres2019	differentiation_2_day_1	S5_day_1	FALSE	stage 5 day 1 #2	Veres 2019	HUES8, in vitro only
+42	Veres2019	Veres2019	differentiation_1_day_2	S5_day_2	FALSE	stage 5 day 2 #1	Veres 2019	HUES8, in vitro only
+43	Veres2019	Veres2019	differentiation_2_day_2	S5_day_2	FALSE	stage 5 day 2 #2	Veres 2019	HUES8, in vitro only
+44	Veres2019	Veres2019	differentiation_1_day_3	S5_day_3	FALSE	stage 5 day 3 #1	Veres 2019	HUES8, in vitro only
+45	Veres2019	Veres2019	differentiation_2_day_3	S5_day_3	FALSE	stage 5 day 3 #2	Veres 2019	HUES8, in vitro only
+46	Veres2019	Veres2019	differentiation_1_day_4	S5_day_4	FALSE	stage 5 day 4 #1	Veres 2019	HUES8, in vitro only
+47	Veres2019	Veres2019	differentiation_2_day_4	S5_day_4	FALSE	stage 5 day 4 #2	Veres 2019	HUES8, in vitro only
+48	Veres2019	Veres2019	differentiation_1_day_5	S5_day_5	FALSE	stage 5 day 5 #1	Veres 2019	HUES8, in vitro only
+49	Veres2019	Veres2019	differentiation_2_day_5	S5_day_5	FALSE	stage 5 day 5 #2	Veres 2019	HUES8, in vitro only
+50	Veres2019	Veres2019	differentiation_1_day_6	S5_day_6	FALSE	stage 5 day 6 #1	Veres 2019	HUES8, in vitro only
+51	Veres2019	Veres2019	differentiation_2_day_6	S5_day_6	FALSE	stage 5 day 6 #2	Veres 2019	HUES8, in vitro only
+52	Veres2019	Veres2019	differentiation_1_day_7	S5_day_7	FALSE	stage 5 day 7 #1	Veres 2019	HUES8, in vitro only
+53	Veres2019	Veres2019	differentiation_2_day_7	S5_day_7	FALSE	stage 5 day 7 #2	Veres 2019	HUES8, in vitro only
+54	Veres2019	Veres2019	differentiation_1_week_0	S6_week_0	FALSE	stage 6 wk 0 #1	Veres 2019	HUES8, in vitro only
+55	Veres2019	Veres2019	differentiation_2_week_0	S6_week_0	FALSE	stage 6 wk 0 #2	Veres 2019	HUES8, in vitro only
+56	Veres2019	Veres2019	differentiation_3_week_0	S6_week_0	FALSE	stage 6 wk 0 #3	Veres 2019	HUES8, in vitro only
+57	Veres2019	Veres2019	differentiation_1_week_1	S6_week_1	FALSE	stage 6 wk 1 #1	Veres 2019	HUES8, in vitro only
+58	Veres2019	Veres2019	differentiation_2_week_1	S6_week_1	FALSE	stage 6 wk 1 #2	Veres 2019	HUES8, in vitro only
+59	Veres2019	Veres2019	differentiation_3_week_1	S6_week_1	FALSE	stage 6 wk 1 #3	Veres 2019	HUES8, in vitro only
+60	Veres2019	Veres2019	differentiation_1_week_2	S6_week_2	FALSE	stage 6 wk 2 #1	Veres 2019	HUES8, in vitro only
+61	Veres2019	Veres2019	differentiation_2_week_2	S6_week_2	FALSE	stage 6 wk 2 #2	Veres 2019	HUES8, in vitro only
+62	Veres2019	Veres2019	differentiation_3_week_2	S6_week_2	FALSE	stage 6 wk 2 #3	Veres 2019	HUES8, in vitro only
+63	Veres2019	Veres2019	differentiation_1_week_3	S6_week_3	FALSE	stage 6 wk 3 #1	Veres 2019	HUES8, in vitro only
+64	Veres2019	Veres2019	differentiation_2_week_3	S6_week_3	FALSE	stage 6 wk 3 #2	Veres 2019	HUES8, in vitro only
+65	Veres2019	Veres2019	differentiation_3_week_3	S6_week_3	FALSE	stage 6 wk 3 #3	Veres 2019	HUES8, in vitro only
+66	Veres2019	Veres2019	differentiation_1_week_4	S6_week_4	FALSE	stage 6 wk 4 #1	Veres 2019	HUES8, in vitro only
+67	Veres2019	Veres2019	differentiation_2_week_4	S6_week_4	FALSE	stage 6 wk 4 #2	Veres 2019	HUES8, in vitro only
+68	Veres2019	Veres2019	differentiation_3_week_4	S6_week_4	FALSE	stage 6 wk 4 #3	Veres 2019	HUES8, in vitro only
+69	Veres2019	Veres2019	differentiation_1_week_5	S6_week_5	FALSE	stage 6 wk 5 #1	Veres 2019	HUES8, in vitro only
+70	Veres2019	Veres2019	differentiation_2_week_5	S6_week_5	FALSE	stage 6 wk 5 #2	Veres 2019	HUES8, in vitro only
+71	Veres2019	Veres2019	differentiation_3_week_5	S6_week_5	FALSE	stage 6 wk 5 #3	Veres 2019	HUES8, in vitro only
+72	Zhu2023	Zhu2023	GSE202497__SRR19140226	D11	FALSE	day 11	Zhu 2023	H1, in vitro only
+73	Zhu2023	Zhu2023	GSE202497__SRR19140225	D14	FALSE	day 14	Zhu 2023	H1, in vitro only
+74	Zhu2023	Zhu2023	GSE202497__SRR19140224	D21	FALSE	day 21	Zhu 2023	H1, in vitro only
+75	Zhu2023	Zhu2023	GSE202497__SRR19140223	D32	FALSE	day 32	Zhu 2023	H1, in vitro only
+76	Zhu2023	Zhu2023	GSE202497__SRR19140222	D39	FALSE	day 39	Zhu 2023	H1, in vitro only
+77	Siehler2024	Siehler2024	S6_WT	S6_WT_D40	FALSE	stage 6, wild type	Siehler 2024	HMGUi001-A-8, in vitro only

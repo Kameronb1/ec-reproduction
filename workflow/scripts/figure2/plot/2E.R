@@ -1,87 +1,106 @@
-# Figure 2E: every EC and other terminal EEC cell (primary study labels), its four-marker score (x) against its
-# 20-gene score (y), one plot per study, with both cutoffs. Corner numbers count cells called by both classifiers (top
-# right), by the 20-gene classifier only (top left), by the four-marker classifier only (bottom right) and by neither
-# (bottom left): EC cells in the study's color, other terminal EEC in grey (no grey count for 'neither'). A cell past
-# a cutoff but not classified as EC by that classifier (it failed the classifier's neighborhood check) is drawn as an
-# open circle, so the corner counts can be read against the dots. As a check, the cell table must reproduce exactly
-# the per-study counts of cells classified as EC (E_concordance.tsv and primary_only_training_calls.tsv).
+# Figure 2E: the top called terms of each gene group, pathways (top) and cell-type signatures (bottom). Bars = -log10
+# adjusted p; the dot left of each bar has its area proportional to the group's genes in the term. Both columns use one x
+# scale, measured on a device like the page's. Dot-size key below the panel.
 
-PLOT_Y <- 7.872; PLOT_H <- 1.64; KEY_Y <- 9.627    # top and height of the plots, top of the key
+# ---- the terms drawn per group --------------------------------------------------------------------------------------
+# Pathways: called terms by adjusted p (then name), a term with the same gene set as a better one dropped, the top 6 for
+# G3 and 3 for G2 and G1. Cell types (MSigDB C8): the same, plus at most one term per source study and tissue, top 3.
+# Term size = the term's genes in the test background.
+GKEY <- c(G3_SC_SIC_OWN_PROGRAM = "G3", G2_EC_GENES_SC_SIC_HAVE = "G2", G1_EC_GENES_SC_SIC_LACK = "G1")   # table values
+TOP <- c(G3 = 6, G2 = 3, G1 = 3)
+n_group <- table(read_table("gene_groups.tsv.gz")$group)
+called <- function(d) { d$called <- d$called %in% c(TRUE, "TRUE", "True"); d }
+same_set <- function(genes) duplicated(vapply(strsplit(genes, "/", fixed = TRUE), function(z) paste(sort(z), collapse = "/"), ""))
+term_size <- function(bg_ratio) as.integer(sub("/.*$", "", bg_ratio))
+pw <- called(read_table("pathways_called.tsv"))
+pathways <- do.call(rbind, lapply(names(GKEY), function(k) {
+  d <- pw[pw$list == k & pw$called, ]; d <- d[order(d$p_adj, d$term), ]; d <- head(d[!same_set(d$genes), ], TOP[[GKEY[[k]]]])
+  if (!nrow(d)) return(data.frame(column = "Pathways", group = GKEY[[k]], row = 1L, name = sprintf("no term called (%d genes)", n_group[[k]]),
+                                  p_adj = NA_real_, genes_in_group = NA_integer_, genes_in_term = NA_integer_))
+  nm <- sub("^HALLMARK_", "", d$term); nm <- gsub("_", " ", nm); up <- grepl("^[A-Z0-9 ]+$", nm); nm[up] <- tolower(nm[up])
+  data.frame(column = "Pathways", group = GKEY[[k]], row = seq_len(nrow(d)), name = nm, p_adj = d$p_adj,
+             genes_in_group = d$genes_in_list_and_term, genes_in_term = term_size(d$bg_ratio)) }))
+# each considered C8 term's source study and tissue, and the display name of each drawn term
+SOURCE <- c(BUSSLINGER_DUODENAL_EC_CELLS = "Busslinger | adult duodenum", GAO_LARGE_INTESTINE_ADULT_CA_ENTEROENDOCRINE_CELLS = "Gao | adult large intestine",
+            DESCARTES_FETAL_INTESTINE_CHROMAFFIN_CELLS = "Descartes | fetal intestine", HE_LIM_SUN_FETAL_LUNG_C1_PULMONARY_NEUROENDOCRINE_CELL = "He, Lim, Sun | fetal lung",
+            HE_LIM_SUN_FETAL_LUNG_C1_INTERM_NEUROENDOCRINE_CELL = "He, Lim, Sun | fetal lung", HE_LIM_SUN_FETAL_LUNG_C1_PULMONARY_NE_PRECURSOR_CELL = "He, Lim, Sun | fetal lung",
+            DESCARTES_FETAL_STOMACH_NEUROENDOCRINE_CELLS = "Descartes | fetal stomach", DESCARTES_FETAL_LUNG_VISCERAL_NEURONS = "Descartes | fetal lung",
+            MANNO_MIDBRAIN_NEUROTYPES_HNBML5 = "La Manno | midbrain", MANNO_MIDBRAIN_NEUROTYPES_HDA2 = "La Manno | midbrain",
+            MANNO_MIDBRAIN_NEUROTYPES_HDA = "La Manno | midbrain", DESCARTES_FETAL_LIVER_MESOTHELIAL_CELLS = "Descartes | fetal liver")
+NAME <- c(BUSSLINGER_DUODENAL_EC_CELLS = "duodenal EC", GAO_LARGE_INTESTINE_ADULT_CA_ENTEROENDOCRINE_CELLS = "adult colon enteroendocrine",
+          DESCARTES_FETAL_INTESTINE_CHROMAFFIN_CELLS = "fetal intestine chromaffin", HE_LIM_SUN_FETAL_LUNG_C1_PULMONARY_NEUROENDOCRINE_CELL = "fetal lung neuroendocrine",
+          DESCARTES_FETAL_LUNG_VISCERAL_NEURONS = "fetal lung visceral neurons", MANNO_MIDBRAIN_NEUROTYPES_HNBML5 = "embryonic midbrain neuroblasts",
+          DESCARTES_FETAL_LIVER_MESOTHELIAL_CELLS = "fetal liver mesothelium")
+ct <- called(read_table("celltypes_called.tsv"))
+celltypes <- do.call(rbind, lapply(names(GKEY), function(k) {
+  d <- ct[ct$list == k & ct$called, ]; d <- d[order(d$p_adj, d$term_id), ]; d <- d[!same_set(d$genes), ]
+  s <- SOURCE[d$term_id]; take <- which(!duplicated(s))[1:3]
+  if (anyNA(take) || anyNA(s[seq_len(max(take))])) stop("fewer than 3 cell-type terms, or a considered term has no source key: ", k)
+  d <- d[take, ]
+  data.frame(column = "Cell-type signatures", group = GKEY[[k]], row = seq_len(nrow(d)), name = unname(NAME[d$term_id]), p_adj = d$p_adj,
+             genes_in_group = d$genes_in_list_and_term, genes_in_term = term_size(d$bg_ratio)) }))
+stopifnot(!anyNA(celltypes$name))
+terms <- rbind(pathways, celltypes)
 
-calls_E <- read_table("E_concordance.tsv")
-calls_E <- calls_E[calls_E$seg != "extra", c("family", "fam", "class", "rule", "called", "n")]
-# 20-gene classifier: genes from D, weights and threshold fitted on the primary study labels of the other studies
-po <- read_table("primary_only_training_calls.tsv")
-po <- po[po$variant == "D_GENES_PRIMARY_ONLY", ]
-k <- calls_E$rule == "panel"
-calls_E$called[k] <- po$called[match(paste(calls_E$family[k], calls_E$class[k]), paste(po$study, po$class))]
-# McCauley 2023 HIO grafts
-hio_E <- read_table("hio_E_hio_summary.tsv")
-hio_E <- hio_E[hio_E$panel_size == 20, ]
-calls_E <- rbind(calls_E, data.frame(family = "SF_GSE214852_HIO_GRAFT", fam = "hio",
-                                     class = c("POSITIVE", "POSITIVE", "NEGATIVE", "NEGATIVE"), rule = c("marker", "panel"),
-                                     called = c(hio_E$ec_rule_called, hio_E$ec_called, hio_E$other_rule_called, hio_E$other_called),
-                                     n = c(hio_E$ec_n, hio_E$ec_n, hio_E$other_n, hio_E$other_n)))
-
-cells_E <- read_table("E_cells.tsv")
-cells_E$call4 <- as.logical(cells_E$call4); cells_E$call20 <- as.logical(cells_E$call20)
-for (i in seq_len(nrow(calls_E))) {
-  d <- cells_E[cells_E$fam == calls_E$fam[i] & cells_E$class == c(POSITIVE = "EXPLICIT_EC", NEGATIVE = "TERMINAL_NON_EC_EEC")[[calls_E$class[i]]], ]
-  stopifnot(nrow(d) == calls_E$n[i], sum(if (calls_E$rule[i] == "marker") d$call4 else d$call20) == calls_E$called[i])
+# ---- the plot --------------------------------------------------------------------------------------------------------
+G_BOX <- at("E_plot")
+G_FILL <- GROUP_COLS[c("G1", "G2", "G3")]
+DOT_MAX <- 2.6; DOT_X <- 0.075                           # largest dot (ggplot size); dot center, in left of 0
+LAB_OFF <- 0.04; R_PAD <- 0.04                           # in: names start LAB_OFF right of 0; padding right of the longest name
+# one row per term in each column (a group with no called term: one row, "no term called (n genes)", in the group's middle
+# row); row heights are equal across the two columns
+g_rows <- function(column) {
+  d <- terms[terms$column == column, ]
+  n_rows <- setNames(pmax(1, tapply(d$row, d$group, max)[c("G1", "G2", "G3")]), c("G1", "G2", "G3"))
+  grid_id <- paste(rep(names(n_rows), n_rows), unlist(lapply(n_rows, seq_len)))
+  none <- is.na(d$p_adj); d$row[none] <- as.integer((n_rows[d$group[none]] + 1) %/% 2)
+  m <- d[match(grid_id, paste(d$group, d$row)), ]
+  data.frame(g = factor(sub(" .*", "", grid_id), c("G1", "G2", "G3")), name = ifelse(is.na(m$name), "", m$name), v = -log10(m$p_adj),
+             n = m$genes_in_group, key = factor(grid_id, rev(grid_id)), col = factor(column))
 }
-E_STUDY_COL <- c(gut_cell_atlas = "#43A5B6", hickey = "#43A5B6", egozi = "#43A5B6", gse238274 = "#CCBB44", hio = "#6943AC")
-E_OTHER <- "#9A9A9A"
-E_XR <- c(-1.5, 2.6); E_YR <- range(cells_E$score20)
-quad <- function(d) c(both = sum(d$call4 & d$call20), only20 = sum(!d$call4 & d$call20), only4 = sum(d$call4 & !d$call20),
-                      none = sum(!d$call4 & !d$call20))
-scatter_E <- function(f, first) {
-  d <- cells_E[cells_E$fam == f, ]; d <- d[order(d$class == "EXPLICIT_EC"), ]
-  d$col <- ifelse(d$class == "EXPLICIT_EC", E_STUDY_COL[[f]], E_OTHER)
-  d$open <- (d$score4 >= EC_CUTOFF & !d$call4) | (d$score20 >= d$thr20 & !d$call20)
-  thr <- unique(d$thr20); stopifnot(length(thr) == 1)
-  qe <- quad(d[d$class == "EXPLICIT_EC", ]); qo <- quad(d[d$class != "EXPLICIT_EC", ])
-  yr <- E_YR + c(-.22, .22) * diff(E_YR); dy <- .075 * diff(yr); ins <- .03 * diff(yr)
-  x <- c(E_XR[2] - .1, E_XR[1] + .1, E_XR[2] - .1, E_XR[1] + .1); h <- c(1, 0, 1, 0)
-  ann <- rbind(data.frame(x = x, y = c(yr[2] - ins, yr[2] - ins, yr[1] + ins, yr[1] + ins), h = h, v = c(1, 1, 0, 0), lab = qe, col = E_STUDY_COL[[f]]),
-               data.frame(x = x, y = c(yr[2] - ins - dy, yr[2] - ins - dy, yr[1] + ins + dy, yr[1] + ins + dy), h = h, v = c(1, 1, 0, 0), lab = qo, col = E_OTHER))
-  pc <- function(q) { p <- 100 * q / sum(q); ifelse(q == 0, "0%", ifelse(p < 1, "<1%", ifelse(p > 99 & q < sum(q), ">99%", paste0(round(p), "%")))) }
-  ann$lab <- c(pc(qe), pc(qo))
-  ggplot(d, aes(score4, score20)) +
-    geom_point(data = d[!d$open, ], aes(color = col), size = .35, stroke = 0, alpha = .75) +
-    geom_point(data = d[d$open, ], aes(color = col), shape = 1, size = .55, stroke = .2) +
-    geom_vline(xintercept = EC_CUTOFF, linetype = "dashed", linewidth = .3) +
-    geom_hline(yintercept = thr, linetype = "dashed", linewidth = .3) +
-    geom_text(data = ann, aes(x, y, label = lab, hjust = h, vjust = v, color = col), size = 6.5 / ggplot2::.pt,
-              family = "Arial", fontface = "bold", inherit.aes = FALSE) +
-    scale_color_identity() +
-    scale_x_continuous(limits = E_XR, breaks = -1:2, expand = c(0, 0)) +
-    scale_y_continuous(limits = yr, expand = c(0, 0)) +
-    labs(x = "Four-marker score", y = if (first) "20-gene score" else NULL, title = STUDY[f], subtitle = CONTEXT[f]) +
-    theme_fig2() +
-    theme(panel.border = element_rect(fill = NA, color = "black", linewidth = .3), axis.line.x = element_blank(),
-          axis.ticks.y = element_line(color = "black", linewidth = .3), panel.grid.major = element_blank(),
-          plot.title = element_text(size = 7.5, face = "bold", margin = margin(0, 0, 0, 0)),
-          plot.subtitle = element_text(size = 7, margin = margin(0, 0, 1, 0)),
-          axis.title.x = element_text(margin = margin(1, 0, 0, 0))) +
-    (if (first) NULL else theme(axis.text.y = element_blank()))
+gp_d <- g_rows("Pathways"); gc_d <- g_rows("Cell-type signatures")
+
+on_device <- function(w, h, f) { png(tempfile(fileext = ".png"), width = w, height = h, units = "in", res = DPI, type = "cairo"); on.exit(dev.off()); f() }
+g_col <- function(d, Wcol, hi, LL) {
+  upi <- hi / (Wcol - LL); lo <- -LL * upi                 # x units per inch; the dot area is LL in wide
+  ggplot(d, aes(v, key)) + geom_blank(aes(x = 0)) +
+    geom_col(aes(fill = g), width = 0.78, alpha = 0.35, na.rm = TRUE) +
+    geom_text(data = d[nzchar(d$name), ], aes(label = name), x = LAB_OFF * upi, hjust = 0, size = MM, family = FONT, colour = "black") +
+    geom_point(data = d[!is.na(d$n), ], aes(size = n, fill = g), x = -DOT_X * upi, shape = 21, colour = "black", stroke = 0.15) +
+    scale_size_area(max_size = DOT_MAX, limits = c(0, max(terms$genes_in_group, na.rm = TRUE)), guide = "none") +
+    facet_grid(g ~ col, scales = "free_y", space = "free_y", switch = "y") +
+    scale_fill_manual(values = G_FILL, guide = "none") +
+    scale_x_continuous(limits = c(lo, hi), breaks = seq(0, floor(hi / 2) * 2, by = 2), expand = c(0, 0)) +
+    labs(x = expression("−log10 adjusted" ~ italic(p)), y = NULL) +
+    theme_fig2() + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_blank(),
+      strip.placement = "outside", strip.text.y.left = element_text(angle = 0, hjust = 0.5, vjust = 0.5, face = "bold", size = PT, colour = "black"),
+      strip.text.x = element_text(face = "bold", size = PT, colour = "black", hjust = 0, margin = margin(1, 0, 2, 0)),
+      panel.spacing.y = unit(2, "pt"), plot.margin = margin(1, 0, 1, 1))
 }
-plot_E <- wrap_plots(lapply(seq_along(FAMS), function(i) scatter_E(FAMS[i], i == 1)), nrow = 1)
+# stacked, pathways on top, on one x scale; tick labels and the axis title only under the cell-type column
+g_pair <- function(Wpanel, hi) (g_col(gp_d, Wpanel, hi, LLP) + labs(x = NULL) + theme(axis.text.x = element_blank())) /
+  g_col(gc_d, Wpanel, hi, LLC) +
+  plot_layout(heights = c(nrow(gp_d), nrow(gc_d))) + plot_annotation(theme = theme(plot.margin = margin(0, 0, 0, 0)))
+
+# both columns span the box (minus its fixed parts: the group strip and margins), on one x scale that reaches the largest
+# bar of either column; the longest term name must fit right of 0
+w_txt <- function(s) on_device(3, 2, function() vapply(s, str_w, 0))
+LLP <- 0.16; LLC <- 0.16                                 # the dot area left of 0 (in)
+fixed_w <- on_device(G_BOX[["w"]], G_BOX[["h"]], function() {
+  g <- patchworkGrob(g_pair(1, 4)); pushViewport(viewport(width = unit(G_BOX[["w"]], "in"), height = unit(G_BOX[["h"]], "in")))
+  w <- convertWidth(g$widths, "in", valueOnly = TRUE); popViewport(); sum(w[unitType(g$widths) != "null"]) })
+G_PANEL_W <- G_BOX[["w"]] - fixed_w
+G_NAME_W <- max(w_txt(c(gp_d$name, gc_d$name)[nzchar(c(gp_d$name, gc_d$name))]))
+if (LLP + LAB_OFF + G_NAME_W + R_PAD > G_PANEL_W) stop("2E: the longest term name does not fit in the panel: ", round(G_NAME_W, 3), " in")
+plot_E <- g_pair(G_PANEL_W, max(c(gp_d$v, gc_d$v), na.rm = TRUE) * 1.04)
+
+# key item: a dot of the size drawn for n group genes in a term
+size_item <- function(n) list(label = as.character(n), w_sym = .13, draw = function(x, y)
+  grid.points(x = unit(x + .045, "in"), y = unit(H - y - .04, "in"), pch = 21, size = unit(1, "char"),
+              gp = gpar(col = "black", fill = "grey80", fontsize = DOT_MAX * sqrt(n / max(terms$genes_in_group, na.rm = TRUE)) * .pt + 0.15 * .stroke / 2,
+                        lwd = 0.15 * .stroke / 2)))
 
 draw_panel <- function() {
-  draw_at(plot_E, .08, PLOT_Y, 7.32, PLOT_H)
-  y <- KEY_Y; left <- .10; width <- 7.30
-  labs <- c("EC (primary study label)", "Other terminal EEC", "Cutoffs", "Past a cutoff, not called (neighborhood check)",
-            "Numbers: percent of each label's cells called by both, by one or by neither classifier")
-  ww <- vapply(labs, str_in, 0) + c(.36, .14, .30, .14, 0); gap <- .16
-  x <- left + (width - sum(ww[1:4]) - 3 * gap) / 2
-  for (j in 1:3) grid.points(unit(x + .045 + (j - 1) * .11, "in"), unit(H - y - .05, "in"), pch = 16,
-                             gp = gpar(col = c("#43A5B6", "#CCBB44", "#6943AC")[j], fontsize = 5))
-  text_at(labs[1], x + .36, y); x <- x + ww[1] + gap
-  grid.points(unit(x + .045, "in"), unit(H - y - .05, "in"), pch = 16, gp = gpar(col = E_OTHER, fontsize = 5))
-  text_at(labs[2], x + .14, y); x <- x + ww[2] + gap
-  grid.lines(unit(c(x, x + .22), "in"), unit(rep(H - y - .05, 2), "in"), gp = gpar(lty = 2, lwd = .3 * ggplot2::.pt))
-  text_at(labs[3], x + .3, y); x <- x + ww[3] + gap
-  grid.points(unit(x + .045, "in"), unit(H - y - .05, "in"), pch = 1, gp = gpar(col = E_OTHER, fontsize = 5, lwd = .5))
-  text_at(labs[4], x + .14, y)
-  text_at(labs[5], left + (width - str_in(labs[5])) / 2, y + .16)       # second key line
+  plot_at(plot_E, "E_plot")
+  k <- at("E_key"); key_row(c(list(text_item("Group genes in term:")), lapply(c(2, 5, 10, 15), size_item)), k[["x"]], k[["w"]], k[["y"]])
 }

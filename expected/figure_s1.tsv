@@ -1,0 +1,6 @@
+output	expected	mode	key_columns	rel_tolerance	reason
+dots_pooled_vs_balanced.tsv	dots_pooled_vs_balanced.tsv	exact			Table drawn in S1B
+gene_signatures.tsv.gz	gene_signatures.tsv.gz	exact			Table drawn in S1C (each gene's fold changes); compared after decompression
+concordance.tsv	concordance.tsv	exact			Spearman rho printed over each S1C plot (rows "without them")
+share_two_fold.tsv	share_two_fold.tsv	exact			Signature genes also up 2-fold, printed over each S1C plot
+genes_before_after.tsv.gz	genes_before_after.tsv.gz	exact			Table drawn in S1D; compared after decompression

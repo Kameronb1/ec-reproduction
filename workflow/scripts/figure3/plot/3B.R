@@ -1,43 +1,53 @@
-# Figure 3B: the four-marker EC classifier's marker score of SC-islet cells, one row per study. In each row the SC-SIC,
-# SC-beta and other endocrine cells (mostly SC-alpha and SC-delta) each get a density scaled to its own peak; the dashed
-# line is Figure 2A's cutoff; at the right, the share of SC-SIC and of SC-beta cells scoring above it. Rows are ordered
-# by SC-SIC cells, most at the bottom. Two key rows below.
-suppressPackageStartupMessages(library(ggridges))
-
-B_COLS <- c("SC-SIC" = "#AA3377", "SC-beta" = "#4477AA", "Other endocrine" = "#8C8C8C")
-bc <- read_table("panel_b_scores_by_cell.tsv.gz")
-cutoff <- read_table("panel_b_cutoff.tsv")$cutoff
-bc$who <- factor(ifelse(bc$class == "SC_SIC", "SC-SIC", ifelse(bc$class == "SC_BETA", "SC-beta", "Other endocrine")), rev(names(B_COLS)))
-# share of each study's SC-SIC and SC-beta cells above the cutoff (whole percent), studies listed most SC-SIC cells first
-above <- read_table("panel_b_above_cutoff.tsv")
-bc$study <- factor(bc$study, unique(above$study))                                       # first level = bottom row
-share <- function(cls) { a <- above[above$class == cls, ]; a$pct[match(levels(bc$study), a$study)] }
-pct <- data.frame(study = factor(levels(bc$study), levels(bc$study)), sic = share("SC_SIC"), beta = share("SC_BETA"))
-stopifnot(!anyNA(pct$sic), !anyNA(pct$beta))
-B_TOP <- length(levels(bc$study)) + 1.0                                                  # room for the top row's curves
-X_SIC <- 2.12; X_BETA <- 2.62                                                            # the two share columns (score units)
-
-plot_B <- ggplot(bc, aes(score, study, fill = who, colour = who, group = interaction(study, who))) +
-  geom_vline(xintercept = cutoff, linetype = "22", colour = "grey20", linewidth = 0.4) +
-  geom_density_ridges(aes(height = after_stat(ndensity)), stat = "density", trim = TRUE, scale = 0.92, alpha = 0.25, linewidth = 0.3, bw = 0.06) +
-  geom_text(data = pct, aes(x = X_SIC, y = study, label = paste0(sic, "%")), nudge_y = 0.3, hjust = 0, size = MM, family = FONT,
-            colour = B_COLS[["SC-SIC"]], inherit.aes = FALSE) +
-  geom_text(data = pct, aes(x = X_BETA, y = study, label = paste0(beta, "%")), nudge_y = 0.3, hjust = 0, size = MM, family = FONT,
-            colour = B_COLS[["SC-beta"]], inherit.aes = FALSE) +
-  scale_fill_manual(values = B_COLS, guide = "none") + scale_colour_manual(values = B_COLS, guide = "none") +
-  scale_x_continuous(limits = c(-1.15, 3.1), breaks = -1:2, expand = c(0, 0)) +
-  scale_y_discrete(expand = expansion(add = c(0.1, 0))) + coord_cartesian(ylim = c(1, B_TOP), clip = "off") +
-  labs(x = "Four-marker score", y = NULL) +
-  theme_fig3() + theme(panel.grid.major.y = element_line(colour = "#E4E4E4", linewidth = 0.2), panel.grid.major.x = element_blank())
-
-# key item: the dashed cutoff line
-dash_item <- function(label) list(label = label, w_sym = .14, draw = function(x, y)
-  grid.lines(x = unit(x + .045, "in"), y = unit(H - y - c(-.01, .09), "in"), gp = gpar(col = "grey20", lwd = 0.45 * .pt, lty = "22")))
-
-draw_panel <- function() {
-  draw_at(plot_B, 3.50, .199, 3.89, 1.091)
-  key_row(list(square_item("SC-SIC", B_COLS[[1]]), square_item("SC-beta", B_COLS[[2]]),
-               square_item("Other endocrine cells (mostly SC-alpha, -delta)", B_COLS[[3]])), 3.50, 3.89, 1.40)
-  key_row(list(dash_item(sprintf("Cutoff (Fig. 2A), %.4f", cutoff)), text_item("Right: % of SC-SIC | SC-beta above the cutoff")),
-          3.50, 3.89, 1.56)
+# Figure 3B: the 28 G1 genes (columns) in each study (rows): log2(1 + CPM) of counts pooled over the study's samples.
+B <- as.data.table(read_table("g1_pooled_levels.tsv"))
+COLS <- data.table(study = c("Elmentaite 2020 + 2021", "Egozi 2021", "Hickey 2023", "McCauley 2023", "Augsornworawat 2020",
+                             "Balboa 2022", "Du 2022", "Augsornworawat 2023", "Zhu 2023", "Siehler 2024"),
+                   pop = c(rep("Primary intestinal EC", 3), "HIO graft EC", rep("SC-SIC", 6)))
+COLS[, label := study][study %in% c("Hickey 2023", "Augsornworawat 2023"), label := paste(study, "(nuclei)")]
+HDR <- c("Primary intestinal EC" = "Primary\nintestinal EC", "HIO graft EC" = "HIO graft EC", "SC-SIC" = "SC-SIC")
+COLS[, grp := as.integer(factor(pop, unique(pop)))]
+LV <- as.matrix(B[, COLS$study, with = FALSE])                        # 28 genes x 10 studies (drawn transposed)
+LV_RANGE <- c(0, ceiling(max(LV)))
+MAGMA <- viridisLite::magma(256, begin = .08, end = .96); MAGMA_AT <- seq(0, 1, length.out = 256)^1.5
+lv_col <- function(v) scales::gradient_n_pal(MAGMA, MAGMA_AT, "Lab")(scales::rescale(v, from = LV_RANGE))
+B_W <- 7.3
+LB <- with_measure(list(gene_w = max(str_in(B$gene, PT_GENE, "italic")), lab_w = max(str_in(COLS$label, PT_GENE)),
+                        hdr_w = max(unlist(lapply(strsplit(HDR, "\n"), function(s) str_in(s, PT, "bold")))),
+                        t1_w = str_in("Expression, log2(1 + CPM),"), t2_w = str_in("counts pooled per study")))
+B_GX <- .04 + LB$hdr_w                                               # right edge of the group names
+B_BARX <- B_GX + .06                                                 # group color bar (0.07 in wide)
+HM_X <- B_BARX + .07 + .06 + LB$lab_w + .05                          # left edge of the heatmap
+CW <- min(.19, (B_W - HM_X - .02) / nrow(B))                         # column width; rows the same (near-square cells)
+R <- CW; GAPR <- .07
+if (R < .16) stop("panel B cells would be narrower than 0.16 in")
+B_HEAD <- .04; B_T <- .26                                            # G1 header line, then the grid
+ROW_Y <- B_T + (seq_len(nrow(COLS)) - 1) * R + (COLS$grp - 1) * GAPR  # top of each study row
+HM_BOT <- max(ROW_Y) + R
+GENE_X <- HM_X + (seq_len(nrow(B)) - .5) * CW
+KEY_H <- .14 + .14 + .10 + .085 + .16                                # two title lines, gap, ramp, tick labels
+if (.04 + max(LB$t1_w, LB$t2_w, 1.05) > HM_X - .05) stop("panel B color key reaches the gene names")
+B_H <- HM_BOT + .04 + max(LB$gene_w, KEY_H) + .04
+draw_B <- function() {
+  .VH <<- B_H
+  grid.points(XU(.09), YU(B_HEAD + .06), pch = 16, size = unit(.09, "in"), gp = gpar(col = GROUP_COL[["G1"]]))
+  grid.text(GLAB[["G1"]], XU(.17), YU(B_HEAD + .06), just = c("left", "centre"), gp = gp(PT, "bold"))
+  for (j in seq_len(nrow(COLS)))
+    grid.rect(XU(GENE_X), YU(ROW_Y[j] + R / 2), width = unit(CW, "in"), height = unit(R, "in"),
+              gp = gpar(fill = lv_col(LV[, j]), col = "white", lwd = .2 * 72.27 / 25.4))
+  for (k in unique(COLS$grp)) { i <- which(COLS$grp == k); yt <- min(ROW_Y[i]); hh <- length(i) * R
+    grid.rect(XU(HM_X), YU(yt), width = unit(nrow(B) * CW, "in"), height = unit(hh, "in"), just = c("left", "top"), gp = gpar(fill = NA, col = "grey75", lwd = .45))
+    grid.rect(XU(B_BARX), YU(yt), width = unit(.07, "in"), height = unit(hh, "in"), just = c("left", "top"), gp = gpar(fill = POP_COL[[COLS$pop[i[1]]]], col = NA))
+    grid.text(HDR[[COLS$pop[i[1]]]], XU(B_GX), YU(yt + hh / 2), just = c("right", "centre"), gp = gp(PT, "bold", lineheight = .9)) }
+  grid.text(COLS$label, XU(HM_X - .05), YU(ROW_Y + R / 2), just = c("right", "centre"), gp = gp(PT_GENE))
+  grid.text(B$gene, XU(GENE_X), YU(HM_BOT + .04), rot = 90, just = c("right", "centre"), gp = gp(PT_GENE, "italic"))
+  # color key under the row labels, beside the gene names
+  y0 <- HM_BOT + .06
+  grid.text(expression("Expression, log"[2]*"(1 + CPM),"), XU(.04), YU(y0), just = c("left", "top"), gp = gp())
+  grid.text("counts pooled per study", XU(.04), YU(y0 + .14), just = c("left", "top"), gp = gp())
+  bw <- 1.05; yb <- y0 + .38
+  ramp_bar(lv_col(seq(LV_RANGE[1], LV_RANGE[2], length.out = 256)), .04, yb, bw)
+  br <- seq(0, LV_RANGE[2], 4); bx <- .04 + (br - LV_RANGE[1]) / diff(LV_RANGE) * bw
+  grid.segments(XU(bx), YU(yb + .085), XU(bx), YU(yb + .085 - .025), gp = gpar(col = "white", lwd = .8))
+  grid.text(br, XU(bx), YU(yb + .085 + .035), just = c("centre", "top"), gp = gp())
 }
+draw_panel <- function() panel_canvas(120, 2136, B_W, B_H, draw_B)

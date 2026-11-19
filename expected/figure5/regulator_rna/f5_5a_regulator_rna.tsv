@@ -305,40 +305,6 @@
 "level"	"SC-SIC"	"Islet association"	"PDX1"	5.26464317604917	6
 "level"	"SC-SIC"	"Intestinal association"	"PITX2"	1.1146732344536	6
 "level"	"SC-SIC"	"Islet association"	"RFX3"	8.84733100644297	6
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"ASCL1"	8.59210821842345	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"CDX1"	0	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"ARX"	1.10401908883196	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"DACH2"	7.86785357225127	1
-"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"FEV"	8.37770865048801	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"GATA4"	6.00273246623185	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"CDX2"	3.1801019074654	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"GATA6"	6.93303161935409	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"INSM1"	8.46307765113461	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"MAFA"	0.712990511264	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"NEUROD1"	8.1059579746729	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"HOXB13"	0	1
-"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"LMX1B"	6.38721727024597	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"MYT1L"	0	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"HES6"	8.22208355831011	1
-"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"LMX1A"	1.19217414694851	1
-"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"MNX1"	6.73622590904673	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"GLIS3"	6.91460022324854	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"ISL1"	5.79886969780854	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"MAFB"	2.61088693566267	1
-"level"	"Singh 2024 induced EC"	"EC / SC-SIC association"	"NEUROD4"	0.650152482733995	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"PAX4"	4.9962615285098	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"PLAGL1"	4.49439089573533	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"SOX4"	10.1814519568121	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"NKX6-1"	0.78596555776489	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"PITX2"	0	1
-"level"	"Singh 2024 induced EC"	"Intestinal association"	"SATB2"	3.44722930470946	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"NKX2-2"	7.60154219759418	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"PDX1"	4.21097289072668	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"RFX6"	9.45074905128738	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"NEUROG3"	5.48154811723687	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"PAX6"	6.23383645865983	1
-"level"	"Singh 2024 induced EC"	"Islet association"	"RFX3"	10.2836778902393	1
-"level"	"Singh 2024 induced EC"	"Endocrine association"	"ZNF800"	6.09336599044619	1
 "sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"ARX"	4	6
 "sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Endocrine association"	"ASCL1"	6	6
 "sc_sic_above_sc_beta_studies"	"SC-SIC vs SC-beta"	"Intestinal association"	"CDX1"	0	6
